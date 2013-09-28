@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Samples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The F# Data library implements type providers for working with structured file formats (CSV, JSON and XML) and for accessing the WorldBank and Freebase data. It also includes helpers for other data-related tasks.">
+    <meta name="author" content="Tomas Petricek">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/style.css" />
+    <script src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/tips.js" type="text/javascript"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          <table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">  1: </span>
+<span class="l">  2: </span>
+<span class="l">  3: </span>
+<span class="l">  4: </span>
+<span class="l">  5: </span>
+<span class="l">  6: </span>
+<span class="l">  7: </span>
+<span class="l">  8: </span>
+<span class="l">  9: </span>
+<span class="l"> 10: </span>
+<span class="l"> 11: </span>
+<span class="l"> 12: </span>
+<span class="l"> 13: </span>
+<span class="l"> 14: </span>
+<span class="l"> 15: </span>
+<span class="l"> 16: </span>
+<span class="l"> 17: </span>
+<span class="l"> 18: </span>
+<span class="l"> 19: </span>
+<span class="l"> 20: </span>
+<span class="l"> 21: </span>
+<span class="l"> 22: </span>
+<span class="l"> 23: </span>
+<span class="l"> 24: </span>
+<span class="l"> 25: </span>
+<span class="l"> 26: </span>
+<span class="l"> 27: </span>
+<span class="l"> 28: </span>
+<span class="l"> 29: </span>
+<span class="l"> 30: </span>
+<span class="l"> 31: </span>
+<span class="l"> 32: </span>
+<span class="l"> 33: </span>
+<span class="l"> 34: </span>
+<span class="l"> 35: </span>
+<span class="l"> 36: </span>
+<span class="l"> 37: </span>
+<span class="l"> 38: </span>
+<span class="l"> 39: </span>
+<span class="l"> 40: </span>
+<span class="l"> 41: </span>
+<span class="l"> 42: </span>
+<span class="l"> 43: </span>
+<span class="l"> 44: </span>
+<span class="l"> 45: </span>
+<span class="l"> 46: </span>
+<span class="l"> 47: </span>
+<span class="l"> 48: </span>
+<span class="l"> 49: </span>
+<span class="l"> 50: </span>
+<span class="l"> 51: </span>
+<span class="l"> 52: </span>
+<span class="l"> 53: </span>
+<span class="l"> 54: </span>
+<span class="l"> 55: </span>
+<span class="l"> 56: </span>
+<span class="l"> 57: </span>
+<span class="l"> 58: </span>
+<span class="l"> 59: </span>
+<span class="l"> 60: </span>
+<span class="l"> 61: </span>
+<span class="l"> 62: </span>
+<span class="l"> 63: </span>
+<span class="l"> 64: </span>
+<span class="l"> 65: </span>
+<span class="l"> 66: </span>
+<span class="l"> 67: </span>
+<span class="l"> 68: </span>
+<span class="l"> 69: </span>
+<span class="l"> 70: </span>
+<span class="l"> 71: </span>
+<span class="l"> 72: </span>
+<span class="l"> 73: </span>
+<span class="l"> 74: </span>
+<span class="l"> 75: </span>
+<span class="l"> 76: </span>
+<span class="l"> 77: </span>
+<span class="l"> 78: </span>
+<span class="l"> 79: </span>
+<span class="l"> 80: </span>
+<span class="l"> 81: </span>
+<span class="l"> 82: </span>
+<span class="l"> 83: </span>
+<span class="l"> 84: </span>
+<span class="l"> 85: </span>
+<span class="l"> 86: </span>
+<span class="l"> 87: </span>
+<span class="l"> 88: </span>
+<span class="l"> 89: </span>
+<span class="l"> 90: </span>
+<span class="l"> 91: </span>
+<span class="l"> 92: </span>
+<span class="l"> 93: </span>
+<span class="l"> 94: </span>
+<span class="l"> 95: </span>
+<span class="l"> 96: </span>
+<span class="l"> 97: </span>
+<span class="l"> 98: </span>
+<span class="l"> 99: </span>
+<span class="l">100: </span>
+<span class="l">101: </span>
+<span class="l">102: </span>
+<span class="l">103: </span>
+<span class="l">104: </span>
+<span class="l">105: </span>
+<span class="l">106: </span>
+<span class="l">107: </span>
+<span class="l">108: </span>
+<span class="l">109: </span>
+<span class="l">110: </span>
+<span class="l">111: </span>
+<span class="l">112: </span>
+<span class="l">113: </span>
+<span class="l">114: </span>
+<span class="l">115: </span>
+<span class="l">116: </span>
+<span class="l">117: </span>
+<span class="l">118: </span>
+<span class="l">119: </span>
+<span class="l">120: </span>
+<span class="l">121: </span>
+<span class="l">122: </span>
+<span class="l">123: </span>
+<span class="l">124: </span>
+<span class="l">125: </span>
+<span class="l">126: </span>
+<span class="l">127: </span>
+<span class="l">128: </span>
+<span class="l">129: </span>
+<span class="l">130: </span>
+<span class="l">131: </span>
+<span class="l">132: </span>
+<span class="l">133: </span>
+<span class="l">134: </span>
+<span class="l">135: </span>
+<span class="l">136: </span>
+<span class="l">137: </span>
+<span class="l">138: </span>
+<span class="l">139: </span>
+<span class="l">140: </span>
+<span class="l">141: </span>
+<span class="l">142: </span>
+<span class="l">143: </span>
+<span class="l">144: </span>
+<span class="l">145: </span>
+<span class="l">146: </span>
+<span class="l">147: </span>
+<span class="l">148: </span>
+<span class="l">149: </span>
+<span class="l">150: </span>
+<span class="l">151: </span>
+<span class="l">152: </span>
+<span class="l">153: </span>
+<span class="l">154: </span>
+<span class="l">155: </span>
+<span class="l">156: </span>
+<span class="l">157: </span>
+<span class="l">158: </span>
+<span class="l">159: </span>
+<span class="l">160: </span>
+<span class="l">161: </span>
+<span class="l">162: </span>
+<span class="l">163: </span>
+<span class="l">164: </span>
+<span class="l">165: </span>
+<span class="l">166: </span>
+<span class="l">167: </span>
+<span class="l">168: </span>
+<span class="l">169: </span>
+<span class="l">170: </span>
+<span class="l">171: </span>
+<span class="l">172: </span>
+<span class="l">173: </span>
+<span class="l">174: </span>
+<span class="l">175: </span>
+<span class="l">176: </span>
+<span class="l">177: </span>
+<span class="l">178: </span>
+<span class="l">179: </span>
+<span class="l">180: </span>
+<span class="l">181: </span>
+<span class="l">182: </span>
+<span class="l">183: </span>
+<span class="l">184: </span>
+<span class="l">185: </span>
+<span class="l">186: </span>
+<span class="l">187: </span>
+<span class="l">188: </span>
+<span class="l">189: </span>
+<span class="l">190: </span>
+<span class="l">191: </span>
+<span class="l">192: </span>
+<span class="l">193: </span>
+<span class="l">194: </span>
+<span class="l">195: </span>
+<span class="l">196: </span>
+<span class="l">197: </span>
+<span class="l">198: </span>
+<span class="l">199: </span>
+<span class="l">200: </span>
+<span class="l">201: </span>
+<span class="l">202: </span>
+<span class="l">203: </span>
+<span class="l">204: </span>
+<span class="l">205: </span>
+<span class="l">206: </span>
+<span class="l">207: </span>
+<span class="l">208: </span>
+<span class="l">209: </span>
+<span class="l">210: </span>
+<span class="l">211: </span>
+<span class="l">212: </span>
+<span class="l">213: </span>
+<span class="l">214: </span>
+<span class="l">215: </span>
+<span class="l">216: </span>
+<span class="l">217: </span>
+<span class="l">218: </span>
+<span class="l">219: </span>
+<span class="l">220: </span>
+<span class="l">221: </span>
+<span class="l">222: </span>
+<span class="l">223: </span>
+<span class="l">224: </span>
+<span class="l">225: </span>
+<span class="l">226: </span>
+<span class="l">227: </span>
+<span class="l">228: </span>
+<span class="l">229: </span>
+<span class="l">230: </span>
+<span class="l">231: </span>
+<span class="l">232: </span>
+<span class="l">233: </span>
+<span class="l">234: </span>
+<span class="l">235: </span>
+<span class="l">236: </span>
+<span class="l">237: </span>
+<span class="l">238: </span>
+<span class="l">239: </span>
+<span class="l">240: </span>
+<span class="l">241: </span>
+<span class="l">242: </span>
+<span class="l">243: </span>
+<span class="l">244: </span>
+<span class="l">245: </span>
+<span class="l">246: </span>
+<span class="l">247: </span>
+<span class="l">248: </span>
+<span class="l">249: </span>
+<span class="l">250: </span>
+<span class="l">251: </span>
+<span class="l">252: </span>
+<span class="l">253: </span>
+<span class="l">254: </span>
+<span class="l">255: </span>
+<span class="l">256: </span>
+<span class="l">257: </span>
+<span class="l">258: </span>
+<span class="l">259: </span>
+<span class="l">260: </span>
+<span class="l">261: </span>
+<span class="l">262: </span>
+<span class="l">263: </span>
+<span class="l">264: </span>
+<span class="l">265: </span>
+<span class="l">266: </span>
+<span class="l">267: </span>
+<span class="l">268: </span>
+<span class="l">269: </span>
+<span class="l">270: </span>
+<span class="l">271: </span>
+<span class="l">272: </span>
+<span class="l">273: </span>
+<span class="l">274: </span>
+<span class="l">275: </span>
+<span class="l">276: </span>
+<span class="l">277: </span>
+<span class="l">278: </span>
+<span class="l">279: </span>
+<span class="l">280: </span>
+<span class="l">281: </span>
+<span class="l">282: </span>
+<span class="l">283: </span>
+<span class="l">284: </span>
+<span class="l">285: </span>
+<span class="l">286: </span>
+<span class="l">287: </span>
+<span class="l">288: </span>
+<span class="l">289: </span>
+<span class="l">290: </span>
+<span class="l">291: </span>
+<span class="l">292: </span>
+<span class="l">293: </span>
+<span class="l">294: </span>
+<span class="l">295: </span>
+<span class="l">296: </span>
+<span class="l">297: </span>
+<span class="l">298: </span>
+<span class="l">299: </span>
+<span class="l">300: </span>
+<span class="l">301: </span>
+<span class="l">302: </span>
+<span class="l">303: </span>
+<span class="l">304: </span>
+<span class="l">305: </span>
+<span class="l">306: </span>
+<span class="l">307: </span>
+<span class="l">308: </span>
+<span class="l">309: </span>
+<span class="l">310: </span>
+<span class="l">311: </span>
+<span class="l">312: </span>
+<span class="l">313: </span>
+<span class="l">314: </span>
+<span class="l">315: </span>
+<span class="l">316: </span>
+<span class="l">317: </span>
+<span class="l">318: </span>
+<span class="l">319: </span>
+<span class="l">320: </span>
+<span class="l">321: </span>
+<span class="l">322: </span>
+<span class="l">323: </span>
+<span class="l">324: </span>
+<span class="l">325: </span>
+<span class="l">326: </span>
+<span class="l">327: </span>
+<span class="l">328: </span>
+<span class="l">329: </span>
+<span class="l">330: </span>
+<span class="l">331: </span>
+<span class="l">332: </span>
+<span class="l">333: </span>
+<span class="l">334: </span>
+<span class="l">335: </span>
+<span class="l">336: </span>
+<span class="l">337: </span>
+<span class="l">338: </span>
+<span class="l">339: </span>
+<span class="l">340: </span>
+<span class="l">341: </span>
+<span class="l">342: </span>
+<span class="l">343: </span>
+<span class="l">344: </span>
+<span class="l">345: </span>
+<span class="l">346: </span>
+<span class="l">347: </span>
+<span class="l">348: </span>
+<span class="l">349: </span>
+<span class="l">350: </span>
+<span class="l">351: </span>
+<span class="l">352: </span>
+<span class="l">353: </span>
+<span class="l">354: </span>
+<span class="l">355: </span>
+<span class="l">356: </span>
+<span class="l">357: </span>
+<span class="l">358: </span>
+<span class="l">359: </span>
+<span class="l">360: </span>
+<span class="l">361: </span>
+<span class="l">362: </span>
+<span class="l">363: </span>
+<span class="l">364: </span>
+<span class="l">365: </span>
+<span class="l">366: </span>
+<span class="l">367: </span>
+<span class="l">368: </span>
+<span class="l">369: </span>
+<span class="l">370: </span>
+<span class="l">371: </span>
+<span class="l">372: </span>
+<span class="l">373: </span>
+<span class="l">374: </span>
+<span class="l">375: </span>
+<span class="l">376: </span>
+<span class="l">377: </span>
+<span class="l">378: </span>
+<span class="l">379: </span>
+<span class="l">380: </span>
+<span class="l">381: </span>
+<span class="l">382: </span>
+<span class="l">383: </span>
+<span class="l">384: </span>
+<span class="l">385: </span>
+<span class="l">386: </span>
+<span class="l">387: </span>
+<span class="l">388: </span>
+<span class="l">389: </span>
+<span class="l">390: </span>
+<span class="l">391: </span>
+<span class="l">392: </span>
+<span class="l">393: </span>
+<span class="l">394: </span>
+<span class="l">395: </span>
+<span class="l">396: </span>
+<span class="l">397: </span>
+<span class="l">398: </span>
+<span class="l">399: </span>
+<span class="l">400: </span>
+<span class="l">401: </span>
+<span class="l">402: </span>
+<span class="l">403: </span>
+<span class="l">404: </span>
+<span class="l">405: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="prep">#I</span> <span class="s">&quot;</span><span class="s">.</span><span class="s">.</span><span class="s">/</span><span class="s">bin</span><span class="s">&quot;</span>
+<span class="prep">#load</span> <span class="s">&quot;</span><span class="s">FSharp</span><span class="s">.</span><span class="s">DataFrame</span><span class="s">.</span><span class="s">fsx</span><span class="s">&quot;</span>
+
+<span class="c">// --------------------------------------------------------------------------------------</span>
+<span class="c">// Some basic examples of using the data frame</span>
+<span class="c">// --------------------------------------------------------------------------------------</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">System</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">FSharp</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">DataFrame</span>
+
+<span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">ofValues</span> [ <span class="n">1.0</span>; <span class="n">2.0</span>; <span class="n">4.0</span> ] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="i">diff</span> <span class="n">1</span>
+<span onmouseout="hideTip(event, 'fs4', 8)" onmouseover="showTip(event, 'fs4', 8)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 9)" onmouseover="showTip(event, 'fs5', 9)" class="i">ofValues</span> [ <span class="n">1.0</span>; <span class="n">2.0</span>; <span class="n">4.0</span> ] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 10)" onmouseover="showTip(event, 'fs4', 10)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs6', 11)" onmouseover="showTip(event, 'fs6', 11)" class="i">diff</span> <span class="o">-</span><span class="n">1</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="i">df</span> <span class="o">=</span> 
+  <span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="i">Frame</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 14)" onmouseover="showTip(event, 'fs9', 14)" class="i">ofColumns</span>
+    [ <span class="s">&quot;</span><span class="s">Str</span><span class="s">&quot;</span> <span class="o">=?&gt;</span> <span onmouseout="hideTip(event, 'fs4', 15)" onmouseover="showTip(event, 'fs4', 15)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 16)" onmouseover="showTip(event, 'fs5', 16)" class="i">ofValues</span> [<span class="s">&quot;</span><span class="s">hi</span><span class="s">&quot;</span>]
+      <span class="s">&quot;</span><span class="s">Int</span><span class="s">&quot;</span> <span class="o">=?&gt;</span> <span onmouseout="hideTip(event, 'fs4', 17)" onmouseover="showTip(event, 'fs4', 17)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 18)" onmouseover="showTip(event, 'fs5', 18)" class="i">ofValues</span> [<span class="n">42</span>]
+      <span class="s">&quot;</span><span class="s">Float</span><span class="s">&quot;</span> <span class="o">=?&gt;</span> <span onmouseout="hideTip(event, 'fs4', 19)" onmouseover="showTip(event, 'fs4', 19)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 20)" onmouseover="showTip(event, 'fs5', 20)" class="i">ofValues</span> [<span class="n">42.0</span>]
+      <span class="s">&quot;</span><span class="s">Date</span><span class="s">&quot;</span> <span class="o">=?&gt;</span> <span onmouseout="hideTip(event, 'fs4', 21)" onmouseover="showTip(event, 'fs4', 21)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 22)" onmouseover="showTip(event, 'fs5', 22)" class="i">ofValues</span> [<span onmouseout="hideTip(event, 'fs10', 23)" onmouseover="showTip(event, 'fs10', 23)" class="i">DateTime</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs11', 24)" onmouseover="showTip(event, 'fs11', 24)" class="i">Now</span>] ]
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 25)" onmouseover="showTip(event, 'fs12', 25)" class="i">sb</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="i">SeriesBuilder</span>()
+<span onmouseout="hideTip(event, 'fs12', 27)" onmouseover="showTip(event, 'fs12', 27)" class="i">sb</span><span class="o">?</span><span class="i">Str</span> <span class="o">&lt;-</span> <span class="n">42</span>
+<span onmouseout="hideTip(event, 'fs12', 28)" onmouseover="showTip(event, 'fs12', 28)" class="i">sb</span><span class="o">?</span><span class="i">Int</span> <span class="o">&lt;-</span> <span class="n">3.14</span>
+<span onmouseout="hideTip(event, 'fs12', 29)" onmouseover="showTip(event, 'fs12', 29)" class="i">sb</span><span class="o">?</span><span class="i">Float</span> <span class="o">&lt;-</span> <span class="n">10</span>
+<span onmouseout="hideTip(event, 'fs12', 30)" onmouseover="showTip(event, 'fs12', 30)" class="i">sb</span><span class="o">?</span><span class="i">Date</span> <span class="o">&lt;-</span> <span class="s">&quot;</span><span class="s">2013</span><span class="s">-</span><span class="s">01</span><span class="s">-</span><span class="s">01</span><span class="s">&quot;</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 31)" onmouseover="showTip(event, 'fs14', 31)" class="i">df2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs7', 32)" onmouseover="showTip(event, 'fs7', 32)" class="i">df</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs15', 33)" onmouseover="showTip(event, 'fs15', 33)" class="i">Append</span>(<span class="n">42</span>, <span onmouseout="hideTip(event, 'fs12', 34)" onmouseover="showTip(event, 'fs12', 34)" class="i">sb</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs16', 35)" onmouseover="showTip(event, 'fs16', 35)" class="i">Series</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 36)" onmouseover="showTip(event, 'fs17', 36)" class="i">df3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 37)" onmouseover="showTip(event, 'fs14', 37)" class="i">df2</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 38)" onmouseover="showTip(event, 'fs8', 38)" class="i">Frame</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs18', 39)" onmouseover="showTip(event, 'fs18', 39)" class="i">transpose</span>
+
+<span class="c">/// Generate date range from &#39;first&#39; with &#39;count&#39; days</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 40)" onmouseover="showTip(event, 'fs19', 40)" class="i">dateRange</span> (<span onmouseout="hideTip(event, 'fs20', 41)" onmouseover="showTip(event, 'fs20', 41)" class="i">first</span><span class="o">:</span><span onmouseout="hideTip(event, 'fs1', 42)" onmouseover="showTip(event, 'fs1', 42)" class="i">System</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs10', 43)" onmouseover="showTip(event, 'fs10', 43)" class="i">DateTime</span>) <span onmouseout="hideTip(event, 'fs21', 44)" onmouseover="showTip(event, 'fs21', 44)" class="i">count</span> <span class="o">=</span> <span id="fst22" onmouseout="hideTip(event, 'fs22', 45)" onmouseover="showTip(event, 'fs22', 45, document.getElementById('fst22'))" class="omitted">(...)</span>
+<span class="c">/// Generate &#39;count&#39; number of random doubles</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 46)" onmouseover="showTip(event, 'fs23', 46)" class="i">rand</span> <span onmouseout="hideTip(event, 'fs21', 47)" onmouseover="showTip(event, 'fs21', 47)" class="i">count</span> <span class="o">=</span> <span id="fst24" onmouseout="hideTip(event, 'fs24', 48)" onmouseover="showTip(event, 'fs24', 48, document.getElementById('fst24'))" class="omitted">(...)</span>
+
+<span class="c">(*</span>
+<span class="c">f.Rows.Select(fun (KeyValue(_, s)) -&gt; s?a + s?b)</span>
+<span class="c">f.Rows.Select(fun (KeyValue(_, s)) -&gt; s?a + s?b)</span>
+
+<span class="c">(f.Columns.[&quot;a&quot;, &quot;b&quot;] |&gt; Frame.FromColumns).RowsDense.Select(fun (KeyValue(_, s)) -&gt; s?a + s?b)</span>
+
+<span class="c">f.Rows.Get(1)</span>
+
+<span class="c">f?a + f?b</span>
+
+<span class="c">f?sum &lt;- f.Rows.Where(fun kvp -&gt; kvp.Value.TryGet(&quot;a&quot;).IsSome &amp;&amp; kvp.Value.TryGet(&quot;b&quot;).IsSome).Select(fun kv -&gt; kv.Value?a + kv.Value?a)</span>
+
+<span class="c">f.Rows.Select(fun kvp -&gt; if kvp.Value.HasAll ... then kvp.Value else missing)</span>
+<span class="c">f.Rows.Mask(fun kvp -&gt; kvp.Value.HasAll [&quot;a&quot;; &quot;b&quot;]).Select(fun v -&gt; v?a + v?a)</span>
+
+<span class="c">f.Rows.SelectOptional(fun kvp -&gt; vp.Value.HasAll [&quot;a&quot;; &quot;b&quot; ] with</span>
+<span class="c">    match kvp.Value.Value.TryGetAs&lt;int&gt;(&quot;a&quot;), kvp.Value.Value.TryGetAs&lt;int&gt;(&quot;b&quot;) with</span>
+<span class="c">    | Some a, Some b -&gt; OptionalValue(a + b)</span>
+<span class="c">    | _ -&gt; OptionalValue.Missing)</span>
+<span class="c">*)</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 49)" onmouseover="showTip(event, 'fs25', 49)" class="i">tsOld</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 50)" onmouseover="showTip(event, 'fs4', 50)" class="i">Series</span>(<span onmouseout="hideTip(event, 'fs19', 51)" onmouseover="showTip(event, 'fs19', 51)" class="i">dateRange</span> (<span onmouseout="hideTip(event, 'fs10', 52)" onmouseover="showTip(event, 'fs10', 52)" class="i">DateTime</span>(<span class="n">2013</span>,<span class="n">1</span>,<span class="n">1</span>)) <span class="n">10</span>, <span onmouseout="hideTip(event, 'fs23', 53)" onmouseover="showTip(event, 'fs23', 53)" class="i">rand</span> <span class="n">10</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs26', 54)" onmouseover="showTip(event, 'fs26', 54)" class="i">tsNew</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 55)" onmouseover="showTip(event, 'fs4', 55)" class="i">Series</span>([<span onmouseout="hideTip(event, 'fs10', 56)" onmouseover="showTip(event, 'fs10', 56)" class="i">DateTime</span>(<span class="n">2013</span>,<span class="n">1</span>,<span class="n">1</span>); <span onmouseout="hideTip(event, 'fs10', 57)" onmouseover="showTip(event, 'fs10', 57)" class="i">DateTime</span>(<span class="n">2013</span>,<span class="n">1</span>,<span class="n">2</span>); <span onmouseout="hideTip(event, 'fs10', 58)" onmouseover="showTip(event, 'fs10', 58)" class="i">DateTime</span>(<span class="n">2013</span>,<span class="n">1</span>,<span class="n">3</span>)], [ <span class="n">10.0</span>; <span class="n">20.0</span>; <span class="n">30.0</span> ])
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 59)" onmouseover="showTip(event, 'fs27', 59)" class="i">df</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 60)" onmouseover="showTip(event, 'fs8', 60)" class="i">Frame</span>([<span class="s">&quot;</span><span class="s">sierrats</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">olympus</span><span class="s">&quot;</span>], [<span onmouseout="hideTip(event, 'fs25', 61)" onmouseover="showTip(event, 'fs25', 61)" class="i">tsOld</span>; <span onmouseout="hideTip(event, 'fs26', 62)" onmouseover="showTip(event, 'fs26', 62)" class="i">tsNew</span>])
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 63)" onmouseover="showTip(event, 'fs28', 63)" class="i">df1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 64)" onmouseover="showTip(event, 'fs8', 64)" class="i">Frame</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs29', 65)" onmouseover="showTip(event, 'fs29', 65)" class="i">ofValues</span> [ (<span class="n">1</span>, <span class="s">&quot;</span><span class="s">Tomas</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">happy</span><span class="s">&quot;</span>); (<span class="n">2</span>, <span class="s">&quot;</span><span class="s">Tomas</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">unhappy</span><span class="s">&quot;</span>); (<span class="n">1</span>, <span class="s">&quot;</span><span class="s">Adam</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">happy</span><span class="s">&quot;</span>) ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs30', 66)" onmouseover="showTip(event, 'fs30', 66)" class="i">df2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 67)" onmouseover="showTip(event, 'fs8', 67)" class="i">Frame</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs31', 68)" onmouseover="showTip(event, 'fs31', 68)" class="i">ofRows</span> [<span class="s">&quot;</span><span class="s">sierrats</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs25', 69)" onmouseover="showTip(event, 'fs25', 69)" class="i">tsOld</span>; <span class="s">&quot;</span><span class="s">olympus</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs26', 70)" onmouseover="showTip(event, 'fs26', 70)" class="i">tsNew</span>] 
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs32', 71)" onmouseover="showTip(event, 'fs32', 71)" class="i">df3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 72)" onmouseover="showTip(event, 'fs8', 72)" class="i">Frame</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs9', 73)" onmouseover="showTip(event, 'fs9', 73)" class="i">ofColumns</span> [<span class="s">&quot;</span><span class="s">sierrats</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs25', 74)" onmouseover="showTip(event, 'fs25', 74)" class="i">tsOld</span>; <span class="s">&quot;</span><span class="s">olympus</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span onmouseout="hideTip(event, 'fs26', 75)" onmouseover="showTip(event, 'fs26', 75)" class="i">tsNew</span>] 
+                
+
+<span class="c">// S1 and S2 are ordered series, S3 is not ordered</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs33', 76)" onmouseover="showTip(event, 'fs33', 76)" class="i">s1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 77)" onmouseover="showTip(event, 'fs4', 77)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>], [<span class="n">1</span> <span class="o">..</span> <span class="n">3</span>])
+<span onmouseout="hideTip(event, 'fs33', 78)" onmouseover="showTip(event, 'fs33', 78)" class="i">s1</span><span class="o">.</span><span class="i">ObservationsOptional</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs34', 79)" onmouseover="showTip(event, 'fs34', 79)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">A</span><span class="s">&quot;</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs35', 80)" onmouseover="showTip(event, 'fs35', 80)" class="i">s2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 81)" onmouseover="showTip(event, 'fs4', 81)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>], [<span class="n">6</span>; <span class="n">4</span>; <span class="n">5</span>])
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 82)" onmouseover="showTip(event, 'fs36', 82)" class="i">s3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 83)" onmouseover="showTip(event, 'fs4', 83)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>], [<span class="n">6</span>; <span class="n">4</span>; <span class="n">5</span>])
+
+<span class="c">// Snull is ordered with ordinal index (but has missing values)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs37', 84)" onmouseover="showTip(event, 'fs37', 84)" class="i">snull</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 85)" onmouseover="showTip(event, 'fs4', 85)" class="i">Series</span><span class="o">.</span><span class="i">Create</span> [<span class="n">1.0</span>; <span class="n">2.0</span>; <span onmouseout="hideTip(event, 'fs38', 86)" onmouseover="showTip(event, 'fs38', 86)" class="i">Double</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 87)" onmouseover="showTip(event, 'fs39', 87)" class="i">NaN</span> ]
+<span onmouseout="hideTip(event, 'fs37', 88)" onmouseover="showTip(event, 'fs37', 88)" class="i">snull</span><span class="o">.</span><span class="i">ObservationsOptional</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs34', 89)" onmouseover="showTip(event, 'fs34', 89)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">%</span><span class="s">A</span><span class="s">&quot;</span>
+
+
+<span onmouseout="hideTip(event, 'fs36', 90)" onmouseover="showTip(event, 'fs36', 90)" class="i">s3</span>
+<span onmouseout="hideTip(event, 'fs36', 91)" onmouseover="showTip(event, 'fs36', 91)" class="i">s3</span> <span class="o">+</span> <span class="n">10</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 92)" onmouseover="showTip(event, 'fs40', 92)" class="i">d3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 93)" onmouseover="showTip(event, 'fs4', 93)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>], [<span class="n">6.0</span>; <span class="n">4.0</span>; <span class="n">5.0</span>])
+<span onmouseout="hideTip(event, 'fs40', 94)" onmouseover="showTip(event, 'fs40', 94)" class="i">d3</span> <span class="o">+</span> <span class="n">10.0</span>
+
+<span onmouseout="hideTip(event, 'fs36', 95)" onmouseover="showTip(event, 'fs36', 95)" class="i">s3</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs36', 96)" onmouseover="showTip(event, 'fs36', 96)" class="i">s3</span>
+<span onmouseout="hideTip(event, 'fs40', 97)" onmouseover="showTip(event, 'fs40', 97)" class="i">d3</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs40', 98)" onmouseover="showTip(event, 'fs40', 98)" class="i">d3</span>
+
+<span class="c">// Create data frames, get the series</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs41', 99)" onmouseover="showTip(event, 'fs41', 99)" class="i">f1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 100)" onmouseover="showTip(event, 'fs8', 100)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs33', 101)" onmouseover="showTip(event, 'fs33', 101)" class="i">s1</span>)
+<span onmouseout="hideTip(event, 'fs41', 102)" onmouseover="showTip(event, 'fs41', 102)" class="i">f1</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs42', 103)" onmouseover="showTip(event, 'fs42', 103)" class="i">int</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs43', 104)" onmouseover="showTip(event, 'fs43', 104)" class="i">f2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 105)" onmouseover="showTip(event, 'fs8', 105)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs35', 106)" onmouseover="showTip(event, 'fs35', 106)" class="i">s2</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs44', 107)" onmouseover="showTip(event, 'fs44', 107)" class="i">f3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 108)" onmouseover="showTip(event, 'fs8', 108)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">S3</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs36', 109)" onmouseover="showTip(event, 'fs36', 109)" class="i">s3</span>)
+
+<span onmouseout="hideTip(event, 'fs41', 110)" onmouseover="showTip(event, 'fs41', 110)" class="i">f1</span>
+<span onmouseout="hideTip(event, 'fs43', 111)" onmouseover="showTip(event, 'fs43', 111)" class="i">f2</span>
+<span onmouseout="hideTip(event, 'fs44', 112)" onmouseover="showTip(event, 'fs44', 112)" class="i">f3</span>
+
+<span onmouseout="hideTip(event, 'fs41', 113)" onmouseover="showTip(event, 'fs41', 113)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 114)" onmouseover="showTip(event, 'fs43', 114)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 115)" onmouseover="showTip(event, 'fs45', 115)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 116)" onmouseover="showTip(event, 'fs46', 116)" class="i">Outer</span>)
+<span onmouseout="hideTip(event, 'fs41', 117)" onmouseover="showTip(event, 'fs41', 117)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs44', 118)" onmouseover="showTip(event, 'fs44', 118)" class="i">f3</span>, <span onmouseout="hideTip(event, 'fs45', 119)" onmouseover="showTip(event, 'fs45', 119)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 120)" onmouseover="showTip(event, 'fs46', 120)" class="i">Outer</span>)
+<span onmouseout="hideTip(event, 'fs44', 121)" onmouseover="showTip(event, 'fs44', 121)" class="i">f3</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs41', 122)" onmouseover="showTip(event, 'fs41', 122)" class="i">f1</span>, <span onmouseout="hideTip(event, 'fs45', 123)" onmouseover="showTip(event, 'fs45', 123)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 124)" onmouseover="showTip(event, 'fs46', 124)" class="i">Outer</span>)
+
+<span onmouseout="hideTip(event, 'fs41', 125)" onmouseover="showTip(event, 'fs41', 125)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 126)" onmouseover="showTip(event, 'fs43', 126)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 127)" onmouseover="showTip(event, 'fs45', 127)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs47', 128)" onmouseover="showTip(event, 'fs47', 128)" class="i">Inner</span>) 
+<span onmouseout="hideTip(event, 'fs41', 129)" onmouseover="showTip(event, 'fs41', 129)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 130)" onmouseover="showTip(event, 'fs43', 130)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 131)" onmouseover="showTip(event, 'fs45', 131)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs48', 132)" onmouseover="showTip(event, 'fs48', 132)" class="i">Left</span>) 
+<span onmouseout="hideTip(event, 'fs41', 133)" onmouseover="showTip(event, 'fs41', 133)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 134)" onmouseover="showTip(event, 'fs43', 134)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 135)" onmouseover="showTip(event, 'fs45', 135)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs49', 136)" onmouseover="showTip(event, 'fs49', 136)" class="i">Right</span>) 
+
+<span onmouseout="hideTip(event, 'fs41', 137)" onmouseover="showTip(event, 'fs41', 137)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs44', 138)" onmouseover="showTip(event, 'fs44', 138)" class="i">f3</span>, <span onmouseout="hideTip(event, 'fs45', 139)" onmouseover="showTip(event, 'fs45', 139)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs47', 140)" onmouseover="showTip(event, 'fs47', 140)" class="i">Inner</span>) 
+<span onmouseout="hideTip(event, 'fs41', 141)" onmouseover="showTip(event, 'fs41', 141)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs44', 142)" onmouseover="showTip(event, 'fs44', 142)" class="i">f3</span>, <span onmouseout="hideTip(event, 'fs45', 143)" onmouseover="showTip(event, 'fs45', 143)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs48', 144)" onmouseover="showTip(event, 'fs48', 144)" class="i">Left</span>) 
+<span onmouseout="hideTip(event, 'fs41', 145)" onmouseover="showTip(event, 'fs41', 145)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs44', 146)" onmouseover="showTip(event, 'fs44', 146)" class="i">f3</span>, <span onmouseout="hideTip(event, 'fs45', 147)" onmouseover="showTip(event, 'fs45', 147)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs49', 148)" onmouseover="showTip(event, 'fs49', 148)" class="i">Right</span>) 
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs50', 149)" onmouseover="showTip(event, 'fs50', 149)" class="i">a1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 150)" onmouseover="showTip(event, 'fs8', 150)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">C1</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs4', 151)" onmouseover="showTip(event, 'fs4', 151)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="n">1</span>;<span class="n">2</span>], [<span class="s">&quot;</span><span class="s">one</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">two</span><span class="s">&quot;</span>]))
+<span onmouseout="hideTip(event, 'fs50', 152)" onmouseover="showTip(event, 'fs50', 152)" class="i">a1</span><span class="o">?</span><span class="i">C2</span> <span class="o">&lt;-</span> [<span class="s">&quot;</span><span class="s">three</span><span class="s">&quot;</span>]
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs51', 153)" onmouseover="showTip(event, 'fs51', 153)" class="i">a2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 154)" onmouseover="showTip(event, 'fs8', 154)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">C2</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs4', 155)" onmouseover="showTip(event, 'fs4', 155)" class="i">Series</span><span class="o">.</span><span class="i">Create</span>([<span class="n">2</span>;<span class="n">3</span>], [<span class="s">&quot;</span><span class="s">one</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">two</span><span class="s">&quot;</span>]))
+
+<span onmouseout="hideTip(event, 'fs50', 156)" onmouseover="showTip(event, 'fs50', 156)" class="i">a1</span>
+<span onmouseout="hideTip(event, 'fs51', 157)" onmouseover="showTip(event, 'fs51', 157)" class="i">a2</span>
+
+<span class="c">// This is fine</span>
+<span onmouseout="hideTip(event, 'fs50', 158)" onmouseover="showTip(event, 'fs50', 158)" class="i">a1</span><span class="o">.</span><span class="i">Append</span>(<span onmouseout="hideTip(event, 'fs51', 159)" onmouseover="showTip(event, 'fs51', 159)" class="i">a2</span>)
+
+<span class="c">// but this fails</span>
+<span class="k">try</span> <span onmouseout="hideTip(event, 'fs50', 160)" onmouseover="showTip(event, 'fs50', 160)" class="i">a1</span><span class="o">.</span><span class="i">Append</span>(<span onmouseout="hideTip(event, 'fs50', 161)" onmouseover="showTip(event, 'fs50', 161)" class="i">a1</span>) <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs52', 162)" onmouseover="showTip(event, 'fs52', 162)" class="i">ignore</span> <span class="k">with</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 163)" onmouseover="showTip(event, 'fs34', 163)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">ok</span><span class="s">&quot;</span>
+
+
+<span class="c">// let f1 = Frame.Create(&quot;S1&quot;, s1)</span>
+<span onmouseout="hideTip(event, 'fs41', 164)" onmouseover="showTip(event, 'fs41', 164)" class="i">f1</span><span class="o">?</span><span class="i">Another</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs43', 165)" onmouseover="showTip(event, 'fs43', 165)" class="i">f2</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs42', 166)" onmouseover="showTip(event, 'fs42', 166)" class="i">int</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>)
+
+<span onmouseout="hideTip(event, 'fs41', 167)" onmouseover="showTip(event, 'fs41', 167)" class="i">f1</span><span class="o">?</span><span class="i">Test0</span> <span class="o">&lt;-</span> [ <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span> ]
+<span onmouseout="hideTip(event, 'fs41', 168)" onmouseover="showTip(event, 'fs41', 168)" class="i">f1</span><span class="o">?</span><span class="i">Test</span> <span class="o">&lt;-</span> [ <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">!</span><span class="s">&quot;</span> ]
+<span onmouseout="hideTip(event, 'fs41', 169)" onmouseover="showTip(event, 'fs41', 169)" class="i">f1</span><span class="o">?</span><span class="i">Test2</span> <span class="o">&lt;-</span> [ <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">!</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">?</span><span class="s">&quot;</span> ]
+
+<span onmouseout="hideTip(event, 'fs41', 170)" onmouseover="showTip(event, 'fs41', 170)" class="i">f1</span>
+<span onmouseout="hideTip(event, 'fs43', 171)" onmouseover="showTip(event, 'fs43', 171)" class="i">f2</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs53', 172)" onmouseover="showTip(event, 'fs53', 172)" class="i">joined</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 173)" onmouseover="showTip(event, 'fs41', 173)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 174)" onmouseover="showTip(event, 'fs43', 174)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 175)" onmouseover="showTip(event, 'fs45', 175)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs46', 176)" onmouseover="showTip(event, 'fs46', 176)" class="i">Outer</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs54', 177)" onmouseover="showTip(event, 'fs54', 177)" class="i">joinedR</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 178)" onmouseover="showTip(event, 'fs41', 178)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 179)" onmouseover="showTip(event, 'fs43', 179)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 180)" onmouseover="showTip(event, 'fs45', 180)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs49', 181)" onmouseover="showTip(event, 'fs49', 181)" class="i">Right</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs55', 182)" onmouseover="showTip(event, 'fs55', 182)" class="i">joinedI</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 183)" onmouseover="showTip(event, 'fs41', 183)" class="i">f1</span><span class="o">.</span><span class="i">Join</span>(<span onmouseout="hideTip(event, 'fs43', 184)" onmouseover="showTip(event, 'fs43', 184)" class="i">f2</span>, <span onmouseout="hideTip(event, 'fs45', 185)" onmouseover="showTip(event, 'fs45', 185)" class="i">JoinKind</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs47', 186)" onmouseover="showTip(event, 'fs47', 186)" class="i">Inner</span>)
+
+<span class="c">// All values are missing</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs56', 187)" onmouseover="showTip(event, 'fs56', 187)" class="i">zerosQ</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 188)" onmouseover="showTip(event, 'fs53', 188)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span><span class="i">SelectOptional</span>(<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 189)" onmouseover="showTip(event, 'fs57', 189)" class="i">KeyValue</span>(<span class="i">key</span>, <span class="i">row</span>)) <span class="k">-&gt;</span> 
+  <span class="k">if</span> <span class="i">key</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs58', 190)" onmouseover="showTip(event, 'fs58', 190)" class="i">OptionalValue</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs59', 191)" onmouseover="showTip(event, 'fs59', 191)" class="i">Missing</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs58', 192)" onmouseover="showTip(event, 'fs58', 192)" class="i">OptionalValue</span>(<span onmouseout="hideTip(event, 'fs38', 193)" onmouseover="showTip(event, 'fs38', 193)" class="i">Double</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 194)" onmouseover="showTip(event, 'fs39', 194)" class="i">NaN</span>))
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs60', 195)" onmouseover="showTip(event, 'fs60', 195)" class="i">zerosE</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 196)" onmouseover="showTip(event, 'fs53', 196)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span><span class="i">Select</span>(<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 197)" onmouseover="showTip(event, 'fs57', 197)" class="i">KeyValue</span>(<span class="i">key</span>, <span class="i">row</span>)) <span class="k">-&gt;</span> 
+  <span class="k">if</span> <span class="i">key</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs61', 198)" onmouseover="showTip(event, 'fs61', 198)" class="i">None</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs62', 199)" onmouseover="showTip(event, 'fs62', 199)" class="i">Some</span> <span onmouseout="hideTip(event, 'fs38', 200)" onmouseover="showTip(event, 'fs38', 200)" class="i">Double</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs39', 201)" onmouseover="showTip(event, 'fs39', 201)" class="i">NaN</span>)
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs63', 202)" onmouseover="showTip(event, 'fs63', 202)" class="i">zeros</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 203)" onmouseover="showTip(event, 'fs53', 203)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span><span class="i">SelectOptional</span>(<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 204)" onmouseover="showTip(event, 'fs57', 204)" class="i">KeyValue</span>(<span class="i">key</span>, <span class="i">row</span>)) <span class="k">-&gt;</span> 
+  <span class="k">if</span> <span class="i">key</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs58', 205)" onmouseover="showTip(event, 'fs58', 205)" class="i">OptionalValue</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs59', 206)" onmouseover="showTip(event, 'fs59', 206)" class="i">Missing</span> <span class="k">else</span> <span onmouseout="hideTip(event, 'fs58', 207)" onmouseover="showTip(event, 'fs58', 207)" class="i">OptionalValue</span>(<span class="n">0.0</span>))
+
+<span onmouseout="hideTip(event, 'fs53', 208)" onmouseover="showTip(event, 'fs53', 208)" class="i">joined</span><span class="o">?</span><span class="i">Zeros</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs63', 209)" onmouseover="showTip(event, 'fs63', 209)" class="i">zeros</span>
+<span onmouseout="hideTip(event, 'fs53', 210)" onmouseover="showTip(event, 'fs53', 210)" class="i">joined</span> 
+
+
+<span class="c">// Matching two frames in append</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs64', 211)" onmouseover="showTip(event, 'fs64', 211)" class="i">c1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 212)" onmouseover="showTip(event, 'fs8', 212)" class="i">Frame</span><span class="o">.</span><span class="i">CreateRow</span>(<span class="n">1</span>, <span onmouseout="hideTip(event, 'fs53', 213)" onmouseover="showTip(event, 'fs53', 213)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>])
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs65', 214)" onmouseover="showTip(event, 'fs65', 214)" class="i">c2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 215)" onmouseover="showTip(event, 'fs8', 215)" class="i">Frame</span><span class="o">.</span><span class="i">CreateRow</span>(<span class="n">2</span>, <span onmouseout="hideTip(event, 'fs53', 216)" onmouseover="showTip(event, 'fs53', 216)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>])
+<span onmouseout="hideTip(event, 'fs64', 217)" onmouseover="showTip(event, 'fs64', 217)" class="i">c1</span><span class="o">.</span><span class="i">Append</span>(<span onmouseout="hideTip(event, 'fs65', 218)" onmouseover="showTip(event, 'fs65', 218)" class="i">c2</span>)
+
+<span class="c">// Appending things to an empty frame</span>
+<span class="c">//let initial = Frame(Index.ofKeys [], Index.ofKeys [], Vector.Create [| |])</span>
+<span class="c">//initial.Append(a1)</span>
+
+<span onmouseout="hideTip(event, 'fs53', 219)" onmouseover="showTip(event, 'fs53', 219)" class="i">joined</span> 
+
+<span onmouseout="hideTip(event, 'fs53', 220)" onmouseover="showTip(event, 'fs53', 220)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>]
+<span onmouseout="hideTip(event, 'fs53', 221)" onmouseover="showTip(event, 'fs53', 221)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>]
+
+<span onmouseout="hideTip(event, 'fs53', 222)" onmouseover="showTip(event, 'fs53', 222)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">a</span>
+<span onmouseout="hideTip(event, 'fs53', 223)" onmouseover="showTip(event, 'fs53', 223)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span>
+
+<span onmouseout="hideTip(event, 'fs53', 224)" onmouseover="showTip(event, 'fs53', 224)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span><span class="o">?</span><span class="i">S1</span>
+<span onmouseout="hideTip(event, 'fs53', 225)" onmouseover="showTip(event, 'fs53', 225)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span><span class="o">?</span><span class="i">Another</span>
+
+<span class="k">try</span> <span onmouseout="hideTip(event, 'fs53', 226)" onmouseover="showTip(event, 'fs53', 226)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span><span class="o">?</span><span class="i">Test</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs52', 227)" onmouseover="showTip(event, 'fs52', 227)" class="i">ignore</span> <span class="k">with</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 228)" onmouseover="showTip(event, 'fs34', 228)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">assuming</span><span class="s"> </span><span class="s">double</span><span class="s">.</span><span class="s">.</span><span class="s">&quot;</span>
+
+<span onmouseout="hideTip(event, 'fs53', 229)" onmouseover="showTip(event, 'fs53', 229)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs66', 230)" onmouseover="showTip(event, 'fs66', 230)" class="i">string</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">Test</span><span class="s">&quot;</span>)
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs67', 231)" onmouseover="showTip(event, 'fs67', 231)" class="i">cs</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 232)" onmouseover="showTip(event, 'fs53', 232)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span>
+
+<span onmouseout="hideTip(event, 'fs67', 233)" onmouseover="showTip(event, 'fs67', 233)" class="i">cs</span><span class="o">.</span><span class="i">Get</span>(<span class="s">&quot;</span><span class="s">Test</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs67', 234)" onmouseover="showTip(event, 'fs67', 234)" class="i">cs</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs66', 235)" onmouseover="showTip(event, 'fs66', 235)" class="i">string</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">Test</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs67', 236)" onmouseover="showTip(event, 'fs67', 236)" class="i">cs</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span> <span class="o">..</span> <span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>]
+<span onmouseout="hideTip(event, 'fs67', 237)" onmouseover="showTip(event, 'fs67', 237)" class="i">cs</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">Zeros</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>]
+
+
+<span onmouseout="hideTip(event, 'fs53', 238)" onmouseover="showTip(event, 'fs53', 238)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 239)" onmouseover="showTip(event, 'fs8', 239)" class="i">Frame</span><span class="o">.</span><span class="i">FromColumns</span>
+<span onmouseout="hideTip(event, 'fs53', 240)" onmouseover="showTip(event, 'fs53', 240)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 241)" onmouseover="showTip(event, 'fs8', 241)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+
+<span onmouseout="hideTip(event, 'fs53', 242)" onmouseover="showTip(event, 'fs53', 242)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 243)" onmouseover="showTip(event, 'fs8', 243)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+<span onmouseout="hideTip(event, 'fs53', 244)" onmouseover="showTip(event, 'fs53', 244)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span> <span class="o">..</span> <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 245)" onmouseover="showTip(event, 'fs8', 245)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+<span onmouseout="hideTip(event, 'fs53', 246)" onmouseover="showTip(event, 'fs53', 246)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 247)" onmouseover="showTip(event, 'fs8', 247)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+
+<span class="c">// preserve ordering of selectors etc.</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 248)" onmouseover="showTip(event, 'fs68', 248)" class="i">reversed</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 249)" onmouseover="showTip(event, 'fs53', 249)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 250)" onmouseover="showTip(event, 'fs8', 250)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+<span onmouseout="hideTip(event, 'fs68', 251)" onmouseover="showTip(event, 'fs68', 251)" class="i">reversed</span>
+<span onmouseout="hideTip(event, 'fs68', 252)" onmouseover="showTip(event, 'fs68', 252)" class="i">reversed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 253)" onmouseover="showTip(event, 'fs69', 253)" class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span> <span class="o">..</span> <span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 254)" onmouseover="showTip(event, 'fs8', 254)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+<span onmouseout="hideTip(event, 'fs68', 255)" onmouseover="showTip(event, 'fs68', 255)" class="i">reversed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 256)" onmouseover="showTip(event, 'fs69', 256)" class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">d</span><span class="s">&quot;</span> <span class="o">..</span> <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 257)" onmouseover="showTip(event, 'fs8', 257)" class="i">Frame</span><span class="o">.</span><span class="i">FromRows</span>
+<span onmouseout="hideTip(event, 'fs68', 258)" onmouseover="showTip(event, 'fs68', 258)" class="i">reversed</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs69', 259)" onmouseover="showTip(event, 'fs69', 259)" class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span> <span class="o">..</span> <span class="s">&quot;</span><span class="s">c</span><span class="s">&quot;</span>]
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs70', 260)" onmouseover="showTip(event, 'fs70', 260)" class="i">tf</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs8', 261)" onmouseover="showTip(event, 'fs8', 261)" class="i">Frame</span><span class="o">.</span><span class="i">Create</span>(<span class="s">&quot;</span><span class="s">First</span><span class="s">&quot;</span>, <span onmouseout="hideTip(event, 'fs53', 262)" onmouseover="showTip(event, 'fs53', 262)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">a</span>) 
+<span onmouseout="hideTip(event, 'fs70', 263)" onmouseover="showTip(event, 'fs70', 263)" class="i">tf</span>
+
+<span onmouseout="hideTip(event, 'fs70', 264)" onmouseover="showTip(event, 'fs70', 264)" class="i">tf</span><span class="o">?</span><span class="i">Second</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs53', 265)" onmouseover="showTip(event, 'fs53', 265)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">b</span><span class="s">&quot;</span>]
+<span onmouseout="hideTip(event, 'fs70', 266)" onmouseover="showTip(event, 'fs70', 266)" class="i">tf</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs71', 267)" onmouseover="showTip(event, 'fs71', 267)" class="i">a</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 268)" onmouseover="showTip(event, 'fs53', 268)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">a</span><span class="s">&quot;</span>] 
+<span onmouseout="hideTip(event, 'fs71', 269)" onmouseover="showTip(event, 'fs71', 269)" class="i">a</span>
+
+<span onmouseout="hideTip(event, 'fs71', 270)" onmouseover="showTip(event, 'fs71', 270)" class="i">a</span><span class="o">?</span><span class="i">S1</span>
+<span onmouseout="hideTip(event, 'fs71', 271)" onmouseover="showTip(event, 'fs71', 271)" class="i">a</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>]
+<span onmouseout="hideTip(event, 'fs71', 272)" onmouseover="showTip(event, 'fs71', 272)" class="i">a</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs42', 273)" onmouseover="showTip(event, 'fs42', 273)" class="i">int</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs71', 274)" onmouseover="showTip(event, 'fs71', 274)" class="i">a</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs72', 275)" onmouseover="showTip(event, 'fs72', 275)" class="i">float</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs71', 276)" onmouseover="showTip(event, 'fs71', 276)" class="i">a</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs73', 277)" onmouseover="showTip(event, 'fs73', 277)" class="i">byte</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>)
+
+
+<span class="c">// This fails as expected</span>
+<span class="k">try</span> <span onmouseout="hideTip(event, 'fs53', 278)" onmouseover="showTip(event, 'fs53', 278)" class="i">joined</span><span class="o">?</span><span class="i">Sum</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs53', 279)" onmouseover="showTip(event, 'fs53', 279)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">.</span><span class="i">Select</span>(<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 280)" onmouseover="showTip(event, 'fs57', 280)" class="i">KeyValue</span>(<span class="i">key</span>, <span class="i">row</span>)) <span class="k">-&gt;</span> <span class="i">row</span><span class="o">?</span><span class="i">S1</span> <span class="o">+</span> <span class="i">row</span><span class="o">?</span><span class="i">S2</span>) <span class="k">with</span> _ <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs34', 281)" onmouseover="showTip(event, 'fs34', 281)" class="i">printfn</span> <span class="s">&quot;</span><span class="s">missing</span><span class="s">&quot;</span>
+
+<span class="c">// This works, but it is not very useful as we only need S1 and S2 (and not all columns)</span>
+<span onmouseout="hideTip(event, 'fs53', 282)" onmouseover="showTip(event, 'fs53', 282)" class="i">joined</span><span class="o">?</span><span class="i">Sum</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs53', 283)" onmouseover="showTip(event, 'fs53', 283)" class="i">joined</span><span class="o">.</span><span class="i">RowsDense</span><span class="o">.</span><span class="i">SelectOptional</span>(<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs57', 284)" onmouseover="showTip(event, 'fs57', 284)" class="i">KeyValue</span>(<span class="i">key</span>, <span class="i">row</span>)) <span class="k">-&gt;</span> 
+  <span class="k">match</span> <span class="i">row</span> <span class="k">with</span>
+  | <span onmouseout="hideTip(event, 'fs58', 285)" onmouseover="showTip(event, 'fs58', 285)" class="i">OptionalValue</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs74', 286)" onmouseover="showTip(event, 'fs74', 286)" class="i">Present</span> <span class="i">v</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs58', 287)" onmouseover="showTip(event, 'fs58', 287)" class="i">OptionalValue</span>(<span class="i">v</span><span class="o">?</span><span class="i">S1</span> <span class="o">+</span> <span class="i">v</span><span class="o">?</span><span class="i">S2</span>)
+  | <span onmouseout="hideTip(event, 'fs58', 288)" onmouseover="showTip(event, 'fs58', 288)" class="i">OptionalValue</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs59', 289)" onmouseover="showTip(event, 'fs59', 289)" class="i">Missing</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs58', 290)" onmouseover="showTip(event, 'fs58', 290)" class="i">OptionalValue</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs59', 291)" onmouseover="showTip(event, 'fs59', 291)" class="i">Missing</span>)
+
+<span class="c">// Get frame with just S1 and S2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs75', 292)" onmouseover="showTip(event, 'fs75', 292)" class="i">sub1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 293)" onmouseover="showTip(event, 'fs53', 293)" class="i">joined</span><span class="o">.</span><span class="i">Columns</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 294)" onmouseover="showTip(event, 'fs8', 294)" class="i">Frame</span><span class="o">.</span><span class="i">FromColumns</span>
+<span onmouseout="hideTip(event, 'fs75', 295)" onmouseover="showTip(event, 'fs75', 295)" class="i">sub1</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs76', 296)" onmouseover="showTip(event, 'fs76', 296)" class="i">sub2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs53', 297)" onmouseover="showTip(event, 'fs53', 297)" class="i">joined</span><span class="o">.</span><span class="i">Columns</span><span class="o">.</span>[<span class="s">&quot;</span><span class="s">S1</span><span class="s">&quot;</span>, <span class="s">&quot;</span><span class="s">S2</span><span class="s">&quot;</span>] <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs8', 298)" onmouseover="showTip(event, 'fs8', 298)" class="i">Frame</span><span class="o">.</span><span class="i">FromColumns</span>
+<span onmouseout="hideTip(event, 'fs76', 299)" onmouseover="showTip(event, 'fs76', 299)" class="i">sub2</span>
+<span onmouseout="hideTip(event, 'fs53', 300)" onmouseover="showTip(event, 'fs53', 300)" class="i">joined</span><span class="o">?</span><span class="i">SumS1_S2</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs76', 301)" onmouseover="showTip(event, 'fs76', 301)" class="i">sub2</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs77', 302)" onmouseover="showTip(event, 'fs77', 302)" class="i">RowsDense</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs78', 303)" onmouseover="showTip(event, 'fs78', 303)" class="i">Select</span>(<span class="k">fun</span> <span onmouseout="hideTip(event, 'fs79', 304)" onmouseover="showTip(event, 'fs79', 304)" class="i">row</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs79', 305)" onmouseover="showTip(event, 'fs79', 305)" class="i">row</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs80', 306)" onmouseover="showTip(event, 'fs80', 306)" class="i">Value</span><span class="o">?</span><span class="i">S1</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs79', 307)" onmouseover="showTip(event, 'fs79', 307)" class="i">row</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs80', 308)" onmouseover="showTip(event, 'fs80', 308)" class="i">Value</span><span class="o">?</span><span class="i">S2</span>)
+
+<span onmouseout="hideTip(event, 'fs53', 309)" onmouseover="showTip(event, 'fs53', 309)" class="i">joined</span>
+
+<span class="c">//</span>
+<span onmouseout="hideTip(event, 'fs53', 310)" onmouseover="showTip(event, 'fs53', 310)" class="i">joined</span><span class="o">.</span><span class="i">Rows</span><span class="o">?</span><span class="i">c</span><span class="o">.</span><span class="i">GetAs</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs66', 311)" onmouseover="showTip(event, 'fs66', 311)" class="i">string</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">Test</span><span class="s">&quot;</span>)
+
+    
+<span onmouseout="hideTip(event, 'fs53', 312)" onmouseover="showTip(event, 'fs53', 312)" class="i">joined</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs42', 313)" onmouseover="showTip(event, 'fs42', 313)" class="i">int</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">SumS1_S2</span><span class="s">&quot;</span>)
+
+<span onmouseout="hideTip(event, 'fs53', 314)" onmouseover="showTip(event, 'fs53', 314)" class="i">joined</span>
+
+<span class="c">// Conversions</span>
+<span onmouseout="hideTip(event, 'fs53', 315)" onmouseover="showTip(event, 'fs53', 315)" class="i">joined</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs42', 316)" onmouseover="showTip(event, 'fs42', 316)" class="i">int</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">SumS1_S2</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs53', 317)" onmouseover="showTip(event, 'fs53', 317)" class="i">joined</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs72', 318)" onmouseover="showTip(event, 'fs72', 318)" class="i">float</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">SumS1_S2</span><span class="s">&quot;</span>)
+
+<span onmouseout="hideTip(event, 'fs53', 319)" onmouseover="showTip(event, 'fs53', 319)" class="i">joined</span><span class="o">?</span><span class="i">SumS1_S2</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 320)" onmouseover="showTip(event, 'fs4', 320)" class="i">Series</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs81', 321)" onmouseover="showTip(event, 'fs81', 321)" class="i">sum</span>
+
+
+<span class="c">// --------------------------------------------------------------------------------------</span>
+<span class="c">// Digits</span>
+<span class="c">// --------------------------------------------------------------------------------------</span>
+<span class="c">(*</span>
+<span class="c">/// Given a float array, display it in a form</span>
+<span class="c">let showDigit (data:RowReader) = </span>
+<span class="c">  let bmp = new Bitmap(28, 28)</span>
+<span class="c">  for i in 0 .. 783 do</span>
+<span class="c">    let value = int (data.GetColumnAt&lt;string&gt;(i))</span>
+<span class="c">    let color = Color.FromArgb(value, value, value)</span>
+<span class="c">    bmp.SetPixel(i % 28, i / 28, color)</span>
+<span class="c">  let frm = new Form(Visible = true, ClientSize = Size(280, 280))</span>
+<span class="c">  let img = new PictureBox(Image = bmp, Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.StretchImage)</span>
+<span class="c">  frm.Controls.Add(img)</span>
+
+<span class="c">let data = Frame.ReadCsv(__SOURCE_DIRECTORY__ + &quot;\\data\\digitssample.csv&quot;)</span>
+
+<span class="c">data</span>
+
+<span class="c">let labels = data.GetSeries&lt;string&gt;(&quot;label&quot;)</span>
+<span class="c">labels.Values</span>
+
+<span class="c">let digitData = data.[0 .., &quot;pixel0&quot; ..]</span>
+<span class="c">let digitData = data.[0 .. 20, &quot;pixel0&quot; .. &quot;pixel5&quot;]</span>
+
+<span class="c">joined // .[&quot;a&quot; .. &quot;c&quot;, &quot;Column&quot; .. ]</span>
+<span class="c">|&gt; prettyPrintFrame</span>
+
+<span class="c">digitData </span>
+<span class="c">|&gt; prettyPrintFrame</span>
+
+<span class="c">digitData.[0].Columns.Length</span>
+<span class="c">digitData.[0].GetColumn&lt;string&gt;(&quot;pixel0&quot;)</span>
+<span class="c">digitData.[0].GetColumnAt&lt;string&gt;(0)</span>
+
+<span class="c">// Examples</span>
+<span class="c">labels.[0]</span>
+<span class="c">digitData.[0] |&gt; showDigit</span>
+
+<span class="c">labels.[1]</span>
+<span class="c">digitData.[1] |&gt; showDigit</span>
+
+<span class="c">labels.[3]</span>
+<span class="c">digitData.[3] |&gt; showDigit</span>
+
+<span class="c">// --------------------------------------------------------</span>
+<span class="c">// TODO: Calculate distance between two arrays</span>
+<span class="c">// --------------------------------------------------------</span>
+
+<span class="c">let aggreageDistance (sample1:float[]) (sample2:float[]) =</span>
+<span class="c">  let sum =</span>
+<span class="c">    Array.map2 (fun a b -&gt; sqrt ((a - b) * (a - b))) sample1 sample2</span>
+<span class="c">    |&gt; Seq.sum</span>
+<span class="c">  sum / (float sample1.Length)</span>
+
+<span class="c">let zero1 = data.Data |&gt; Seq.nth 1 |&gt; getDataArray</span>
+<span class="c">let zero2 = data.Data |&gt; Seq.nth 5 |&gt; getDataArray</span>
+<span class="c">let one1 = data.Data |&gt; Seq.nth 0 |&gt; getDataArray</span>
+<span class="c">let one2 = data.Data |&gt; Seq.nth 2 |&gt; getDataArray</span>
+
+<span class="c">// The first two should be smaller</span>
+<span class="c">aggreageDistance zero1 zero2</span>
+<span class="c">aggreageDistance one1 one2</span>
+
+<span class="c">// But this one should be larger</span>
+<span class="c">aggreageDistance one1 zero1</span>
+
+<span class="c">// --------------------------------------------------------</span>
+<span class="c">// TODO: Calculate &quot;average&quot; samples</span>
+<span class="c">// --------------------------------------------------------</span>
+
+<span class="c">let samples = </span>
+<span class="c">  data.Data </span>
+<span class="c">  |&gt; Seq.groupBy (fun r -&gt; getLabel r)</span>
+<span class="c">  |&gt; Array.ofSeq</span>
+<span class="c">  |&gt; Array.Parallel.map (fun (k, v) -&gt; </span>
+<span class="c">      let samples = Array.map getDataArray (Array.ofSeq v)</span>
+<span class="c">      let average = </span>
+<span class="c">        Array.init 784 (fun i -&gt;</span>
+<span class="c">          let sum = samples  |&gt; Seq.sumBy (fun a -&gt; Array.get a i) </span>
+<span class="c">          sum / float (Seq.length samples) )</span>
+<span class="c">      k, average)</span>
+
+<span class="c">// Show the average samples</span>
+<span class="c">// (WARNING: Opens lots of new windows!)</span>
+<span class="c">for i in 0 .. 9 do</span>
+<span class="c">  samples.[i] |&gt; snd |&gt; showDigit</span>
+
+<span class="c">// --------------------------------------------------------</span>
+<span class="c">// TODO: Pick the closest average sample</span>
+<span class="c">// --------------------------------------------------------</span>
+
+<span class="c">let classify row =</span>
+<span class="c">  let data = getDataArray row</span>
+<span class="c">  samples </span>
+<span class="c">  |&gt; Seq.map (fun (key, image) -&gt; </span>
+<span class="c">      key, aggreageDistance image data)</span>
+<span class="c">  |&gt; Seq.minBy snd</span>
+<span class="c">  |&gt; fst</span>
+
+<span class="c">// --------------------------------------------------------</span>
+<span class="c">// Test the classifier using the samples</span>
+<span class="c">// --------------------------------------------------------</span>
+
+<span class="c">let test = CsvFile.Load(__SOURCE_DIRECTORY__ + &quot;\\data\\digitscheck.csv&quot;).Cache()</span>
+
+<span class="c">for input in test.Data |&gt; Seq.take 10 do</span>
+<span class="c">  let got = classify input</span>
+<span class="c">  let actual = getLabel input</span>
+<span class="c">  printfn &quot;Actual %d, got %A&quot; actual got</span>
+
+<span class="c">test.Data |&gt; Seq.countBy (fun input -&gt;</span>
+<span class="c">  classify input = getLabel input)</span>
+
+
+<span class="c">#load @&quot;..\NuGet\test.fsx&quot;</span>
+
+
+<span class="c">// IReadOnlyList&lt;&#39;T&gt; ???</span>
+<span class="c">// </span>
+
+
+<span class="c">(*</span>
+
+<span class="c">    let newData = </span>
+<span class="c">      [| for colKey, _ in newColumnIndex.Elements -&gt;</span>
+<span class="c">           let column = </span>
+<span class="c">             let thisCol = columnIndex.Lookup(colKey)</span>
+<span class="c">             if thisCol.HasValue then data.GetValue(thisCol.Value).Value</span>
+<span class="c">             else </span>
+<span class="c">               let otherCol = otherFrame.ColumnIndex.Lookup(colKey)</span>
+<span class="c">               otherFrame.Data.GetValue(otherCol.Value).Value</span>
+
+<span class="c">           reindex rowIndex newRowIndex column |]</span>
+
+<span class="c">      |&gt; Vector.Create</span>
+<span class="c">    Frame(newRowIndex, newColumnIndex, newData)</span>
+
+<span class="c">    let getColumns (index:Index&lt;_&gt;) (columns:seq&lt;string * IVec&gt;) usedNames = </span>
+<span class="c">      seq { for name, column in columns -&gt;</span>
+<span class="c">              let name = </span>
+<span class="c">                if Set.contains name usedNames |&gt; not then name</span>
+<span class="c">                else</span>
+<span class="c">                  name </span>
+<span class="c">                  |&gt; Seq.unfold (fun name -&gt; Some(name + &quot;&#39;&quot;, name + &quot;&#39;&quot;))</span>
+<span class="c">                  |&gt; Seq.find (fun el -&gt; Set.contains el usedNames |&gt; not)</span>
+<span class="c">              name, column.Reorder(allKeys.Length, fun i -&gt; </span>
+<span class="c">                match index.Lookup.TryGetValue(allKeys.[i]) with</span>
+<span class="c">                | true, index -&gt; Some index </span>
+<span class="c">                | _ -&gt; None ) }</span>
+<span class="c">    let newColumns = </span>
+<span class="c">      [ getColumns index columns Set.Missing; </span>
+<span class="c">        getColumns frame.Index frame.Columns (Seq.map fst columns |&gt; set) ]</span>
+<span class="c">      |&gt; Seq.concat               </span>
+<span class="c">    Frame(newIndex, newColumns)</span>
+<span class="c">*)  </span>
+<span class="c">*)</span></pre>
+</td>
+</tr>
+</table>
+          <div class="tip" id="fs1">namespace System</div>
+<div class="tip" id="fs2">namespace FSharp</div>
+<div class="tip" id="fs3">namespace FSharp.DataFrame</div>
+<div class="tip" id="fs4">Multiple items<br />module Series<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Series&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;interface ISeries&lt;&#39;K&gt;<br />&#160;&#160;new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member DropMissing : unit -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;override Equals : another:obj -&gt; bool<br />&#160;&#160;member Get : key:&#39;K -&gt; &#39;V<br />&#160;&#160;member Get : key:&#39;K * lookup:Lookup -&gt; &#39;V<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Series&lt;_,_&gt;<br /><br />--------------------<br />type Series =<br />&#160;&#160;static member ofNullables : values:seq&lt;Nullable&lt;&#39;a0&gt;&gt; -&gt; Series&lt;int,&#39;a0&gt; (requires default constructor and value type and &#39;a0 :&gt; ValueType)<br />&#160;&#160;static member ofObservations : observations:seq&lt;&#39;a0 * &#39;a1&gt; -&gt; Series&lt;&#39;a0,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;<br /><br />Full name: FSharp.DataFrame.FSharpSeriesExtensions.Series<br /><br />--------------------<br />new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : index:Indices.IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:Vectors.IVectorBuilder * indexBuilder:Indices.IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;</div>
+<div class="tip" id="fs5">static member Series.ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;</div>
+<div class="tip" id="fs6">val diff : offset:int -&gt; series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;a&gt; (requires equality and member ( - ))<br /><br />Full name: FSharp.DataFrame.Series.diff</div>
+<div class="tip" id="fs7">val df : Frame&lt;int,string&gt;<br /><br />Full name: Samples.df</div>
+<div class="tip" id="fs8">Multiple items<br />module Frame<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Frame&lt;&#39;TRowKey,&#39;TColumnKey (requires equality and equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;private new : rowIndex:IIndex&lt;&#39;TRowKey&gt; * columnIndex:IIndex&lt;&#39;TColumnKey&gt; * data:IVector&lt;IVector&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:Series&lt;&#39;TRowKey,&#39;a2&gt; -&gt; unit<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:seq&lt;&#39;a2&gt; -&gt; unit<br />&#160;&#160;member Append : otherFrame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member Clone : unit -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member DropSeries : column:&#39;TColumnKey -&gt; unit<br />&#160;&#160;member GetColumns : unit -&gt; Series&lt;&#39;TColumnKey,Series&lt;&#39;TRowKey,&#39;R&gt;&gt;<br />&#160;&#160;member GetRow : row:&#39;TRowKey -&gt; Series&lt;&#39;TColumnKey,&#39;R&gt;<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Frame&lt;_,_&gt;<br /><br />--------------------<br />type Frame =<br />&#160;&#160;static member FromColumns : cols:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromColumns : keys:seq&lt;&#39;RowKey&gt; * columns:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromRowKeys : keys:seq&lt;&#39;K&gt; -&gt; Frame&lt;&#39;K,string&gt; (requires equality)<br />&#160;&#160;static member FromRows : rows:seq&lt;Series&lt;&#39;ColKey,&#39;V&gt;&gt; -&gt; Frame&lt;int,&#39;ColKey&gt; (requires equality)<br />&#160;&#160;static member ReadCsv : location:string * skipTypeInference:bool * inferRows:int * schema:string * separators:string * culture:string -&gt; Frame&lt;int,string&gt;<br /><br />Full name: FSharp.DataFrame.Frame<br /><br />--------------------<br />new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;</div>
+<div class="tip" id="fs9">static member Frame.ofColumns : cols:Series&lt;&#39;a0,#ISeries&lt;&#39;a2&gt;&gt; -&gt; Frame&lt;&#39;a2,&#39;a0&gt; (requires equality and equality)<br />static member Frame.ofColumns : cols:seq&lt;&#39;a0 * #ISeries&lt;&#39;K&gt;&gt; -&gt; Frame&lt;&#39;K,&#39;a0&gt; (requires equality and equality)</div>
+<div class="tip" id="fs10">Multiple items<br />type DateTime =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : ticks:int64 -&gt; DateTime + 10 overloads<br />&#160;&#160;&#160;&#160;member Add : value:TimeSpan -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddDays : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddHours : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMilliseconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMinutes : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddMonths : months:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddSeconds : value:float -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddTicks : value:int64 -&gt; DateTime<br />&#160;&#160;&#160;&#160;member AddYears : value:int -&gt; DateTime<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.DateTime<br /><br />--------------------<br />DateTime()<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(ticks: int64, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, calendar: Globalization.Calendar) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />DateTime(year: int, month: int, day: int, hour: int, minute: int, second: int, millisecond: int, kind: DateTimeKind) : unit<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
+<div class="tip" id="fs11">property DateTime.Now: DateTime</div>
+<div class="tip" id="fs12">val sb : SeriesBuilder&lt;string&gt;<br /><br />Full name: Samples.sb</div>
+<div class="tip" id="fs13">Multiple items<br />type SeriesBuilder&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface seq&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt;<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;new : unit -&gt; SeriesBuilder&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Add : key:&#39;K * value:&#39;V -&gt; unit<br />&#160;&#160;member Series : Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;static member ( ?&lt;- ) : builder:SeriesBuilder&lt;string,&#39;V&gt; * name:string * value:&#39;V -&gt; unit<br /><br />Full name: FSharp.DataFrame.SeriesBuilder&lt;_,_&gt;<br /><br />--------------------<br />type SeriesBuilder&lt;&#39;K (requires equality)&gt; =<br />&#160;&#160;inherit SeriesBuilder&lt;&#39;K,obj&gt;<br />&#160;&#160;new : unit -&gt; SeriesBuilder&lt;&#39;K&gt;<br /><br />Full name: FSharp.DataFrame.SeriesBuilder&lt;_&gt;<br /><br />--------------------<br />new : unit -&gt; SeriesBuilder&lt;&#39;K,&#39;V&gt;<br /><br />--------------------<br />new : unit -&gt; SeriesBuilder&lt;&#39;K&gt;</div>
+<div class="tip" id="fs14">val df2 : Frame&lt;int,string&gt;<br /><br />Full name: Samples.df2</div>
+<div class="tip" id="fs15">member Frame.Append : otherFrame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />member Frame.Append : rowKey:&#39;TRowKey * row:ISeries&lt;&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;</div>
+<div class="tip" id="fs16">property SeriesBuilder.Series: Series&lt;string,obj&gt;</div>
+<div class="tip" id="fs17">val df3 : Frame&lt;string,int&gt;<br /><br />Full name: Samples.df3</div>
+<div class="tip" id="fs18">val transpose : frame:Frame&lt;&#39;R,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TColumnKey,&#39;R&gt; (requires equality and equality)<br /><br />Full name: FSharp.DataFrame.Frame.transpose</div>
+<div class="tip" id="fs19">val dateRange : first:DateTime -&gt; count:int -&gt; seq&lt;DateTime&gt;<br /><br />Full name: Samples.dateRange<br /><em><br /><br />&#160;Generate date range from &#39;first&#39; with &#39;count&#39; days</em></div>
+<div class="tip" id="fs20">val first : DateTime</div>
+<div class="tip" id="fs21">val count : int</div>
+<div class="tip" id="fs22">seq { for i in 0 .. (count - 1) -&gt; first.AddDays(float i) }</div>
+<div class="tip" id="fs23">val rand : count:int -&gt; seq&lt;float&gt;<br /><br />Full name: Samples.rand<br /><em><br /><br />&#160;Generate &#39;count&#39; number of random doubles</em></div>
+<div class="tip" id="fs24">let rnd = System.Random()<br />&#160;&#160;seq { for i in 0 .. (count - 1) -&gt; rnd.NextDouble() }</div>
+<div class="tip" id="fs25">val tsOld : Series&lt;DateTime,float&gt;<br /><br />Full name: Samples.tsOld</div>
+<div class="tip" id="fs26">val tsNew : Series&lt;DateTime,float&gt;<br /><br />Full name: Samples.tsNew</div>
+<div class="tip" id="fs27">val df : Frame&lt;DateTime,string&gt;<br /><br />Full name: Samples.df</div>
+<div class="tip" id="fs28">val df1 : Frame&lt;int,string&gt;<br /><br />Full name: Samples.df1</div>
+<div class="tip" id="fs29">static member Frame.ofValues : values:seq&lt;&#39;a0 * &#39;a1 * &#39;a2&gt; -&gt; Frame&lt;&#39;a0,&#39;a1&gt; (requires equality and equality)</div>
+<div class="tip" id="fs30">val df2 : Frame&lt;string,DateTime&gt;<br /><br />Full name: Samples.df2</div>
+<div class="tip" id="fs31">static member Frame.ofRows : rows:seq&lt;&#39;a0 * #ISeries&lt;&#39;a2&gt;&gt; -&gt; Frame&lt;&#39;a0,&#39;a2&gt; (requires equality and equality)<br />static member Frame.ofRows : rows:Series&lt;&#39;a0,#ISeries&lt;&#39;a2&gt;&gt; -&gt; Frame&lt;&#39;a0,&#39;a2&gt; (requires equality and equality)</div>
+<div class="tip" id="fs32">val df3 : Frame&lt;DateTime,string&gt;<br /><br />Full name: Samples.df3</div>
+<div class="tip" id="fs33">val s1 : obj<br /><br />Full name: Samples.s1</div>
+<div class="tip" id="fs34">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.printfn</div>
+<div class="tip" id="fs35">val s2 : obj<br /><br />Full name: Samples.s2</div>
+<div class="tip" id="fs36">val s3 : int<br /><br />Full name: Samples.s3</div>
+<div class="tip" id="fs37">val snull : obj<br /><br />Full name: Samples.snull</div>
+<div class="tip" id="fs38">type Double =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;member CompareTo : value:obj -&gt; int + 1 overload<br />&#160;&#160;&#160;&#160;member Equals : obj:obj -&gt; bool + 1 overload<br />&#160;&#160;&#160;&#160;member GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetTypeCode : unit -&gt; TypeCode<br />&#160;&#160;&#160;&#160;member ToString : unit -&gt; string + 3 overloads<br />&#160;&#160;&#160;&#160;static val MinValue : float<br />&#160;&#160;&#160;&#160;static val MaxValue : float<br />&#160;&#160;&#160;&#160;static val Epsilon : float<br />&#160;&#160;&#160;&#160;static val NegativeInfinity : float<br />&#160;&#160;&#160;&#160;static val PositiveInfinity : float<br />&#160;&#160;&#160;&#160;...<br />&#160;&#160;end<br /><br />Full name: System.Double</div>
+<div class="tip" id="fs39">field floatNaN = NaN</div>
+<div class="tip" id="fs40">val d3 : float<br /><br />Full name: Samples.d3</div>
+<div class="tip" id="fs41">val f1 : obj<br /><br />Full name: Samples.f1</div>
+<div class="tip" id="fs42">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.int<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; = int<br /><br />Full name: Microsoft.FSharp.Core.int&lt;_&gt;<br /><br />--------------------<br />type int = int32<br /><br />Full name: Microsoft.FSharp.Core.int</div>
+<div class="tip" id="fs43">val f2 : obj<br /><br />Full name: Samples.f2</div>
+<div class="tip" id="fs44">val f3 : obj<br /><br />Full name: Samples.f3</div>
+<div class="tip" id="fs45">type JoinKind =<br />&#160;&#160;|  Outer  =  0<br />&#160;&#160;|  Inner  =  1<br />&#160;&#160;|  Left  =  2<br />&#160;&#160;|  Right  =  3<br /><br />Full name: FSharp.DataFrame.JoinKind</div>
+<div class="tip" id="fs46">JoinKind.Outer: JoinKind = 0</div>
+<div class="tip" id="fs47">JoinKind.Inner: JoinKind = 1</div>
+<div class="tip" id="fs48">JoinKind.Left: JoinKind = 2</div>
+<div class="tip" id="fs49">JoinKind.Right: JoinKind = 3</div>
+<div class="tip" id="fs50">val a1 : obj<br /><br />Full name: Samples.a1</div>
+<div class="tip" id="fs51">val a2 : &#39;a<br /><br />Full name: Samples.a2</div>
+<div class="tip" id="fs52">val ignore : value:&#39;T -&gt; unit<br /><br />Full name: Microsoft.FSharp.Core.Operators.ignore</div>
+<div class="tip" id="fs53">val joined : &#39;a (requires member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ? ) and equality and &#39;h :&gt; Series&lt;&#39;i,int&gt; and equality)<br /><br />Full name: Samples.joined</div>
+<div class="tip" id="fs54">val joinedR : &#39;a<br /><br />Full name: Samples.joinedR</div>
+<div class="tip" id="fs55">val joinedI : &#39;a<br /><br />Full name: Samples.joinedI</div>
+<div class="tip" id="fs56">val zerosQ : &#39;a<br /><br />Full name: Samples.zerosQ</div>
+<div class="tip" id="fs57">Multiple items<br />active recognizer KeyValue: Collections.Generic.KeyValuePair&lt;&#39;Key,&#39;Value&gt; -&gt; &#39;Key * &#39;Value<br /><br />Full name: Microsoft.FSharp.Core.Operators.( |KeyValue| )<br /><br />--------------------<br />type KeyValue =<br />&#160;&#160;static member Create : key:&#39;K * value:&#39;V -&gt; KeyValuePair&lt;&#39;K,&#39;V&gt;<br /><br />Full name: FSharp.DataFrame.KeyValue</div>
+<div class="tip" id="fs58">Multiple items<br />module OptionalValue<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type OptionalValue&lt;&#39;T&gt; =<br />&#160;&#160;struct<br />&#160;&#160;&#160;&#160;new : value:&#39;T -&gt; OptionalValue&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;private new : hasValue:bool * value:&#39;T -&gt; OptionalValue&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;override ToString : unit -&gt; string<br />&#160;&#160;&#160;&#160;member HasValue : bool<br />&#160;&#160;&#160;&#160;member Value : &#39;T<br />&#160;&#160;&#160;&#160;member ValueOrDefault : &#39;T<br />&#160;&#160;&#160;&#160;static member Missing : OptionalValue&lt;&#39;T&gt;<br />&#160;&#160;end<br /><br />Full name: FSharp.DataFrame.OptionalValue&lt;_&gt;<br /><br />--------------------<br />OptionalValue()<br />new : value:&#39;T -&gt; OptionalValue&lt;&#39;T&gt;</div>
+<div class="tip" id="fs59">Multiple items<br />active recognizer Missing: OptionalValue&lt;&#39;T&gt; -&gt; Choice&lt;unit,&#39;T&gt;<br /><br />Full name: FSharp.DataFrame.OptionalValue.( |Missing|Present| )<br /><br />--------------------<br />property OptionalValue.Missing: OptionalValue&lt;&#39;T&gt;</div>
+<div class="tip" id="fs60">val zerosE : &#39;a<br /><br />Full name: Samples.zerosE</div>
+<div class="tip" id="fs61">union case Option.None: Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs62">union case Option.Some: &#39;T -&gt; Option&lt;&#39;T&gt;</div>
+<div class="tip" id="fs63">val zeros : &#39;a (requires member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ?&lt;- ) and member ( ? ) and equality and &#39;h :&gt; Series&lt;&#39;i,int&gt; and equality)<br /><br />Full name: Samples.zeros</div>
+<div class="tip" id="fs64">val c1 : &#39;a<br /><br />Full name: Samples.c1</div>
+<div class="tip" id="fs65">val c2 : &#39;a<br /><br />Full name: Samples.c2</div>
+<div class="tip" id="fs66">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs67">val cs : &#39;_arg3<br /><br />Full name: Samples.cs</div>
+<div class="tip" id="fs68">val reversed : Frame&lt;int,&#39;a&gt; (requires equality)<br /><br />Full name: Samples.reversed</div>
+<div class="tip" id="fs69">property Frame.Rows: RowSeries&lt;int,&#39;a&gt;</div>
+<div class="tip" id="fs70">val tf : &#39;a (requires member ( ?&lt;- ))<br /><br />Full name: Samples.tf</div>
+<div class="tip" id="fs71">val a : &#39;a (requires member ( ? ))<br /><br />Full name: Samples.a</div>
+<div class="tip" id="fs72">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.float<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; = float<br /><br />Full name: Microsoft.FSharp.Core.float&lt;_&gt;<br /><br />--------------------<br />type float = Double<br /><br />Full name: Microsoft.FSharp.Core.float</div>
+<div class="tip" id="fs73">Multiple items<br />val byte : value:&#39;T -&gt; byte (requires member op_Explicit)<br /><br />Full name: Microsoft.FSharp.Core.Operators.byte<br /><br />--------------------<br />type byte = Byte<br /><br />Full name: Microsoft.FSharp.Core.byte</div>
+<div class="tip" id="fs74">active recognizer Present: OptionalValue&lt;&#39;T&gt; -&gt; Choice&lt;unit,&#39;T&gt;<br /><br />Full name: FSharp.DataFrame.OptionalValue.( |Missing|Present| )</div>
+<div class="tip" id="fs75">val sub1 : Frame&lt;&#39;a,&#39;b&gt; (requires equality and equality)<br /><br />Full name: Samples.sub1</div>
+<div class="tip" id="fs76">val sub2 : Frame&lt;&#39;a,string&gt; (requires equality)<br /><br />Full name: Samples.sub2</div>
+<div class="tip" id="fs77">property Frame.RowsDense: RowSeries&lt;&#39;a,string&gt;</div>
+<div class="tip" id="fs78">member Series.Select : f:Func&lt;Collections.Generic.KeyValuePair&lt;&#39;K,&#39;V&gt;,&#39;R&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;</div>
+<div class="tip" id="fs79">val row : Collections.Generic.KeyValuePair&lt;&#39;a,ObjectSeries&lt;string&gt;&gt; (requires equality)</div>
+<div class="tip" id="fs80">property Collections.Generic.KeyValuePair.Value: ObjectSeries&lt;string&gt;</div>
+<div class="tip" id="fs81">val sum : series:Series&lt;&#39;a,&#39;b&gt; -&gt; &#39;b (requires equality and member ( + ) and member get_Zero)<br /><br />Full name: FSharp.DataFrame.Series.sum</div>
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/design.html">Design notes</a></li>
+            
+            <li class="nav-header">Using from F#</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#timeseries">Ordered time series</a></li>                
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#projections">Projection and filtering</a></li>                
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#grouping">Aggregating groups</a></li>                
+              </ul>
+            </li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#creating">Creating & loading</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#slicing">Advanced slicing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#grouping">Grouping data</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#joining">Advanced joining </a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Automatic alignment</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Windows and chunks</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Sampling & lookup</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Statistics</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/lazysource.html">Lazy data loading</a></li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/samples/volatility.html">Price volatility</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../content/style.css" />
+  <script src="../content/tips.js" type="text/javascript"></script>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    h2 {
+       font-size: 140%;
+    }
+    thead {
+       font-weight:bold;
+    }
+    .type-list .type-name, .module-list .module-name {
+       width:25%;
+       font-weight:bold;
+    }
+    .member-list .member-name {
+       width:35%;
+    }
+    #main table .xmldoc h2 {
+      font-size:120%;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+<h1>SeriesExtensions</h1>
+
+<div class="xmldoc">
+  
+</div>
+
+
+
+
+
+
+
+  <h2>Static members</h2>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Static members</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '357', 357)" onmouseover="showTip(event, '357', 357)">
+            SeriesExtensions.After(...)
+          </code>
+          <div class="tip" id="357">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * lowerExclusive:&#39;K) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '358', 358)" onmouseover="showTip(event, '358', 358)">
+            SeriesExtensions.Before(...)
+          </code>
+          <div class="tip" id="358">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * upperExclusive:&#39;K) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '359', 359)" onmouseover="showTip(event, '359', 359)">
+            SeriesExtensions.Between(...)
+          </code>
+          <div class="tip" id="359">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * lowerInclusive:&#39;K * upperInclusive:&#39;K) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '360', 360)" onmouseover="showTip(event, '360', 360)">
+            SeriesExtensions.CountKeys(series)
+          </code>
+          <div class="tip" id="360">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;T&gt; -&gt; int<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the total number of keys in the specified series. This returns
+the total length of the series, including keys for which there is no 
+value available.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '361', 361)" onmouseover="showTip(event, '361', 361)">
+            SeriesExtensions.CountValues(series)
+          </code>
+          <div class="tip" id="361">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;T&gt; -&gt; int<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the total number of values in the specified series. This excludes
+missing values or not available values (such as values created from <code>null</code>,
+<code>Double.NaN</code>, or those that are missing due to outer join etc.).</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '362', 362)" onmouseover="showTip(event, '362', 362)">
+            SeriesExtensions.Diff(series, offset)
+          </code>
+          <div class="tip" id="362">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,int&gt; * offset:int) -&gt; Series&lt;&#39;K,int&gt;<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '363', 363)" onmouseover="showTip(event, '363', 363)">
+            SeriesExtensions.Diff(series, offset)
+          </code>
+          <div class="tip" id="363">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,decimal&gt; * offset:int) -&gt; Series&lt;&#39;K,decimal&gt;<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '364', 364)" onmouseover="showTip(event, '364', 364)">
+            SeriesExtensions.Diff(series, offset)
+          </code>
+          <div class="tip" id="364">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,float32&gt; * offset:int) -&gt; Series&lt;&#39;K,float32&gt;<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '365', 365)" onmouseover="showTip(event, '365', 365)">
+            SeriesExtensions.Diff(series, offset)
+          </code>
+          <div class="tip" id="365">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * offset:int) -&gt; Series&lt;&#39;K,float&gt;<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '366', 366)" onmouseover="showTip(event, '366', 366)">
+            SeriesExtensions.EndAt(...)
+          </code>
+          <div class="tip" id="366">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * upperInclusive:&#39;K) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '367', 367)" onmouseover="showTip(event, '367', 367)">
+            SeriesExtensions.FillMissing(series, filler)
+          </code>
+          <div class="tip" id="367">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T&gt; * filler:Func&lt;&#39;K,&#39;T&gt;) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Fill missing values in the series using the specified function.</p>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>filler</code> - A <code>Func</code> delegate that calculates the filling value
+based on the key in the series.</li>
+</ul>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '368', 368)" onmouseover="showTip(event, '368', 368)">
+            SeriesExtensions.FillMissing(...)
+          </code>
+          <div class="tip" id="368">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T&gt; * direction:Direction) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Fill missing values in the series with the nearest available value
+(using the specified direction). The default direction is <code>Direction.Backward</code>.
+Note that the series may still contain missing values after call to this 
+function. This operation can only be used on ordered series.</p>
+
+<h2>Example</h2>
+
+<pre><code>let sample = Series.ofValues [ Double.NaN; 1.0; Double.NaN; 3.0 ]
+
+// Returns a series consisting of [1; 1; 3; 3]
+sample.FillMissing(Direction.Backward)
+
+// Returns a series consisting of [&lt;missing&gt;; 1; 1; 3]
+sample.FillMissing(Direction.Forward)
+</code></pre>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>direction</code> - Specifies the direction used when searching for 
+the nearest available value. <code>Backward</code> means that we want to
+look for the first value with a smaller key while <code>Forward</code> searches
+for the nearest greater key.</li>
+</ul>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '369', 369)" onmouseover="showTip(event, '369', 369)">
+            SeriesExtensions.FillMissing(series, value)
+          </code>
+          <div class="tip" id="369">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T&gt; * value:&#39;T) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '370', 370)" onmouseover="showTip(event, '370', 370)">
+            SeriesExtensions.FirstKey(series)
+          </code>
+          <div class="tip" id="370">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;V&gt; -&gt; &#39;K<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '371', 371)" onmouseover="showTip(event, '371', 371)">
+            SeriesExtensions.GetAllObservations(series)
+          </code>
+          <div class="tip" id="371">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;T&gt; -&gt; seq&lt;KeyValuePair&lt;&#39;K,OptionalValue&lt;&#39;T&gt;&gt;&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns all keys from the sequence, together with the associated (optional)
+values. The values are returned using the <code>OptionalValue&lt;T&gt;</code> struct which
+provides <code>HasValue</code> for testing if the value is available.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '372', 372)" onmouseover="showTip(event, '372', 372)">
+            SeriesExtensions.GetObservations(series)
+          </code>
+          <div class="tip" id="372">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;T&gt; -&gt; seq&lt;KeyValuePair&lt;&#39;K,&#39;T&gt;&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'T          </div>
+		    </td>
+        <td class="xmldoc"><p>Return observations with available values. The operation skips over 
+all keys with missing values (such as values created from <code>null</code>,
+<code>Double.NaN</code>, or those that are missing due to outer join etc.).</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '373', 373)" onmouseover="showTip(event, '373', 373)">
+            SeriesExtensions.GetSlice(...)
+          </code>
+          <div class="tip" id="373">
+            <strong>Signature:</strong>(series:Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt; * k1:&#39;K1 * lo2:&#39;K2 option * hi2:&#39;K2 option) -&gt; Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K1, 'K2, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '374', 374)" onmouseover="showTip(event, '374', 374)">
+            SeriesExtensions.GetSlice(...)
+          </code>
+          <div class="tip" id="374">
+            <strong>Signature:</strong>(series:Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt; * lo1:&#39;K1 option * hi1:&#39;K1 option * k2:&#39;K2) -&gt; Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K1, 'K2, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '375', 375)" onmouseover="showTip(event, '375', 375)">
+            SeriesExtensions.GetSlice(...)
+          </code>
+          <div class="tip" id="375">
+            <strong>Signature:</strong>(series:Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt; * lo1:&#39;K1 option * hi1:&#39;K1 option * lo2:&#39;K2 option * hi2:&#39;K2 option) -&gt; Series&lt;(&#39;K1 * &#39;K2),&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K1, 'K2, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '376', 376)" onmouseover="showTip(event, '376', 376)">
+            SeriesExtensions.LastKey(series)
+          </code>
+          <div class="tip" id="376">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,&#39;V&gt; -&gt; &#39;K<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '377', 377)" onmouseover="showTip(event, '377', 377)">
+            SeriesExtensions.Log(series)
+          </code>
+          <div class="tip" id="377">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '378', 378)" onmouseover="showTip(event, '378', 378)">
+            SeriesExtensions.Sample(series, interval)
+          </code>
+          <div class="tip" id="378">
+            <strong>Signature:</strong>(series:Series&lt;DateTimeOffset,&#39;V&gt; * interval:TimeSpan) -&gt; Series&lt;DateTimeOffset,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '379', 379)" onmouseover="showTip(event, '379', 379)">
+            SeriesExtensions.Sample(series, interval)
+          </code>
+          <div class="tip" id="379">
+            <strong>Signature:</strong>(series:Series&lt;DateTime,&#39;V&gt; * interval:TimeSpan) -&gt; Series&lt;DateTime,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '380', 380)" onmouseover="showTip(event, '380', 380)">
+            SeriesExtensions.Sample(...)
+          </code>
+          <div class="tip" id="380">
+            <strong>Signature:</strong>(series:Series&lt;DateTimeOffset,&#39;V&gt; * interval:TimeSpan * dir:Direction) -&gt; Series&lt;DateTimeOffset,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '381', 381)" onmouseover="showTip(event, '381', 381)">
+            SeriesExtensions.Sample(...)
+          </code>
+          <div class="tip" id="381">
+            <strong>Signature:</strong>(series:Series&lt;DateTime,&#39;V&gt; * interval:TimeSpan * dir:Direction) -&gt; Series&lt;DateTime,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '382', 382)" onmouseover="showTip(event, '382', 382)">
+            SeriesExtensions.SampleInto(...)
+          </code>
+          <div class="tip" id="382">
+            <strong>Signature:</strong>(series:Series&lt;DateTimeOffset,&#39;V&gt; * interval:TimeSpan * dir:Direction * func:Func&lt;DateTimeOffset,(Series&lt;DateTimeOffset,&#39;V&gt; -&gt; obj)&gt;) -&gt; Series&lt;DateTimeOffset,obj&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '383', 383)" onmouseover="showTip(event, '383', 383)">
+            SeriesExtensions.SampleInto(...)
+          </code>
+          <div class="tip" id="383">
+            <strong>Signature:</strong>(series:Series&lt;DateTime,&#39;V&gt; * interval:TimeSpan * dir:Direction * func:Func&lt;DateTime,(Series&lt;DateTime,&#39;V&gt; -&gt; obj)&gt;) -&gt; Series&lt;DateTime,obj&gt;<br />
+                          <strong>Type parameters:</strong> 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '384', 384)" onmouseover="showTip(event, '384', 384)">
+            SeriesExtensions.Shift(series, offset)
+          </code>
+          <div class="tip" id="384">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * offset:int) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '385', 385)" onmouseover="showTip(event, '385', 385)">
+            SeriesExtensions.StartAt(...)
+          </code>
+          <div class="tip" id="385">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * lowerInclusive:&#39;K) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '386', 386)" onmouseover="showTip(event, '386', 386)">
+            SeriesExtensions.Sum(series)
+          </code>
+          <div class="tip" id="386">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,decimal&gt; -&gt; decimal<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '387', 387)" onmouseover="showTip(event, '387', 387)">
+            SeriesExtensions.Sum(series)
+          </code>
+          <div class="tip" id="387">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,float32&gt; -&gt; float32<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '388', 388)" onmouseover="showTip(event, '388', 388)">
+            SeriesExtensions.Sum(series)
+          </code>
+          <div class="tip" id="388">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,int&gt; -&gt; int<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '389', 389)" onmouseover="showTip(event, '389', 389)">
+            SeriesExtensions.Sum(series)
+          </code>
+          <div class="tip" id="389">
+            <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; float<br />
+                          <strong>Type parameters:</strong> 'K          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '390', 390)" onmouseover="showTip(event, '390', 390)">
+            SeriesExtensions.Window(series, size)
+          </code>
+          <div class="tip" id="390">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * size:int) -&gt; Series&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '391', 391)" onmouseover="showTip(event, '391', 391)">
+            SeriesExtensions.WindowInto(...)
+          </code>
+          <div class="tip" id="391">
+            <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;V&gt; * size:int * reduce:Func&lt;Series&lt;&#39;K,&#39;V&gt;,&#39;U&gt;) -&gt; Series&lt;&#39;K,&#39;U&gt;<br />
+                          <strong>Type parameters:</strong> 'K, 'V, 'U          </div>
+		    </td>
+        <td class="xmldoc"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="../content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="../index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">SYNC ME!</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

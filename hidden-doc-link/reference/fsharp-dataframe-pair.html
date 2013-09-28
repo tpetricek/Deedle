@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../content/style.css" />
+  <script src="../content/tips.js" type="text/javascript"></script>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    h2 {
+       font-size: 140%;
+    }
+    thead {
+       font-weight:bold;
+    }
+    .type-list .type-name, .module-list .module-name {
+       width:25%;
+       font-weight:bold;
+    }
+    .member-list .member-name {
+       width:35%;
+    }
+    #main table .xmldoc h2 {
+      font-size:120%;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+<h1>Pair</h1>
+
+<div class="xmldoc">
+  <p>Module with helper functions for extracting values from hierarchical tuples</p>
+
+</div>
+
+  <h2>Functions and values</h2>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '81', 81)" onmouseover="showTip(event, '81', 81)">
+            get1Of2 (v, arg2)
+          </code>
+          <div class="tip" id="81">
+            <strong>Signature:</strong>(v:&#39;?6538 * &#39;?6539) -&gt; &#39;?6538<br />
+                          <strong>Type parameters:</strong> '?6538, '?6539          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the first value of a two-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '82', 82)" onmouseover="showTip(event, '82', 82)">
+            get2Of2 (arg1, v)
+          </code>
+          <div class="tip" id="82">
+            <strong>Signature:</strong>(&#39;?6541 * v:&#39;?6542) -&gt; &#39;?6542<br />
+                          <strong>Type parameters:</strong> '?6541, '?6542          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the second value of a two-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '83', 83)" onmouseover="showTip(event, '83', 83)">
+            get1Of3 (v, arg2, arg3)
+          </code>
+          <div class="tip" id="83">
+            <strong>Signature:</strong>(v:&#39;?6544 * &#39;?6545 * &#39;?6546) -&gt; &#39;?6544<br />
+                          <strong>Type parameters:</strong> '?6544, '?6545, '?6546          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the first value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '84', 84)" onmouseover="showTip(event, '84', 84)">
+            get2Of3 (arg1, v, arg3)
+          </code>
+          <div class="tip" id="84">
+            <strong>Signature:</strong>(&#39;?6548 * v:&#39;?6549 * &#39;?6550) -&gt; &#39;?6549<br />
+                          <strong>Type parameters:</strong> '?6548, '?6549, '?6550          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the second value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '85', 85)" onmouseover="showTip(event, '85', 85)">
+            get3Of3 (arg1, arg2, v)
+          </code>
+          <div class="tip" id="85">
+            <strong>Signature:</strong>(&#39;?6552 * &#39;?6553 * v:&#39;?6554) -&gt; &#39;?6554<br />
+                          <strong>Type parameters:</strong> '?6552, '?6553, '?6554          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the third value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '86', 86)" onmouseover="showTip(event, '86', 86)">
+            get1And2Of3 (v1, v2, arg3)
+          </code>
+          <div class="tip" id="86">
+            <strong>Signature:</strong>(v1:&#39;?6556 * v2:&#39;?6557 * &#39;?6558) -&gt; &#39;?6556 * &#39;?6557<br />
+                          <strong>Type parameters:</strong> '?6556, '?6557, '?6558          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the first and the second value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '87', 87)" onmouseover="showTip(event, '87', 87)">
+            get2And3Of3 (arg1, v1, v2)
+          </code>
+          <div class="tip" id="87">
+            <strong>Signature:</strong>(&#39;?6560 * v1:&#39;?6561 * v2:&#39;?6562) -&gt; &#39;?6561 * &#39;?6562<br />
+                          <strong>Type parameters:</strong> '?6560, '?6561, '?6562          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the second and the third value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '88', 88)" onmouseover="showTip(event, '88', 88)">
+            get1And3Of3 (v1, arg2, v2)
+          </code>
+          <div class="tip" id="88">
+            <strong>Signature:</strong>(v1:&#39;?6564 * &#39;?6565 * v2:&#39;?6566) -&gt; &#39;?6564 * &#39;?6566<br />
+                          <strong>Type parameters:</strong> '?6564, '?6565, '?6566          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the first and the third value of a three-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '89', 89)" onmouseover="showTip(event, '89', 89)">
+            get1Of4 (v, arg2, arg3, arg4)
+          </code>
+          <div class="tip" id="89">
+            <strong>Signature:</strong>(v:&#39;?6568 * &#39;?6569 * &#39;?6570 * &#39;?6571) -&gt; &#39;?6568<br />
+                          <strong>Type parameters:</strong> '?6568, '?6569, '?6570, '?6571          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the first value of a four-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '90', 90)" onmouseover="showTip(event, '90', 90)">
+            get2Of4 (arg1, v, arg3, arg4)
+          </code>
+          <div class="tip" id="90">
+            <strong>Signature:</strong>(&#39;?6573 * v:&#39;?6574 * &#39;?6575 * &#39;?6576) -&gt; &#39;?6574<br />
+                          <strong>Type parameters:</strong> '?6573, '?6574, '?6575, '?6576          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the second value of a four-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '91', 91)" onmouseover="showTip(event, '91', 91)">
+            get3Of4 (arg1, arg2, v, arg4)
+          </code>
+          <div class="tip" id="91">
+            <strong>Signature:</strong>(&#39;?6578 * &#39;?6579 * v:&#39;?6580 * &#39;?6581) -&gt; &#39;?6580<br />
+                          <strong>Type parameters:</strong> '?6578, '?6579, '?6580, '?6581          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the third value of a four-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '92', 92)" onmouseover="showTip(event, '92', 92)">
+            get4Of4 (arg1, arg2, arg3, v)
+          </code>
+          <div class="tip" id="92">
+            <strong>Signature:</strong>(&#39;?6583 * &#39;?6584 * &#39;?6585 * v:&#39;?6586) -&gt; &#39;?6586<br />
+                          <strong>Type parameters:</strong> '?6583, '?6584, '?6585, '?6586          </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the fourth value of a four-level hierarchical tuple</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '93', 93)" onmouseover="showTip(event, '93', 93)">
+            flatten3 (v1, arg2)
+          </code>
+          <div class="tip" id="93">
+            <strong>Signature:</strong>(v1:&#39;?6588 * (&#39;?6589 * &#39;?6590)) -&gt; &#39;?6588 * &#39;?6589 * &#39;?6590<br />
+                          <strong>Type parameters:</strong> '?6588, '?6589, '?6590          </div>
+		    </td>
+        <td class="xmldoc"><p>Flatten a two-level nested tuple into a flat tuple of 3 elements</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '94', 94)" onmouseover="showTip(event, '94', 94)">
+            flatten4 (v1, arg2)
+          </code>
+          <div class="tip" id="94">
+            <strong>Signature:</strong>(v1:&#39;?6592 * (&#39;?6593 * (&#39;?6594 * &#39;?6595))) -&gt; &#39;?6592 * &#39;?6593 * &#39;?6594 * &#39;?6595<br />
+                          <strong>Type parameters:</strong> '?6592, '?6593, '?6594, '?6595          </div>
+		    </td>
+        <td class="xmldoc"><p>Flatten a two-level nested tuple into a flat tuple of 4 elements</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="../content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="../index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">SYNC ME!</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

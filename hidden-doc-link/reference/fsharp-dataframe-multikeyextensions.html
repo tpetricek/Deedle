@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../content/style.css" />
+  <script src="../content/tips.js" type="text/javascript"></script>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    h2 {
+       font-size: 140%;
+    }
+    thead {
+       font-weight:bold;
+    }
+    .type-list .type-name, .module-list .module-name {
+       width:25%;
+       font-weight:bold;
+    }
+    .member-list .member-name {
+       width:35%;
+    }
+    #main table .xmldoc h2 {
+      font-size:120%;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+<h1>MultiKeyExtensions</h1>
+
+<div class="xmldoc">
+  <p>F#-friendly functions for creating multi-level keys and lookups</p>
+
+</div>
+
+  <h2>Functions and values</h2>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Function or value</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '102', 102)" onmouseover="showTip(event, '102', 102)">
+            Lookup1Of2 k
+          </code>
+          <div class="tip" id="102">
+            <strong>Signature:</strong>k:&#39;?6647 -&gt; ICustomLookup&lt;&#39;?6648&gt;<br />
+                          <strong>Type parameters:</strong> '?6647, '?6648          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+first element of a two-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '103', 103)" onmouseover="showTip(event, '103', 103)">
+            Lookup2Of2 k
+          </code>
+          <div class="tip" id="103">
+            <strong>Signature:</strong>k:&#39;?6650 -&gt; ICustomLookup&lt;&#39;?6651&gt;<br />
+                          <strong>Type parameters:</strong> '?6650, '?6651          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+second element of a two-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '104', 104)" onmouseover="showTip(event, '104', 104)">
+            LookupAnyOf2 k1 k2
+          </code>
+          <div class="tip" id="104">
+            <strong>Signature:</strong>k1:&#39;?6653 option -&gt; k2:&#39;?6654 option -&gt; ICustomLookup&lt;&#39;?6655&gt;<br />
+                          <strong>Type parameters:</strong> '?6653, '?6654, '?6655          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
+of a two-level hierarchical index. Specify <code>None</code> to ignore a level
+or <code>Some k</code> to require match on a given level.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '105', 105)" onmouseover="showTip(event, '105', 105)">
+            Lookup1Of3 k
+          </code>
+          <div class="tip" id="105">
+            <strong>Signature:</strong>k:&#39;?6657 -&gt; ICustomLookup&lt;&#39;?6658&gt;<br />
+                          <strong>Type parameters:</strong> '?6657, '?6658          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+first element of a three-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '106', 106)" onmouseover="showTip(event, '106', 106)">
+            Lookup2Of3 k
+          </code>
+          <div class="tip" id="106">
+            <strong>Signature:</strong>k:&#39;?6660 -&gt; ICustomLookup&lt;&#39;?6661&gt;<br />
+                          <strong>Type parameters:</strong> '?6660, '?6661          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+second element of a three-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '107', 107)" onmouseover="showTip(event, '107', 107)">
+            Lookup3Of3 k
+          </code>
+          <div class="tip" id="107">
+            <strong>Signature:</strong>k:&#39;?6663 -&gt; ICustomLookup&lt;&#39;?6664&gt;<br />
+                          <strong>Type parameters:</strong> '?6663, '?6664          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+third element of a three-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '108', 108)" onmouseover="showTip(event, '108', 108)">
+            LookupAnyOf3 k1 k2 k3
+          </code>
+          <div class="tip" id="108">
+            <strong>Signature:</strong>k1:&#39;?6666 option -&gt; k2:&#39;?6667 option -&gt; k3:&#39;?6668 option -&gt; ICustomLookup&lt;&#39;?6669&gt;<br />
+                          <strong>Type parameters:</strong> '?6666, '?6667, '?6668, '?6669          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
+of a three-level hierarchical index. Specify <code>None</code> to ignore a level
+or <code>Some k</code> to require match on a given level.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '109', 109)" onmouseover="showTip(event, '109', 109)">
+            Lookup1Of4 k
+          </code>
+          <div class="tip" id="109">
+            <strong>Signature:</strong>k:&#39;?6671 -&gt; ICustomLookup&lt;&#39;?6672&gt;<br />
+                          <strong>Type parameters:</strong> '?6671, '?6672          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+first element of a four-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '110', 110)" onmouseover="showTip(event, '110', 110)">
+            Lookup2Of4 k
+          </code>
+          <div class="tip" id="110">
+            <strong>Signature:</strong>k:&#39;?6674 -&gt; ICustomLookup&lt;&#39;?6675&gt;<br />
+                          <strong>Type parameters:</strong> '?6674, '?6675          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+second element of a four-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '111', 111)" onmouseover="showTip(event, '111', 111)">
+            Lookup3Of4 k
+          </code>
+          <div class="tip" id="111">
+            <strong>Signature:</strong>k:&#39;?6677 -&gt; ICustomLookup&lt;&#39;?6678&gt;<br />
+                          <strong>Type parameters:</strong> '?6677, '?6678          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+third element of a four-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '112', 112)" onmouseover="showTip(event, '112', 112)">
+            Lookup4Of4 k
+          </code>
+          <div class="tip" id="112">
+            <strong>Signature:</strong>k:&#39;?6680 -&gt; ICustomLookup&lt;&#39;?6681&gt;<br />
+                          <strong>Type parameters:</strong> '?6680, '?6681          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
+fourth element of a four-level hierarchical key.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '113', 113)" onmouseover="showTip(event, '113', 113)">
+            LookupAnyOf4 k1 k2 k3 k4
+          </code>
+          <div class="tip" id="113">
+            <strong>Signature:</strong>k1:&#39;?6683 option -&gt; k2:&#39;?6684 option -&gt; k3:&#39;?6685 option -&gt; k4:&#39;?6686 option -&gt; ICustomLookup&lt;&#39;?6687&gt;<br />
+                          <strong>Type parameters:</strong> '?6683, '?6684, '?6685, '?6686, '?6687          </div>
+		    </td>
+        <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
+of a four-level hierarchical index. Specify <code>None</code> to ignore a level
+or <code>Some k</code> to require match on a given level.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="../content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="../index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">SYNC ME!</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>

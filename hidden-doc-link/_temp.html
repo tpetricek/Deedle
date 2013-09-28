@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>_temp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The F# Data library implements type providers for working with structured file formats (CSV, JSON and XML) and for accessing the WorldBank and Freebase data. It also includes helpers for other data-related tasks.">
+    <meta name="author" content="Tomas Petricek">
+
+    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/style.css" />
+    <script src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/tips.js" type="text/javascript"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          <h2>Joining series</h2>
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l"> 1: </span>
+<span class="l"> 2: </span>
+<span class="l"> 3: </span>
+<span class="l"> 4: </span>
+<span class="l"> 5: </span>
+<span class="l"> 6: </span>
+<span class="l"> 7: </span>
+<span class="l"> 8: </span>
+<span class="l"> 9: </span>
+<span class="l">10: </span>
+<span class="l">11: </span>
+<span class="l">12: </span>
+<span class="l">13: </span>
+<span class="l">14: </span>
+<span class="l">15: </span>
+<span class="l">16: </span>
+<span class="l">17: </span>
+<span class="l">18: </span>
+<span class="l">19: </span>
+<span class="l">20: </span>
+<span class="l">21: </span>
+<span class="l">22: </span>
+<span class="l">23: </span>
+<span class="l">24: </span>
+<span class="l">25: </span>
+<span class="l">26: </span>
+<span class="l">27: </span>
+<span class="l">28: </span>
+<span class="l">29: </span>
+<span class="l">30: </span>
+<span class="l">31: </span>
+<span class="l">32: </span>
+<span class="l">33: </span>
+<span class="l">34: </span>
+<span class="l">35: </span>
+<span class="l">36: </span>
+<span class="l">37: </span>
+<span class="l">38: </span>
+<span class="l">39: </span>
+<span class="l">40: </span>
+<span class="l">41: </span>
+<span class="l">42: </span>
+<span class="l">43: </span>
+<span class="l">44: </span>
+<span class="l">45: </span>
+<span class="l">46: </span>
+<span class="l">47: </span>
+<span class="l">48: </span>
+<span class="l">49: </span>
+<span class="l">50: </span>
+<span class="l">51: </span>
+<span class="l">52: </span>
+<span class="l">53: </span>
+<span class="l">54: </span>
+<span class="l">55: </span>
+<span class="l">56: </span>
+<span class="l">57: </span>
+<span class="l">58: </span>
+<span class="l">59: </span>
+<span class="l">60: </span>
+<span class="l">61: </span>
+<span class="l">62: </span>
+<span class="l">63: </span>
+<span class="l">64: </span>
+<span class="l">65: </span>
+<span class="l">66: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="c">// sortBy : seq&lt;&#39;T&gt; -&gt; orderdSeq&lt;&#39;T&gt;</span>
+<span class="c">// thenBy : orderdSeq&lt;&#39;T&gt; -&gt; orderdSeq&lt;&#39;T&gt;</span>
+
+
+<span class="c">(*</span>
+<span class="c">query { for n in [ 1 .. 10 ] do</span>
+<span class="c">        let m = n + 1 </span>
+<span class="c">        sortBy n</span>
+<span class="c">        thenBy m</span>
+<span class="c">        select (string n) into g</span>
+<span class="c">        take 10</span>
+<span class="c">        where (n &gt; 4)</span>
+<span class="c">        select n }</span>
+<span class="c">// </span>
+<span class="c">frame { for r in frame do</span>
+<span class="c">        withIndex (r.GetAs&lt;string&gt;(&quot;Name&quot;))</span>
+<span class="c">        shift 1</span>
+<span class="c">        window 5 into win </span>
+<span class="c">        ... } </span>
+<span class="c">*)</span>
+
+
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">peopleCountries</span> <span class="o">=</span> 
+  <span class="i">df</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">string</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="i">list</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">Countries</span><span class="s">&quot;</span>)
+  <span class="o">|&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">map</span> (<span class="k">fun</span> <span class="i">k</span> <span class="i">countries</span> <span class="k">-&gt;</span> 
+      [ <span class="k">for</span> <span class="i">c</span>, <span class="i">k</span> <span class="k">in</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="i">countBy</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="i">id</span> <span class="i">countries</span> <span class="k">-&gt;</span> <span class="i">c</span>, <span class="i">k</span> ] <span class="o">|&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">ofObservations</span> )
+  <span class="o">|&gt;</span> <span class="i">Frame</span><span class="o">.</span><span class="i">ofRows</span>
+  <span class="o">|&gt;</span> <span class="i">Frame</span><span class="o">.</span><span class="i">withMissingVal</span> <span class="n">0</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="i">sums</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs1', 8)" onmouseover="showTip(event, 'fs1', 8)" class="i">peopleCountries</span> <span class="o">|&gt;</span> <span class="i">Frame</span><span class="o">.</span><span class="i">sum</span> 
+
+<span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="i">sums</span><span class="o">.</span><span class="i">Observations</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 10)" onmouseover="showTip(event, 'fs4', 10)" class="i">Seq</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="i">sortBy</span> (<span class="k">fun</span> (<span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="i">c</span>, <span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="i">v</span>) <span class="k">-&gt;</span> <span class="o">-</span><span onmouseout="hideTip(event, 'fs10', 14)" onmouseover="showTip(event, 'fs10', 14)" class="i">v</span>)
+<span class="o">|&gt;</span> <span class="i">Chart</span><span class="o">.</span><span class="i">Column</span>
+
+
+<span class="c">(* More options when working with records *)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="i">recdSeries</span> <span class="o">=</span> 
+  <span class="i">Series</span><span class="o">.</span><span class="i">ofValues</span> [ <span class="s">&quot;</span><span class="s">Tomas</span><span class="s">&quot;</span>; <span class="k">null</span>; <span class="s">&quot;</span><span class="s">Joe</span><span class="s">&quot;</span>; <span class="s">&quot;</span><span class="s">Eve</span><span class="s">&quot;</span> ]
+  <span class="o">|&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">map</span> (<span class="k">fun</span> _ <span class="i">v</span> <span class="k">-&gt;</span> { <span class="i">Name</span> <span class="o">=</span> <span class="i">v</span>; <span class="i">Age</span> <span class="o">=</span> <span class="o">-</span><span class="n">1</span>; <span class="i">Countries</span> <span class="o">=</span> [] })
+
+<span class="c">// Missing values are preserved at the right index..</span>
+<span class="i">Frame</span><span class="o">.</span><span class="i">ofRecords</span> <span onmouseout="hideTip(event, 'fs11', 16)" onmouseover="showTip(event, 'fs11', 16)" class="i">recdSeries</span>
+
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 17)" onmouseover="showTip(event, 'fs12', 17)" class="i">dfPeople</span> <span class="o">=</span> <span class="i">Frame</span><span class="o">.</span><span class="i">ofRecords</span> <span class="i">people</span> 
+<span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="i">dfPeople</span><span class="o">?</span><span class="i">CountryCount</span> <span class="o">&lt;-</span> <span onmouseout="hideTip(event, 'fs13', 19)" onmouseover="showTip(event, 'fs13', 19)" class="i">List</span><span class="o">.</span><span onmouseout="hideTip(event, 'fs14', 20)" onmouseover="showTip(event, 'fs14', 20)" class="i">length</span> <span class="o">$</span> <span onmouseout="hideTip(event, 'fs12', 21)" onmouseover="showTip(event, 'fs12', 21)" class="i">dfPeople</span><span class="o">.</span><span class="i">GetSeries</span><span class="o">&lt;</span><span onmouseout="hideTip(event, 'fs2', 22)" onmouseover="showTip(event, 'fs2', 22)" class="i">string</span> <span onmouseout="hideTip(event, 'fs3', 23)" onmouseover="showTip(event, 'fs3', 23)" class="i">list</span><span class="o">&gt;</span>(<span class="s">&quot;</span><span class="s">Countries</span><span class="s">&quot;</span>)
+<span onmouseout="hideTip(event, 'fs12', 24)" onmouseover="showTip(event, 'fs12', 24)" class="i">dfPeople</span> <span class="o">|&gt;</span> <span class="i">Frame</span><span class="o">.</span><span class="i">groupRowsBy</span>
+
+
+
+
+
+
+<span class="c">(* TEST *)</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="i">f1</span> <span class="o">=</span> <span class="i">Frame</span><span class="o">.</span><span class="i">ofRows</span> [ <span class="n">1</span> <span class="o">=&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">ofObservations</span> [ <span class="s">&quot;</span><span class="s">A</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span class="n">1</span>; <span class="s">&quot;</span><span class="s">B</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span class="n">2</span> ] ]
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 26)" onmouseover="showTip(event, 'fs16', 26)" class="i">f2</span> <span class="o">=</span> <span class="i">Frame</span><span class="o">.</span><span class="i">ofRows</span> [ <span class="n">2</span> <span class="o">=&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">ofObservations</span> [ <span class="s">&quot;</span><span class="s">C</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span class="n">3</span> ] 
+                        <span class="n">3</span> <span class="o">=&gt;</span> <span class="i">Series</span><span class="o">.</span><span class="i">ofObservations</span> [ <span class="s">&quot;</span><span class="s">C</span><span class="s">&quot;</span> <span class="o">=&gt;</span> <span class="n">4</span> ]  ]
+<span onmouseout="hideTip(event, 'fs15', 27)" onmouseover="showTip(event, 'fs15', 27)" class="i">f1</span><span class="o">.</span><span class="i">Append</span>(<span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="i">f2</span>)
+
+
+<span class="o">*</span>)</pre>
+</td>
+</tr>
+</table>
+          <div class="tip" id="fs1">val peopleCountries : obj<br /><br />Full name: _temp.peopleCountries</div>
+<div class="tip" id="fs2">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
+<div class="tip" id="fs3">type &#39;T list = List&lt;&#39;T&gt;<br /><br />Full name: Microsoft.FSharp.Collections.list&lt;_&gt;</div>
+<div class="tip" id="fs4">module Seq<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="tip" id="fs5">val countBy : projection:(&#39;T -&gt; &#39;Key) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;Key * int&gt; (requires equality)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.countBy</div>
+<div class="tip" id="fs6">val id : x:&#39;T -&gt; &#39;T<br /><br />Full name: Microsoft.FSharp.Core.Operators.id</div>
+<div class="tip" id="fs7">val sums : obj<br /><br />Full name: _temp.sums</div>
+<div class="tip" id="fs8">val sortBy : projection:(&#39;T -&gt; &#39;Key) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Collections.Seq.sortBy</div>
+<div class="tip" id="fs9">val c : obj</div>
+<div class="tip" id="fs10">val v : int</div>
+<div class="tip" id="fs11">val recdSeries : obj<br /><br />Full name: _temp.recdSeries</div>
+<div class="tip" id="fs12">val dfPeople : obj<br /><br />Full name: _temp.dfPeople</div>
+<div class="tip" id="fs13">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of &#39;T * &#39;T list<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;member Head : &#39;T<br />&#160;&#160;member IsEmpty : bool<br />&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;member Length : int<br />&#160;&#160;member Tail : &#39;T list<br />&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;static member Empty : &#39;T list<br /><br />Full name: Microsoft.FSharp.Collections.List&lt;_&gt;</div>
+<div class="tip" id="fs14">val length : list:&#39;T list -&gt; int<br /><br />Full name: Microsoft.FSharp.Collections.List.length</div>
+<div class="tip" id="fs15">val f1 : obj<br /><br />Full name: _temp.f1</div>
+<div class="tip" id="fs16">val f2 : obj<br /><br />Full name: _temp.f2</div>
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/design.html">Design notes</a></li>
+            
+            <li class="nav-header">Using from F#</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#timeseries">Ordered time series</a></li>                
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#projections">Projection and filtering</a></li>                
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#grouping">Aggregating groups</a></li>                
+              </ul>
+            </li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#creating">Creating & loading</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#slicing">Advanced slicing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#grouping">Grouping data</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#joining">Advanced joining </a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Automatic alignment</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Windows and chunks</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Sampling & lookup</a></li>
+                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Statistics</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/lazysource.html">Lazy data loading</a></li>
+            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/samples/volatility.html">Price volatility</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+  </body>
+  </html>

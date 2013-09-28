@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
+  <script src="http://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="../content/style.css" />
+  <script src="../content/tips.js" type="text/javascript"></script>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    h2 {
+       font-size: 140%;
+    }
+    thead {
+       font-weight:bold;
+    }
+    .type-list .type-name, .module-list .module-name {
+       width:25%;
+       font-weight:bold;
+    }
+    .member-list .member-name {
+       width:35%;
+    }
+    #main table .xmldoc h2 {
+      font-size:120%;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://github.com/BlueMountainCapital/FSharp.DataFrame">github page</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Charting/">F# Charting</a></li>
+          <li><a href="http://fsharp.github.io/FSharp.Data/">F# Data</a></li>
+        </ul>
+        <h3 class="muted">F# DataFrame Library</h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+
+<h1>IIndex</h1>
+
+<div class="xmldoc">
+  <p>An interface that represents index mapping keys of some generic type <code>T</code> to locations
+of address <code>Address</code>. The <code>IIndex&lt;K&gt;</code> contains minimal set of operations that have to
+be supported by an index. This type should be only used directly when
+extending the DataFrame library and adding a new way of storing or loading data.
+Values of this type are constructed using the associated <code>IIndexBuilder</code> type.</p>
+
+</div>
+
+
+
+
+  <h2>Instance members</h2>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Instance members</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '527', 527)" onmouseover="showTip(event, '527', 527)">
+            iIndex.Lookup(key, lookup, condition)
+          </code>
+          <div class="tip" id="527">
+            <strong>Signature:</strong>(key:&#39;K * lookup:Lookup * condition:(Address -&gt; bool)) -&gt; OptionalValue&lt;&#39;K * Address&gt;<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Find the address associated with the specified key, or with the nearest
+key as specifeid by the <code>lookup</code> argument. The <code>condition</code> function is called
+when searching for keys to ask the caller whether the address should be returned
+(or whether to continue searching). This is used when searching for previous element
+in a series (where we need to check if a value at the address is available)</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '528', 528)" onmouseover="showTip(event, '528', 528)">
+            iIndex.Builder
+          </code>
+          <div class="tip" id="528">
+            <strong>Signature:</strong>IIndexBuilder<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns an index builder that canbe used for constructing new indices of the
+same kind as the current index (e.g. a lazy index returns a lazy index builder)</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '529', 529)" onmouseover="showTip(event, '529', 529)">
+            iIndex.Comparer
+          </code>
+          <div class="tip" id="529">
+            <strong>Signature:</strong>Comparer&lt;&#39;K&gt;<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns a comparer associated with the values used by the current index.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '530', 530)" onmouseover="showTip(event, '530', 530)">
+            iIndex.KeyRange
+          </code>
+          <div class="tip" id="530">
+            <strong>Signature:</strong>&#39;K * &#39;K<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the minimal and maximal key associated with the index.
+(the operation may fail for unordered indices)</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '531', 531)" onmouseover="showTip(event, '531', 531)">
+            iIndex.Keys
+          </code>
+          <div class="tip" id="531">
+            <strong>Signature:</strong>seq&lt;&#39;K&gt;<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns a sequence of all keys in the index.</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '532', 532)" onmouseover="showTip(event, '532', 532)">
+            iIndex.Mappings
+          </code>
+          <div class="tip" id="532">
+            <strong>Signature:</strong>seq&lt;&#39;K * Address&gt;<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns all key-address mappings in the index</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '533', 533)" onmouseover="showTip(event, '533', 533)">
+            iIndex.Ordered
+          </code>
+          <div class="tip" id="533">
+            <strong>Signature:</strong>bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns <code>true</code> if the index is ordered and <code>false</code> otherwise</p>
+</td>
+      </tr>
+      <tr>
+		    <td class="member-name">
+
+          <code onmouseout="hideTip(event, '534', 534)" onmouseover="showTip(event, '534', 534)">
+            iIndex.Range
+          </code>
+          <div class="tip" id="534">
+            <strong>Signature:</strong>Address * Address<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+		    </td>
+        <td class="xmldoc"><p>Returns the minimal and maximal address used in the index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
+        </div>
+        <div class="span3">
+          <a href="https://nuget.org/packages/FSharp.DataFrame">
+            <img src="../content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+            <li class="nav-header">F# DataFrame</li>
+            <li><a href="../index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
+            <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
+            
+            <li class="nav-header">SYNC ME!</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/BlueMountainCapital/FSharp.DataFrame"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+</body>
+</html>
