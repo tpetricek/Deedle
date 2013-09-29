@@ -13,8 +13,8 @@
     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
-    <link type="text/css" rel="stylesheet" href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/style.css" />
-    <script src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/tips.js" type="text/javascript"></script>
+    <link type="text/css" rel="stylesheet" href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/content/style.css" />
+    <script src="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/content/tips.js" type="text/javascript"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -162,11 +162,11 @@ redistribution for both commercial and non-commercial purposes. For more informa
 
           <div class="tip" id="fs1">val grouped : Series&lt;string,Frame&lt;int,string&gt;&gt;<br /><br />Full name: Index.grouped</div>
 <div class="tip" id="fs2">val titanic : Frame&lt;int,string&gt;<br /><br />Full name: Index.titanic<br /><em><br /><br />&#160;Titanic data set loaded from a CSV file</em></div>
-<div class="tip" id="fs3">Multiple items<br />module Frame<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Frame&lt;&#39;TRowKey,&#39;TColumnKey (requires equality and equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;private new : rowIndex:IIndex&lt;&#39;TRowKey&gt; * columnIndex:IIndex&lt;&#39;TColumnKey&gt; * data:IVector&lt;IVector&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:Series&lt;&#39;TRowKey,&#39;a2&gt; -&gt; unit<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:seq&lt;&#39;a2&gt; -&gt; unit<br />&#160;&#160;member Append : otherFrame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member Clone : unit -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member DropSeries : column:&#39;TColumnKey -&gt; unit<br />&#160;&#160;member GetColumns : unit -&gt; Series&lt;&#39;TColumnKey,Series&lt;&#39;TRowKey,&#39;R&gt;&gt;<br />&#160;&#160;member GetRow : row:&#39;TRowKey -&gt; Series&lt;&#39;TColumnKey,&#39;R&gt;<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Frame&lt;_,_&gt;<br /><br />--------------------<br />type Frame =<br />&#160;&#160;static member FromColumns : cols:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromColumns : keys:seq&lt;&#39;RowKey&gt; * columns:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromRowKeys : keys:seq&lt;&#39;K&gt; -&gt; Frame&lt;&#39;K,string&gt; (requires equality)<br />&#160;&#160;static member FromRows : rows:seq&lt;Series&lt;&#39;ColKey,&#39;V&gt;&gt; -&gt; Frame&lt;int,&#39;ColKey&gt; (requires equality)<br />&#160;&#160;static member ReadCsv : location:string * skipTypeInference:bool * inferRows:int * schema:string * separators:string * culture:string -&gt; Frame&lt;int,string&gt;<br /><br />Full name: FSharp.DataFrame.Frame<br /><br />--------------------<br />new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;</div>
+<div class="tip" id="fs3">Multiple items<br />module Frame<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Frame =<br />&#160;&#160;static member FromColumns : cols:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromColumns : keys:seq&lt;&#39;RowKey&gt; * columns:seq&lt;KeyValuePair&lt;&#39;ColKey,Series&lt;&#39;RowKey,&#39;V&gt;&gt;&gt; -&gt; Frame&lt;&#39;RowKey,&#39;ColKey&gt; (requires equality and equality)<br />&#160;&#160;static member FromRowKeys : keys:seq&lt;&#39;K&gt; -&gt; Frame&lt;&#39;K,string&gt; (requires equality)<br />&#160;&#160;static member FromRows : rows:seq&lt;Series&lt;&#39;ColKey,&#39;V&gt;&gt; -&gt; Frame&lt;int,&#39;ColKey&gt; (requires equality)<br />&#160;&#160;static member ReadCsv : location:string * skipTypeInference:bool * inferRows:int * schema:string * separators:string * culture:string -&gt; Frame&lt;int,string&gt;<br /><br />Full name: FSharp.DataFrame.Frame<br /><br />--------------------<br />type Frame&lt;&#39;TRowKey,&#39;TColumnKey (requires equality and equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;private new : rowIndex:IIndex&lt;&#39;TRowKey&gt; * columnIndex:IIndex&lt;&#39;TColumnKey&gt; * data:IVector&lt;IVector&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:Series&lt;&#39;TRowKey,&#39;a2&gt; -&gt; unit<br />&#160;&#160;member AddSeries : column:&#39;TColumnKey * series:seq&lt;&#39;a2&gt; -&gt; unit<br />&#160;&#160;member Append : otherFrame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member Clone : unit -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />&#160;&#160;member DropSeries : column:&#39;TColumnKey -&gt; unit<br />&#160;&#160;member GetColumns : unit -&gt; Series&lt;&#39;TColumnKey,Series&lt;&#39;TRowKey,&#39;R&gt;&gt;<br />&#160;&#160;member GetRow : row:&#39;TRowKey -&gt; Series&lt;&#39;TColumnKey,&#39;R&gt;<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Frame&lt;_,_&gt;<br /><br />--------------------<br />new : names:seq&lt;&#39;TColumnKey&gt; * columns:seq&lt;ISeries&lt;&#39;TRowKey&gt;&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;</div>
 <div class="tip" id="fs4">val groupRowsByString : column:&#39;a -&gt; frame:Frame&lt;&#39;b,&#39;a&gt; -&gt; Frame&lt;(string * &#39;b),&#39;a&gt; (requires equality and equality)<br /><br />Full name: FSharp.DataFrame.Frame.groupRowsByString</div>
 <div class="tip" id="fs5">val unstack : frame:Frame&lt;(&#39;R1 * &#39;R2),&#39;C&gt; -&gt; Series&lt;&#39;R1,Frame&lt;&#39;R2,&#39;C&gt;&gt; (requires equality and equality and equality)<br /><br />Full name: FSharp.DataFrame.Frame.unstack</div>
 <div class="tip" id="fs6">val bySex : Frame&lt;string,string&gt;<br /><br />Full name: Index.bySex</div>
-<div class="tip" id="fs7">Multiple items<br />module Series<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Series&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;interface ISeries&lt;&#39;K&gt;<br />&#160;&#160;new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member DropMissing : unit -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;override Equals : another:obj -&gt; bool<br />&#160;&#160;member Get : key:&#39;K -&gt; &#39;V<br />&#160;&#160;member Get : key:&#39;K * lookup:Lookup -&gt; &#39;V<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Series&lt;_,_&gt;<br /><br />--------------------<br />type Series =<br />&#160;&#160;static member ofNullables : values:seq&lt;Nullable&lt;&#39;a0&gt;&gt; -&gt; Series&lt;int,&#39;a0&gt; (requires default constructor and value type and &#39;a0 :&gt; ValueType)<br />&#160;&#160;static member ofObservations : observations:seq&lt;&#39;a0 * &#39;a1&gt; -&gt; Series&lt;&#39;a0,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;<br /><br />Full name: FSharp.DataFrame.FSharpSeriesExtensions.Series<br /><br />--------------------<br />new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : index:Indices.IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:Vectors.IVectorBuilder * indexBuilder:Indices.IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;</div>
+<div class="tip" id="fs7">Multiple items<br />module Series<br /><br />from FSharp.DataFrame<br /><br />--------------------<br />type Series =<br />&#160;&#160;static member ofNullables : values:seq&lt;Nullable&lt;&#39;a0&gt;&gt; -&gt; Series&lt;int,&#39;a0&gt; (requires default constructor and value type and &#39;a0 :&gt; ValueType)<br />&#160;&#160;static member ofObservations : observations:seq&lt;&#39;a0 * &#39;a1&gt; -&gt; Series&lt;&#39;a0,&#39;a1&gt; (requires equality)<br />&#160;&#160;static member ofValues : values:seq&lt;&#39;a0&gt; -&gt; Series&lt;int,&#39;a0&gt;<br /><br />Full name: FSharp.DataFrame.FSharpSeriesExtensions.Series<br /><br />--------------------<br />type Series&lt;&#39;K,&#39;V (requires equality)&gt; =<br />&#160;&#160;interface IFsiFormattable<br />&#160;&#160;interface ISeries&lt;&#39;K&gt;<br />&#160;&#160;new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;new : index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;<br />&#160;&#160;member Aggregate : aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; -&gt; Series&lt;&#39;TNewKey,&#39;R&gt; (requires equality)<br />&#160;&#160;member DropMissing : unit -&gt; Series&lt;&#39;K,&#39;V&gt;<br />&#160;&#160;override Equals : another:obj -&gt; bool<br />&#160;&#160;member Get : key:&#39;K -&gt; &#39;V<br />&#160;&#160;member Get : key:&#39;K * lookup:Lookup -&gt; &#39;V<br />&#160;&#160;...<br /><br />Full name: FSharp.DataFrame.Series&lt;_,_&gt;<br /><br />--------------------<br />new : keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />new : index:Indices.IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:Vectors.IVectorBuilder * indexBuilder:Indices.IIndexBuilder -&gt; Series&lt;&#39;K,&#39;V&gt;</div>
 <div class="tip" id="fs8">val map : f:(&#39;K -&gt; &#39;T -&gt; &#39;R) -&gt; series:Series&lt;&#39;K,&#39;T&gt; -&gt; Series&lt;&#39;K,&#39;R&gt; (requires equality)<br /><br />Full name: FSharp.DataFrame.Series.map</div>
 <div class="tip" id="fs9">val sex : string</div>
 <div class="tip" id="fs10">val df : Frame&lt;int,string&gt;</div>
@@ -184,55 +184,55 @@ redistribution for both commercial and non-commercial purposes. For more informa
         </div>
         <div class="span3">
           <a href="https://nuget.org/packages/FSharp.DataFrame">
-            <img src="file://C:\Tomas\Projects\FSharp.DataFrame\docs/content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+            <img src="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/content/images/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
           </a>
 
           <ul class="nav nav-list" id="menu">
             <li class="nav-header">F# DataFrame</li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/index.html">Home page</a></li>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/index.html">Home page</a></li>
             <li class="divider"></li>
             <li><a href="https://nuget.org/packages/FSharp.DataFrame">Get Library via NuGet</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/design.html">Design notes</a></li>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/design.html">Design notes</a></li>
             
             <li class="nav-header">Using from F#</li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html">Quick start tutorial</a>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html">Quick start tutorial</a>
               <ul class="nav nav-list">
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#creating">Creating data frames</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#reindexing-and-joins">Using index & joining</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#selecting">Reading values, slicing</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#timeseries">Ordered time series</a></li>                
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#projections">Projection and filtering</a></li>                
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/tutorial.html#grouping">Aggregating groups</a></li>                
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#timeseries">Ordered time series</a></li>                
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#projections">Projection and filtering</a></li>                
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/tutorial.html#grouping">Aggregating groups</a></li>                
               </ul>
             </li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html">Data frame features</a>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html">Data frame features</a>
               <ul class="nav nav-list">
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#creating">Creating & loading</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#slicing">Advanced slicing</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#grouping">Grouping data</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#indexing">Hierarchical indexing</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#joining">Advanced joining </a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/features.html#missing">Missing values</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#creating">Creating & loading</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#slicing">Advanced slicing</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#grouping">Grouping data</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#joining">Advanced joining </a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/features.html#missing">Missing values</a></li>
               </ul>
             </li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html">Time series features</a>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/timeseries.html">Time series features</a>
               <ul class="nav nav-list">
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Automatic alignment</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Windows and chunks</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Sampling & lookup</a></li>
-                <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/timeseries.html#">Statistics</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/timeseries.html#">Automatic alignment</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/timeseries.html#">Windows and chunks</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/timeseries.html#">Sampling & lookup</a></li>
+                <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/timeseries.html#">Statistics</a></li>
               </ul>
             </li>
 
             <li class="nav-header">Documentation</li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/reference/index.html">API Reference</a></li>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/reference/index.html">API Reference</a></li>
 
             <li class="nav-header">Samples</li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/lazysource.html">Lazy data loading</a></li>
-            <li><a href="file://C:\Tomas\Projects\FSharp.DataFrame\docs/samples/volatility.html">Price volatility</a></li>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/lazysource.html">Lazy data loading</a></li>
+            <li><a href="http://tpetricek.github.io/FSharp.DataFrame/hidden-doc-link/samples/volatility.html">Price volatility</a></li>
           </ul>
 
         </div>
