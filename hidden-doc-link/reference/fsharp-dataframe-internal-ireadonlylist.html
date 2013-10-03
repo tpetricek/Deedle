@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,135 +55,127 @@
         <div class="span9" id="main">
           
 
-<h1>IReadOnlyList</h1>
 
+
+<h1>IReadOnlyList</h1>
 <div class="xmldoc">
-  <p>Provides helper functions for working with <code>IReadOnlyList&lt;T&gt;</code> similar to those 
+<p>Provides helper functions for working with <code>IReadOnlyList&lt;T&gt;</code> similar to those 
 in the <code>Array</code> module. Most importantly, F# 3.0 does not know that array implements
 <code>IReadOnlyList&lt;T&gt;</code>, so the <code>ofArray</code> function performs boxing &amp; unboxing to convert.</p>
-
 </div>
-
-  <h2>Functions and values</h2>
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '220', 220)" onmouseover="showTip(event, '220', 220)">
+          <code onmouseout="hideTip(event, '810', 810)" onmouseover="showTip(event, '810', 810)">
             ofArray array
           </code>
-          <div class="tip" id="220">
+          <div class="tip" id="810">
             <strong>Signature:</strong>array:&#39;T [] -&gt; IReadOnlyList&lt;&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Converts an array to IReadOnlyList. In F# 3.0, the language does not
 know that array implements IReadOnlyList, so this is just boxing/unboxing.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '221', 221)" onmouseover="showTip(event, '221', 221)">
+          <code onmouseout="hideTip(event, '811', 811)" onmouseover="showTip(event, '811', 811)">
             ofSeq array
           </code>
-          <div class="tip" id="221">
+          <div class="tip" id="811">
             <strong>Signature:</strong>array:seq&lt;&#39;T&gt; -&gt; IReadOnlyList&lt;&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Converts a lazy sequence to fully evaluated IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '222', 222)" onmouseover="showTip(event, '222', 222)">
+          <code onmouseout="hideTip(event, '812', 812)" onmouseover="showTip(event, '812', 812)">
             sum list
           </code>
-          <div class="tip" id="222">
-            <strong>Signature:</strong>list:IReadOnlyList&lt;^T&gt; -&gt; ^?6731<br />
-                          <strong>Type parameters:</strong> ^T, ^?6731          </div>
-		    </td>
+          <div class="tip" id="812">
+            <strong>Signature:</strong>list:IReadOnlyList&lt;^T&gt; -&gt; ^?6847<br />
+                          <strong>Type parameters:</strong> ^T, ^?6847          </div>
+        </td>
         <td class="xmldoc"><p>Sum elements of the IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '223', 223)" onmouseover="showTip(event, '223', 223)">
+          <code onmouseout="hideTip(event, '813', 813)" onmouseover="showTip(event, '813', 813)">
             length list
           </code>
-          <div class="tip" id="223">
+          <div class="tip" id="813">
             <strong>Signature:</strong>list:IReadOnlyList&lt;&#39;T&gt; -&gt; int<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Count elements of the IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '224', 224)" onmouseover="showTip(event, '224', 224)">
+          <code onmouseout="hideTip(event, '814', 814)" onmouseover="showTip(event, '814', 814)">
             average list
           </code>
-          <div class="tip" id="224">
-            <strong>Signature:</strong>list:IReadOnlyList&lt;^T&gt; -&gt; ^?6736<br />
-                          <strong>Type parameters:</strong> ^T, ^?6736          </div>
-		    </td>
+          <div class="tip" id="814">
+            <strong>Signature:</strong>list:IReadOnlyList&lt;^T&gt; -&gt; ^?6852<br />
+                          <strong>Type parameters:</strong> ^T, ^?6852          </div>
+        </td>
         <td class="xmldoc"><p>Sum elements of the IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '225', 225)" onmouseover="showTip(event, '225', 225)">
+          <code onmouseout="hideTip(event, '815', 815)" onmouseover="showTip(event, '815', 815)">
             sumOptional list
           </code>
-          <div class="tip" id="225">
-            <strong>Signature:</strong>list:IReadOnlyList&lt;OptionalValue&lt;^T&gt;&gt; -&gt; ^?6739<br />
-                          <strong>Type parameters:</strong> ^T, ^?6739          </div>
-		    </td>
+          <div class="tip" id="815">
+            <strong>Signature:</strong>list:IReadOnlyList&lt;OptionalValue&lt;^T&gt;&gt; -&gt; ^?6855<br />
+                          <strong>Type parameters:</strong> ^T, ^?6855          </div>
+        </td>
         <td class="xmldoc"><p>Sum elements of the IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '226', 226)" onmouseover="showTip(event, '226', 226)">
+          <code onmouseout="hideTip(event, '816', 816)" onmouseover="showTip(event, '816', 816)">
             averageOptional list
           </code>
-          <div class="tip" id="226">
-            <strong>Signature:</strong>list:IReadOnlyList&lt;OptionalValue&lt;^T&gt;&gt; -&gt; ^?6742<br />
-                          <strong>Type parameters:</strong> ^T, ^?6742          </div>
-		    </td>
+          <div class="tip" id="816">
+            <strong>Signature:</strong>list:IReadOnlyList&lt;OptionalValue&lt;^T&gt;&gt; -&gt; ^?6858<br />
+                          <strong>Type parameters:</strong> ^T, ^?6858          </div>
+        </td>
         <td class="xmldoc"><p>Sum elements of the IReadOnlyList</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '227', 227)" onmouseover="showTip(event, '227', 227)">
+          <code onmouseout="hideTip(event, '817', 817)" onmouseover="showTip(event, '817', 817)">
             lengthOptional list
           </code>
-          <div class="tip" id="227">
+          <div class="tip" id="817">
             <strong>Signature:</strong>list:IReadOnlyList&lt;OptionalValue&lt;&#39;T&gt;&gt; -&gt; int<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Count elements of the IReadOnlyList that are not missing</p>
 </td>
       </tr>
     </tbody>
   </table>
-
-
-
-
-
-
-
 
         </div>
         <div class="span3">
@@ -193,8 +191,48 @@ know that array implements IReadOnlyList, so this is just boxing/unboxing.</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

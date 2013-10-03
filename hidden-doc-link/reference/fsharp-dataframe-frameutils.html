@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -59,93 +65,90 @@
 
 
 
-
-
-  <h2>Static members</h2>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Static members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '470', 470)" onmouseover="showTip(event, '470', 470)">
+          <code onmouseout="hideTip(event, '1073', 1073)" onmouseover="showTip(event, '1073', 1073)">
             FrameUtils.createColumn(column, series)
           </code>
-          <div class="tip" id="470">
+          <div class="tip" id="1073">
             <strong>Signature:</strong>(column:&#39;TColumnKey * series:ISeries&lt;&#39;TRowKey&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TColumnKey, 'TRowKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Create data frame containing a single column</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '471', 471)" onmouseover="showTip(event, '471', 471)">
+          <code onmouseout="hideTip(event, '1074', 1074)" onmouseover="showTip(event, '1074', 1074)">
             FrameUtils.createRow(row, series)
           </code>
-          <div class="tip" id="471">
+          <div class="tip" id="1074">
             <strong>Signature:</strong>(row:&#39;TRowKey * series:Series&lt;&#39;TColumnKey,&#39;TValue&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, 'TValue          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Create data frame containing a single row</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '472', 472)" onmouseover="showTip(event, '472', 472)">
+          <code onmouseout="hideTip(event, '1075', 1075)" onmouseover="showTip(event, '1075', 1075)">
             FrameUtils.fromColumns(nested)
           </code>
-          <div class="tip" id="472">
+          <div class="tip" id="1075">
             <strong>Signature:</strong>nested:Series&lt;&#39;TColumnKey,&#39;TSeries&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, 'TSeries          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Create data frame from a series of columns</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '473', 473)" onmouseover="showTip(event, '473', 473)">
+          <code onmouseout="hideTip(event, '1076', 1076)" onmouseover="showTip(event, '1076', 1076)">
             FrameUtils.fromRows(nested)
           </code>
-          <div class="tip" id="473">
+          <div class="tip" id="1076">
             <strong>Signature:</strong>nested:Series&lt;&#39;TRowKey,&#39;TSeries&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, 'TSeries          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Create data frame from a series of rows</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '474', 474)" onmouseover="showTip(event, '474', 474)">
+          <code onmouseout="hideTip(event, '1077', 1077)" onmouseover="showTip(event, '1077', 1077)">
             FrameUtils.indexBuilder
           </code>
-          <div class="tip" id="474">
+          <div class="tip" id="1077">
             <strong>Signature:</strong>IIndexBuilder<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '475', 475)" onmouseover="showTip(event, '475', 475)">
+          <code onmouseout="hideTip(event, '1078', 1078)" onmouseover="showTip(event, '1078', 1078)">
             FrameUtils.vectorBuilder
           </code>
-          <div class="tip" id="475">
+          <div class="tip" id="1078">
             <strong>Signature:</strong>IVectorBuilder<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
-
 
 
         </div>
@@ -162,8 +165,48 @@
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

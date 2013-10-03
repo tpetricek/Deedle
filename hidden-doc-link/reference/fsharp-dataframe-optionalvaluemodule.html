@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,45 +55,44 @@
         <div class="span9" id="main">
           
 
+
+
 <h1>OptionalValue</h1>
-
 <div class="xmldoc">
-  <p>Provides various helper functions for using the <code>OptionalValue&lt;T&gt;</code> type from F#
+<p>Provides various helper functions for using the <code>OptionalValue&lt;T&gt;</code> type from F#
 (The functions are similar to those in the standard <code>Option</code> module).</p>
-
 </div>
-
-  <h2>Functions and values</h2>
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '95', 95)" onmouseover="showTip(event, '95', 95)">
+          <code onmouseout="hideTip(event, '684', 684)" onmouseover="showTip(event, '684', 684)">
             bind f input
           </code>
-          <div class="tip" id="95">
+          <div class="tip" id="684">
             <strong>Signature:</strong>f:(&#39;T -&gt; OptionalValue&lt;&#39;R&gt;) -&gt; input:OptionalValue&lt;&#39;T&gt; -&gt; OptionalValue&lt;&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'T, 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>If the <code>OptionalValue&lt;T&gt;</code> does not contain a value, then returns a new 
 <code>OptionalValue&lt;R&gt;.Empty</code>. Otherwise, returns the result of applying the 
 function <code>f</code> to the value contained in the provided optional value.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '96', 96)" onmouseover="showTip(event, '96', 96)">
+          <code onmouseout="hideTip(event, '685', 685)" onmouseover="showTip(event, '685', 685)">
             map f input
           </code>
-          <div class="tip" id="96">
+          <div class="tip" id="685">
             <strong>Signature:</strong>f:(&#39;T -&gt; &#39;R) -&gt; input:OptionalValue&lt;&#39;T&gt; -&gt; OptionalValue&lt;&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'T, 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>If the <code>OptionalValue&lt;T&gt;</code> does not contain a value, then returns a new 
 <code>OptionalValue&lt;R&gt;.Empty</code>. Otherwise, returns the result <code>OptionalValue&lt;R&gt;</code>
 containing the result of applying the function <code>f</code> to the value contained 
@@ -95,15 +100,15 @@ in the provided optional value.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '97', 97)" onmouseover="showTip(event, '97', 97)">
+          <code onmouseout="hideTip(event, '686', 686)" onmouseover="showTip(event, '686', 686)">
             ofTuple (b, value)
           </code>
-          <div class="tip" id="97">
-            <strong>Signature:</strong>(b:bool * value:&#39;T) -&gt; OptionalValue&lt;&#39;T&gt;<br />
+          <div class="tip" id="686">
+            <strong>Signature:</strong>(b:bool * value:&#39;T) -&gt; &#39;T opt<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Creates <code>OptionalValue&lt;T&gt;</code> from a tuple of type <code>bool * 'T</code>. This function
 can be used with .NET methods that use <code>out</code> arguments. For example:</p>
 
@@ -112,68 +117,62 @@ can be used with .NET methods that use <code>out</code> arguments. For example:<
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '98', 98)" onmouseover="showTip(event, '98', 98)">
+          <code onmouseout="hideTip(event, '687', 687)" onmouseover="showTip(event, '687', 687)">
             ofNullable value
           </code>
-          <div class="tip" id="98">
-            <strong>Signature:</strong>value:Nullable&lt;&#39;T&gt; -&gt; OptionalValue&lt;&#39;T&gt;<br />
+          <div class="tip" id="687">
+            <strong>Signature:</strong>value:Nullable&lt;&#39;T&gt; -&gt; &#39;T opt<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Creates <code>OptionalValue&lt;T&gt;</code> from a .NET <code>Nullable&lt;T&gt;</code> type.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '99', 99)" onmouseover="showTip(event, '99', 99)">
+          <code onmouseout="hideTip(event, '688', 688)" onmouseover="showTip(event, '688', 688)">
             asOption value
           </code>
-          <div class="tip" id="99">
-            <strong>Signature:</strong>value:OptionalValue&lt;&#39;T&gt; -&gt; &#39;T option<br />
+          <div class="tip" id="688">
+            <strong>Signature:</strong>value:&#39;T opt -&gt; &#39;T option<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Turns the <code>OptionalValue&lt;T&gt;</code> into a corresponding standard F# <code>option&lt;T&gt;</code> value</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '100', 100)" onmouseover="showTip(event, '100', 100)">
+          <code onmouseout="hideTip(event, '689', 689)" onmouseover="showTip(event, '689', 689)">
             ofOption opt
           </code>
-          <div class="tip" id="100">
-            <strong>Signature:</strong>opt:&#39;T option -&gt; OptionalValue&lt;&#39;T&gt;<br />
+          <div class="tip" id="689">
+            <strong>Signature:</strong>opt:&#39;T option -&gt; &#39;T opt<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Turns a standard F# <code>option&lt;T&gt;</code> value into a corresponding <code>OptionalValue&lt;T&gt;</code></p>
 </td>
       </tr>
     </tbody>
   </table>
-
-
-
-
-
-
-  <h2>Active patterns</h2>
+  <h3>Active patterns</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Active pattern</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '101', 101)" onmouseover="showTip(event, '101', 101)">
+          <code onmouseout="hideTip(event, '690', 690)" onmouseover="showTip(event, '690', 690)">
             ( |Missing|Present| ) optional
           </code>
-          <div class="tip" id="101">
-            <strong>Signature:</strong>optional:OptionalValue&lt;&#39;T&gt; -&gt; Choice&lt;unit,&#39;T&gt;<br />
+          <div class="tip" id="690">
+            <strong>Signature:</strong>optional:&#39;T opt -&gt; Choice&lt;unit,&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Complete active pattern that can be used to pattern match on <code>OptionalValue&lt;T&gt;</code>.
 For example:</p>
 
@@ -186,7 +185,6 @@ match optVal with
       </tr>
     </tbody>
   </table>
-
 
         </div>
         <div class="span3">
@@ -202,8 +200,48 @@ match optVal with
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

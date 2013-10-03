@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,185 +55,184 @@
         <div class="span9" id="main">
           
 
+
+
 <h1>MultiKeyExtensions</h1>
-
 <div class="xmldoc">
-  <p>F#-friendly functions for creating multi-level keys and lookups</p>
-
+<p>F#-friendly functions for creating multi-level keys and lookups</p>
 </div>
-
-  <h2>Functions and values</h2>
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '102', 102)" onmouseover="showTip(event, '102', 102)">
+          <code onmouseout="hideTip(event, '691', 691)" onmouseover="showTip(event, '691', 691)">
             Lookup1Of2 k
           </code>
-          <div class="tip" id="102">
-            <strong>Signature:</strong>k:&#39;?6647 -&gt; ICustomLookup&lt;&#39;?6648&gt;<br />
-                          <strong>Type parameters:</strong> '?6647, '?6648          </div>
-		    </td>
+          <div class="tip" id="691">
+            <strong>Signature:</strong>k:&#39;?6763 -&gt; ICustomLookup&lt;&#39;?6764&gt;<br />
+                          <strong>Type parameters:</strong> '?6763, '?6764          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 first element of a two-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '103', 103)" onmouseover="showTip(event, '103', 103)">
+          <code onmouseout="hideTip(event, '692', 692)" onmouseover="showTip(event, '692', 692)">
             Lookup2Of2 k
           </code>
-          <div class="tip" id="103">
-            <strong>Signature:</strong>k:&#39;?6650 -&gt; ICustomLookup&lt;&#39;?6651&gt;<br />
-                          <strong>Type parameters:</strong> '?6650, '?6651          </div>
-		    </td>
+          <div class="tip" id="692">
+            <strong>Signature:</strong>k:&#39;?6766 -&gt; ICustomLookup&lt;&#39;?6767&gt;<br />
+                          <strong>Type parameters:</strong> '?6766, '?6767          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 second element of a two-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '104', 104)" onmouseover="showTip(event, '104', 104)">
+          <code onmouseout="hideTip(event, '693', 693)" onmouseover="showTip(event, '693', 693)">
             LookupAnyOf2 k1 k2
           </code>
-          <div class="tip" id="104">
-            <strong>Signature:</strong>k1:&#39;?6653 option -&gt; k2:&#39;?6654 option -&gt; ICustomLookup&lt;&#39;?6655&gt;<br />
-                          <strong>Type parameters:</strong> '?6653, '?6654, '?6655          </div>
-		    </td>
+          <div class="tip" id="693">
+            <strong>Signature:</strong>k1:&#39;?6769 option -&gt; k2:&#39;?6770 option -&gt; ICustomLookup&lt;&#39;?6771&gt;<br />
+                          <strong>Type parameters:</strong> '?6769, '?6770, '?6771          </div>
+        </td>
         <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
 of a two-level hierarchical index. Specify <code>None</code> to ignore a level
 or <code>Some k</code> to require match on a given level.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '105', 105)" onmouseover="showTip(event, '105', 105)">
+          <code onmouseout="hideTip(event, '694', 694)" onmouseover="showTip(event, '694', 694)">
             Lookup1Of3 k
           </code>
-          <div class="tip" id="105">
-            <strong>Signature:</strong>k:&#39;?6657 -&gt; ICustomLookup&lt;&#39;?6658&gt;<br />
-                          <strong>Type parameters:</strong> '?6657, '?6658          </div>
-		    </td>
+          <div class="tip" id="694">
+            <strong>Signature:</strong>k:&#39;?6773 -&gt; ICustomLookup&lt;&#39;?6774&gt;<br />
+                          <strong>Type parameters:</strong> '?6773, '?6774          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 first element of a three-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '106', 106)" onmouseover="showTip(event, '106', 106)">
+          <code onmouseout="hideTip(event, '695', 695)" onmouseover="showTip(event, '695', 695)">
             Lookup2Of3 k
           </code>
-          <div class="tip" id="106">
-            <strong>Signature:</strong>k:&#39;?6660 -&gt; ICustomLookup&lt;&#39;?6661&gt;<br />
-                          <strong>Type parameters:</strong> '?6660, '?6661          </div>
-		    </td>
+          <div class="tip" id="695">
+            <strong>Signature:</strong>k:&#39;?6776 -&gt; ICustomLookup&lt;&#39;?6777&gt;<br />
+                          <strong>Type parameters:</strong> '?6776, '?6777          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 second element of a three-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '107', 107)" onmouseover="showTip(event, '107', 107)">
+          <code onmouseout="hideTip(event, '696', 696)" onmouseover="showTip(event, '696', 696)">
             Lookup3Of3 k
           </code>
-          <div class="tip" id="107">
-            <strong>Signature:</strong>k:&#39;?6663 -&gt; ICustomLookup&lt;&#39;?6664&gt;<br />
-                          <strong>Type parameters:</strong> '?6663, '?6664          </div>
-		    </td>
+          <div class="tip" id="696">
+            <strong>Signature:</strong>k:&#39;?6779 -&gt; ICustomLookup&lt;&#39;?6780&gt;<br />
+                          <strong>Type parameters:</strong> '?6779, '?6780          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 third element of a three-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '108', 108)" onmouseover="showTip(event, '108', 108)">
+          <code onmouseout="hideTip(event, '697', 697)" onmouseover="showTip(event, '697', 697)">
             LookupAnyOf3 k1 k2 k3
           </code>
-          <div class="tip" id="108">
-            <strong>Signature:</strong>k1:&#39;?6666 option -&gt; k2:&#39;?6667 option -&gt; k3:&#39;?6668 option -&gt; ICustomLookup&lt;&#39;?6669&gt;<br />
-                          <strong>Type parameters:</strong> '?6666, '?6667, '?6668, '?6669          </div>
-		    </td>
+          <div class="tip" id="697">
+            <strong>Signature:</strong>k1:&#39;?6782 option -&gt; k2:&#39;?6783 option -&gt; k3:&#39;?6784 option -&gt; ICustomLookup&lt;&#39;?6785&gt;<br />
+                          <strong>Type parameters:</strong> '?6782, '?6783, '?6784, '?6785          </div>
+        </td>
         <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
 of a three-level hierarchical index. Specify <code>None</code> to ignore a level
 or <code>Some k</code> to require match on a given level.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '109', 109)" onmouseover="showTip(event, '109', 109)">
+          <code onmouseout="hideTip(event, '698', 698)" onmouseover="showTip(event, '698', 698)">
             Lookup1Of4 k
           </code>
-          <div class="tip" id="109">
-            <strong>Signature:</strong>k:&#39;?6671 -&gt; ICustomLookup&lt;&#39;?6672&gt;<br />
-                          <strong>Type parameters:</strong> '?6671, '?6672          </div>
-		    </td>
+          <div class="tip" id="698">
+            <strong>Signature:</strong>k:&#39;?6787 -&gt; ICustomLookup&lt;&#39;?6788&gt;<br />
+                          <strong>Type parameters:</strong> '?6787, '?6788          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 first element of a four-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '110', 110)" onmouseover="showTip(event, '110', 110)">
+          <code onmouseout="hideTip(event, '699', 699)" onmouseover="showTip(event, '699', 699)">
             Lookup2Of4 k
           </code>
-          <div class="tip" id="110">
-            <strong>Signature:</strong>k:&#39;?6674 -&gt; ICustomLookup&lt;&#39;?6675&gt;<br />
-                          <strong>Type parameters:</strong> '?6674, '?6675          </div>
-		    </td>
+          <div class="tip" id="699">
+            <strong>Signature:</strong>k:&#39;?6790 -&gt; ICustomLookup&lt;&#39;?6791&gt;<br />
+                          <strong>Type parameters:</strong> '?6790, '?6791          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 second element of a four-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '111', 111)" onmouseover="showTip(event, '111', 111)">
+          <code onmouseout="hideTip(event, '700', 700)" onmouseover="showTip(event, '700', 700)">
             Lookup3Of4 k
           </code>
-          <div class="tip" id="111">
-            <strong>Signature:</strong>k:&#39;?6677 -&gt; ICustomLookup&lt;&#39;?6678&gt;<br />
-                          <strong>Type parameters:</strong> '?6677, '?6678          </div>
-		    </td>
+          <div class="tip" id="700">
+            <strong>Signature:</strong>k:&#39;?6793 -&gt; ICustomLookup&lt;&#39;?6794&gt;<br />
+                          <strong>Type parameters:</strong> '?6793, '?6794          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 third element of a four-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '112', 112)" onmouseover="showTip(event, '112', 112)">
+          <code onmouseout="hideTip(event, '701', 701)" onmouseover="showTip(event, '701', 701)">
             Lookup4Of4 k
           </code>
-          <div class="tip" id="112">
-            <strong>Signature:</strong>k:&#39;?6680 -&gt; ICustomLookup&lt;&#39;?6681&gt;<br />
-                          <strong>Type parameters:</strong> '?6680, '?6681          </div>
-		    </td>
+          <div class="tip" id="701">
+            <strong>Signature:</strong>k:&#39;?6796 -&gt; ICustomLookup&lt;&#39;?6797&gt;<br />
+                          <strong>Type parameters:</strong> '?6796, '?6797          </div>
+        </td>
         <td class="xmldoc"><p>Creates a hierarchical key lookup that allows matching on the 
 fourth element of a four-level hierarchical key.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '113', 113)" onmouseover="showTip(event, '113', 113)">
+          <code onmouseout="hideTip(event, '702', 702)" onmouseover="showTip(event, '702', 702)">
             LookupAnyOf4 k1 k2 k3 k4
           </code>
-          <div class="tip" id="113">
-            <strong>Signature:</strong>k1:&#39;?6683 option -&gt; k2:&#39;?6684 option -&gt; k3:&#39;?6685 option -&gt; k4:&#39;?6686 option -&gt; ICustomLookup&lt;&#39;?6687&gt;<br />
-                          <strong>Type parameters:</strong> '?6683, '?6684, '?6685, '?6686, '?6687          </div>
-		    </td>
+          <div class="tip" id="702">
+            <strong>Signature:</strong>k1:&#39;?6799 option -&gt; k2:&#39;?6800 option -&gt; k3:&#39;?6801 option -&gt; k4:&#39;?6802 option -&gt; ICustomLookup&lt;&#39;?6803&gt;<br />
+                          <strong>Type parameters:</strong> '?6799, '?6800, '?6801, '?6802, '?6803          </div>
+        </td>
         <td class="xmldoc"><p>Creates an arbitrary lookup key that allows matching on elements
 of a four-level hierarchical index. Specify <code>None</code> to ignore a level
 or <code>Some k</code> to require match on a given level.</p>
@@ -235,13 +240,6 @@ or <code>Some k</code> to require match on a given level.</p>
       </tr>
     </tbody>
   </table>
-
-
-
-
-
-
-
 
         </div>
         <div class="span3">
@@ -257,8 +255,48 @@ or <code>Some k</code> to require match on a given level.</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

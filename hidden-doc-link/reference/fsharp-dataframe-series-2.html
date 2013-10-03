@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -57,141 +63,140 @@ keys <code>K</code>. The keys of a series may or may not be ordered</p>
 
 </div>
 
-  <h2>Constructors</h2>
+  <h3>Constructors</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Constructors</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '255', 255)" onmouseover="showTip(event, '255', 255)">
+          <code onmouseout="hideTip(event, '845', 845)" onmouseover="showTip(event, '845', 845)">
             new Series
           </code>
-          <div class="tip" id="255">
+          <div class="tip" id="845">
             <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * values:seq&lt;&#39;V&gt;) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '256', 256)" onmouseover="showTip(event, '256', 256)">
+          <code onmouseout="hideTip(event, '846', 846)" onmouseover="showTip(event, '846', 846)">
             new Series
           </code>
-          <div class="tip" id="256">
+          <div class="tip" id="846">
             <strong>Signature:</strong>(index:IIndex&lt;&#39;K&gt; * vector:IVector&lt;&#39;V&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
 
 
-
-  <h2>Instance members</h2>
+  <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Instance members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '257', 257)" onmouseover="showTip(event, '257', 257)">
-            series.Aggregate(aggregation, valueSelector)
-          </code>
-          <div class="tip" id="257">
-            <strong>Signature:</strong>(aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt;) -&gt; Series&lt;&#39;K,&#39;R&gt;<br />
-                          <strong>Type parameters:</strong> 'R          </div>
-		    </td>
-        <td class="xmldoc"></td>
-      </tr>
-      <tr>
-		    <td class="member-name">
-
-          <code onmouseout="hideTip(event, '258', 258)" onmouseover="showTip(event, '258', 258)">
+          <code onmouseout="hideTip(event, '847', 847)" onmouseover="showTip(event, '847', 847)">
             series.Aggregate(...)
           </code>
-          <div class="tip" id="258">
-            <strong>Signature:</strong>(aggregation:Aggregation&lt;&#39;K&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt;) -&gt; Series&lt;&#39;TNewKey,&#39;R&gt;<br />
+          <div class="tip" id="847">
+            <strong>Signature:</strong>(aggregation:Aggregation&lt;&#39;K&gt; * keySelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;TNewKey&gt; * valueSelector:Func&lt;DataSegment&lt;Series&lt;&#39;K,&#39;V&gt;&gt;,&#39;R&gt;) -&gt; Series&lt;&#39;TNewKey,&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'TNewKey, 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '259', 259)" onmouseover="showTip(event, '259', 259)">
+          <code onmouseout="hideTip(event, '848', 848)" onmouseover="showTip(event, '848', 848)">
+            series.Append(otherSeries)
+          </code>
+          <div class="tip" id="848">
+            <strong>Signature:</strong>otherSeries:Series&lt;&#39;K,&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc"></td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '849', 849)" onmouseover="showTip(event, '849', 849)">
             series.DropMissing()
           </code>
-          <div class="tip" id="259">
+          <div class="tip" id="849">
             <strong>Signature:</strong>unit -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '260', 260)" onmouseover="showTip(event, '260', 260)">
+          <code onmouseout="hideTip(event, '850', 850)" onmouseover="showTip(event, '850', 850)">
             series.Get(key)
           </code>
-          <div class="tip" id="260">
+          <div class="tip" id="850">
             <strong>Signature:</strong>key:&#39;K -&gt; &#39;V<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '261', 261)" onmouseover="showTip(event, '261', 261)">
+          <code onmouseout="hideTip(event, '851', 851)" onmouseover="showTip(event, '851', 851)">
             series.Get(key, lookup)
           </code>
-          <div class="tip" id="261">
+          <div class="tip" id="851">
             <strong>Signature:</strong>(key:&#39;K * lookup:Lookup) -&gt; &#39;V<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '262', 262)" onmouseover="showTip(event, '262', 262)">
+          <code onmouseout="hideTip(event, '852', 852)" onmouseover="showTip(event, '852', 852)">
             series.GetAt(index)
           </code>
-          <div class="tip" id="262">
-            <strong>Signature:</strong>index:int -&gt; &#39;V<br />
+          <div class="tip" id="852">
+            <strong>Signature:</strong>index:int -&gt; KeyValuePair&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '263', 263)" onmouseover="showTip(event, '263', 263)">
+          <code onmouseout="hideTip(event, '853', 853)" onmouseover="showTip(event, '853', 853)">
             series.GetByLevel(key)
           </code>
-          <div class="tip" id="263">
+          <div class="tip" id="853">
             <strong>Signature:</strong>key:ICustomLookup&lt;&#39;K&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '264', 264)" onmouseover="showTip(event, '264', 264)">
+          <code onmouseout="hideTip(event, '854', 854)" onmouseover="showTip(event, '854', 854)">
             series.GetItems(keys, lookup)
           </code>
-          <div class="tip" id="264">
+          <div class="tip" id="854">
             <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * lookup:Lookup) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a new series with an index containing the specified keys.
 When the key is not found in the current series, the newly returned
 series will contain a missing value. When the second parameter is not
@@ -209,15 +214,15 @@ can be used when the current series is ordered.</li>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '265', 265)" onmouseover="showTip(event, '265', 265)">
+          <code onmouseout="hideTip(event, '855', 855)" onmouseover="showTip(event, '855', 855)">
             series.GetItems(keys)
           </code>
-          <div class="tip" id="265">
+          <div class="tip" id="855">
             <strong>Signature:</strong>keys:seq&lt;&#39;K&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a new series with an index containing the specified keys.
 When the key is not found in the current series, the newly returned
 series will contain a missing value. When the second parameter is not
@@ -232,414 +237,504 @@ specified, the keys have to exactly match the keys in the current series
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '266', 266)" onmouseover="showTip(event, '266', 266)">
+          <code onmouseout="hideTip(event, '856', 856)" onmouseover="showTip(event, '856', 856)">
             series.GetObservation(key)
           </code>
-          <div class="tip" id="266">
+          <div class="tip" id="856">
             <strong>Signature:</strong>key:&#39;K -&gt; KeyValuePair&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '267', 267)" onmouseover="showTip(event, '267', 267)">
+          <code onmouseout="hideTip(event, '857', 857)" onmouseover="showTip(event, '857', 857)">
             series.GetObservation(key, lookup)
           </code>
-          <div class="tip" id="267">
+          <div class="tip" id="857">
             <strong>Signature:</strong>(key:&#39;K * lookup:Lookup) -&gt; KeyValuePair&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '268', 268)" onmouseover="showTip(event, '268', 268)">
+          <code onmouseout="hideTip(event, '858', 858)" onmouseover="showTip(event, '858', 858)">
             series.GetSlice(lo, hi)
           </code>
-          <div class="tip" id="268">
+          <div class="tip" id="858">
             <strong>Signature:</strong>(lo:&#39;K option * hi:&#39;K option) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '269', 269)" onmouseover="showTip(event, '269', 269)">
+          <code onmouseout="hideTip(event, '859', 859)" onmouseover="showTip(event, '859', 859)">
             series.GetSubrange(lo, hi)
           </code>
-          <div class="tip" id="269">
+          <div class="tip" id="859">
             <strong>Signature:</strong>(lo:(&#39;K * BoundaryBehavior) option * hi:(&#39;K * BoundaryBehavior) option) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '270', 270)" onmouseover="showTip(event, '270', 270)">
-            series.GroupBy(keySelector, valueSelector)
+          <code onmouseout="hideTip(event, '860', 860)" onmouseover="showTip(event, '860', 860)">
+            series.GroupBy(...)
           </code>
-          <div class="tip" id="270">
+          <div class="tip" id="860">
             <strong>Signature:</strong>(keySelector:(&#39;K -&gt; &#39;V -&gt; &#39;TNewKey) * valueSelector:(&#39;TNewKey -&gt; Series&lt;&#39;K,&#39;V&gt; -&gt; OptionalValue&lt;&#39;R&gt;)) -&gt; Series&lt;&#39;TNewKey,&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'TNewKey, 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '271', 271)" onmouseover="showTip(event, '271', 271)">
+          <code onmouseout="hideTip(event, '861', 861)" onmouseover="showTip(event, '861', 861)">
             series.Join(otherSeries, kind, lookup)
           </code>
-          <div class="tip" id="271">
-            <strong>Signature:</strong>(otherSeries:Series&lt;&#39;K,&#39;V2&gt; * kind:JoinKind * lookup:Lookup) -&gt; Series&lt;&#39;K,(OptionalValue&lt;&#39;V&gt; * OptionalValue&lt;&#39;V2&gt;)&gt;<br />
+          <div class="tip" id="861">
+            <strong>Signature:</strong>(otherSeries:Series&lt;&#39;K,&#39;V2&gt; * kind:JoinKind * lookup:Lookup) -&gt; Series&lt;&#39;K,(&#39;V opt * &#39;V2 opt)&gt;<br />
                           <strong>Type parameters:</strong> 'V2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '272', 272)" onmouseover="showTip(event, '272', 272)">
+          <code onmouseout="hideTip(event, '862', 862)" onmouseover="showTip(event, '862', 862)">
             series.Join(otherSeries, kind)
           </code>
-          <div class="tip" id="272">
-            <strong>Signature:</strong>(otherSeries:Series&lt;&#39;K,&#39;V2&gt; * kind:JoinKind) -&gt; Series&lt;&#39;K,(OptionalValue&lt;&#39;V&gt; * OptionalValue&lt;&#39;V2&gt;)&gt;<br />
+          <div class="tip" id="862">
+            <strong>Signature:</strong>(otherSeries:Series&lt;&#39;K,&#39;V2&gt; * kind:JoinKind) -&gt; Series&lt;&#39;K,(&#39;V opt * &#39;V2 opt)&gt;<br />
                           <strong>Type parameters:</strong> 'V2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '273', 273)" onmouseover="showTip(event, '273', 273)">
+          <code onmouseout="hideTip(event, '863', 863)" onmouseover="showTip(event, '863', 863)">
             series.Join(otherSeries)
           </code>
-          <div class="tip" id="273">
-            <strong>Signature:</strong>otherSeries:Series&lt;&#39;K,&#39;V2&gt; -&gt; Series&lt;&#39;K,(OptionalValue&lt;&#39;V&gt; * OptionalValue&lt;&#39;V2&gt;)&gt;<br />
+          <div class="tip" id="863">
+            <strong>Signature:</strong>otherSeries:Series&lt;&#39;K,&#39;V2&gt; -&gt; Series&lt;&#39;K,(&#39;V opt * &#39;V2 opt)&gt;<br />
                           <strong>Type parameters:</strong> 'V2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '274', 274)" onmouseover="showTip(event, '274', 274)">
+          <code onmouseout="hideTip(event, '864', 864)" onmouseover="showTip(event, '864', 864)">
             series.JoinInner(otherSeries)
           </code>
-          <div class="tip" id="274">
+          <div class="tip" id="864">
             <strong>Signature:</strong>otherSeries:Series&lt;&#39;K,&#39;V2&gt; -&gt; Series&lt;&#39;K,(&#39;V * &#39;V2)&gt;<br />
                           <strong>Type parameters:</strong> 'V2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '275', 275)" onmouseover="showTip(event, '275', 275)">
+          <code onmouseout="hideTip(event, '865', 865)" onmouseover="showTip(event, '865', 865)">
             series.Pairwise(?boundary, ?direction)
           </code>
-          <div class="tip" id="275">
+          <div class="tip" id="865">
             <strong>Signature:</strong>(?boundary:Boundary option * ?direction:Direction option) -&gt; Series&lt;&#39;K,DataSegment&lt;&#39;V * &#39;V&gt;&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '276', 276)" onmouseover="showTip(event, '276', 276)">
-            series.SampleBy(keys, dir, valueSelector)
+          <code onmouseout="hideTip(event, '866', 866)" onmouseover="showTip(event, '866', 866)">
+            series.Reindex(newKeys)
           </code>
-          <div class="tip" id="276">
-            <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * dir:Direction * valueSelector:Func&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;,&#39;?5388&gt;) -&gt; Series&lt;&#39;K,&#39;?5388&gt;<br />
-                          <strong>Type parameters:</strong> '?5388          </div>
-		    </td>
+          <div class="tip" id="866">
+            <strong>Signature:</strong>newKeys:seq&lt;&#39;K&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
+                      </div>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '277', 277)" onmouseover="showTip(event, '277', 277)">
-            series.SampleBy(...)
+          <code onmouseout="hideTip(event, '867', 867)" onmouseover="showTip(event, '867', 867)">
+            series.Resample(keys, direction)
           </code>
-          <div class="tip" id="277">
-            <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * dir:Direction * valueSelector:Func&lt;&#39;TNewKey,Series&lt;&#39;K,&#39;V&gt;,&#39;R&gt; * keySelector:Func&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;,&#39;TNewKey&gt;) -&gt; Series&lt;&#39;TNewKey,&#39;R&gt;<br />
+          <div class="tip" id="867">
+            <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * direction:Direction) -&gt; Series&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc"><p>Resample the series based on a provided collection of keys. The values of the series
+are aggregated into chunks based on the specified keys. Depending on <code>direction</code>, the 
+specified key is either used as the smallest or as the greatest key of the chunk (with
+the exception of boundaries that are added to the first/last chunk). The chunks
+are then returned as a nested series.</p>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>keys</code> - A collection of keys to be used for resampling of the series</li>
+<li><code>direction</code> - If this parameter is <code>Direction.Forward</code>, then each key is
+used as the smallest key in a chunk; for <code>Direction.Backward</code>, the keys are
+used as the greatest keys in a chunk.</li>
+</ul>
+
+<h2>Remarks</h2>
+
+<p>This operation is only supported on ordered series. The method throws
+<code>InvalidOperationException</code> when the series is not ordered.</p>
+</td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '868', 868)" onmouseover="showTip(event, '868', 868)">
+            series.Resample(...)
+          </code>
+          <div class="tip" id="868">
+            <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * direction:Direction * valueSelector:Func&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;,&#39;?5448&gt;) -&gt; Series&lt;&#39;K,&#39;?5448&gt;<br />
+                          <strong>Type parameters:</strong> '?5448          </div>
+        </td>
+        <td class="xmldoc"><p>Resample the series based on a provided collection of keys. The values of the series
+are aggregated into chunks based on the specified keys. Depending on <code>direction</code>, the 
+specified key is either used as the smallest or as the greatest key of the chunk (with
+the exception of boundaries that are added to the first/last chunk).</p>
+
+<p>Such chunks are then aggregated using the provided <code>valueSelector</code> and <code>keySelector</code>
+(an overload that does not take <code>keySelector</code> just selects the explicitly provided key).</p>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>keys</code> - A collection of keys to be used for resampling of the series</li>
+<li><code>direction</code> - If this parameter is <code>Direction.Forward</code>, then each key is
+used as the smallest key in a chunk; for <code>Direction.Backward</code>, the keys are
+used as the greatest keys in a chunk.</li>
+<li><code>valueSelector</code> - A function that is used to collapse a generated chunk into a 
+single value. Note that this function may be called with empty series.</li>
+</ul>
+
+<h2>Remarks</h2>
+
+<p>This operation is only supported on ordered series. The method throws
+<code>InvalidOperationException</code> when the series is not ordered.</p>
+</td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '869', 869)" onmouseover="showTip(event, '869', 869)">
+            series.Resample(...)
+          </code>
+          <div class="tip" id="869">
+            <strong>Signature:</strong>(keys:seq&lt;&#39;K&gt; * direction:Direction * valueSelector:Func&lt;&#39;TNewKey,Series&lt;&#39;K,&#39;V&gt;,&#39;R&gt; * keySelector:Func&lt;&#39;K,Series&lt;&#39;K,&#39;V&gt;,&#39;TNewKey&gt;) -&gt; Series&lt;&#39;TNewKey,&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'TNewKey, 'R          </div>
-		    </td>
-        <td class="xmldoc"></td>
+        </td>
+        <td class="xmldoc"><p>Resample the series based on a provided collection of keys. The values of the series
+are aggregated into chunks based on the specified keys. Depending on <code>direction</code>, the 
+specified key is either used as the smallest or as the greatest key of the chunk (with
+the exception of boundaries that are added to the first/last chunk).</p>
+
+<p>Such chunks are then aggregated using the provided <code>valueSelector</code> and <code>keySelector</code>
+(an overload that does not take <code>keySelector</code> just selects the explicitly provided key).</p>
+
+<h2>Parameters</h2>
+
+<ul>
+<li><code>keys</code> - A collection of keys to be used for resampling of the series</li>
+<li><code>direction</code> - If this parameter is <code>Direction.Forward</code>, then each key is
+used as the smallest key in a chunk; for <code>Direction.Backward</code>, the keys are
+used as the greatest keys in a chunk.</li>
+<li><code>valueSelector</code> - A function that is used to collapse a generated chunk into a 
+single value. Note that this function may be called with empty series.</li>
+<li><code>keySelector</code> - A function that is used to generate a new key for each chunk.</li>
+</ul>
+
+<h2>Remarks</h2>
+
+<p>This operation is only supported on ordered series. The method throws
+<code>InvalidOperationException</code> when the series is not ordered.</p>
+</td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '278', 278)" onmouseover="showTip(event, '278', 278)">
+          <code onmouseout="hideTip(event, '870', 870)" onmouseover="showTip(event, '870', 870)">
             series.Select(f)
           </code>
-          <div class="tip" id="278">
+          <div class="tip" id="870">
             <strong>Signature:</strong>f:Func&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;,&#39;R&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '279', 279)" onmouseover="showTip(event, '279', 279)">
+          <code onmouseout="hideTip(event, '871', 871)" onmouseover="showTip(event, '871', 871)">
             series.SelectKeys(f)
           </code>
-          <div class="tip" id="279">
+          <div class="tip" id="871">
             <strong>Signature:</strong>f:Func&lt;KeyValuePair&lt;&#39;K,OptionalValue&lt;&#39;V&gt;&gt;,&#39;R&gt; -&gt; Series&lt;&#39;R,&#39;V&gt;<br />
                           <strong>Type parameters:</strong> 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '280', 280)" onmouseover="showTip(event, '280', 280)">
+          <code onmouseout="hideTip(event, '872', 872)" onmouseover="showTip(event, '872', 872)">
             series.SelectOptional(f)
           </code>
-          <div class="tip" id="280">
+          <div class="tip" id="872">
             <strong>Signature:</strong>f:Func&lt;KeyValuePair&lt;&#39;K,OptionalValue&lt;&#39;V&gt;&gt;,OptionalValue&lt;&#39;R&gt;&gt; -&gt; Series&lt;&#39;K,&#39;R&gt;<br />
                           <strong>Type parameters:</strong> 'R          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '281', 281)" onmouseover="showTip(event, '281', 281)">
+          <code onmouseout="hideTip(event, '873', 873)" onmouseover="showTip(event, '873', 873)">
             series.TryGet(key)
           </code>
-          <div class="tip" id="281">
+          <div class="tip" id="873">
             <strong>Signature:</strong>key:&#39;K -&gt; OptionalValue&lt;&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '282', 282)" onmouseover="showTip(event, '282', 282)">
+          <code onmouseout="hideTip(event, '874', 874)" onmouseover="showTip(event, '874', 874)">
             series.TryGet(key, lookup)
           </code>
-          <div class="tip" id="282">
+          <div class="tip" id="874">
             <strong>Signature:</strong>(key:&#39;K * lookup:Lookup) -&gt; OptionalValue&lt;&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '283', 283)" onmouseover="showTip(event, '283', 283)">
+          <code onmouseout="hideTip(event, '875', 875)" onmouseover="showTip(event, '875', 875)">
             series.TryGetAt(index)
           </code>
-          <div class="tip" id="283">
-            <strong>Signature:</strong>index:int -&gt; OptionalValue&lt;&#39;V&gt;<br />
+          <div class="tip" id="875">
+            <strong>Signature:</strong>index:int -&gt; OptionalValue&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '284', 284)" onmouseover="showTip(event, '284', 284)">
+          <code onmouseout="hideTip(event, '876', 876)" onmouseover="showTip(event, '876', 876)">
             series.TryGetObservation(key)
           </code>
-          <div class="tip" id="284">
+          <div class="tip" id="876">
             <strong>Signature:</strong>key:&#39;K -&gt; OptionalValue&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Attempts to get a value at the specified 'key'</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '285', 285)" onmouseover="showTip(event, '285', 285)">
+          <code onmouseout="hideTip(event, '877', 877)" onmouseover="showTip(event, '877', 877)">
             series.TryGetObservation(key, lookup)
           </code>
-          <div class="tip" id="285">
+          <div class="tip" id="877">
             <strong>Signature:</strong>(key:&#39;K * lookup:Lookup) -&gt; OptionalValue&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '286', 286)" onmouseover="showTip(event, '286', 286)">
+          <code onmouseout="hideTip(event, '878', 878)" onmouseover="showTip(event, '878', 878)">
             series.Union(another, behavior)
           </code>
-          <div class="tip" id="286">
+          <div class="tip" id="878">
             <strong>Signature:</strong>(another:Series&lt;&#39;K,&#39;V&gt; * behavior:UnionBehavior) -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '287', 287)" onmouseover="showTip(event, '287', 287)">
+          <code onmouseout="hideTip(event, '879', 879)" onmouseover="showTip(event, '879', 879)">
             series.Union(another)
           </code>
-          <div class="tip" id="287">
+          <div class="tip" id="879">
             <strong>Signature:</strong>another:Series&lt;&#39;K,&#39;V&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '288', 288)" onmouseover="showTip(event, '288', 288)">
+          <code onmouseout="hideTip(event, '880', 880)" onmouseover="showTip(event, '880', 880)">
             series.Where(f)
           </code>
-          <div class="tip" id="288">
+          <div class="tip" id="880">
             <strong>Signature:</strong>f:Func&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;,bool&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '289', 289)" onmouseover="showTip(event, '289', 289)">
+          <code onmouseout="hideTip(event, '881', 881)" onmouseover="showTip(event, '881', 881)">
             series.WhereOptional(f)
           </code>
-          <div class="tip" id="289">
+          <div class="tip" id="881">
             <strong>Signature:</strong>f:Func&lt;KeyValuePair&lt;&#39;K,OptionalValue&lt;&#39;V&gt;&gt;,bool&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '290', 290)" onmouseover="showTip(event, '290', 290)">
+          <code onmouseout="hideTip(event, '882', 882)" onmouseover="showTip(event, '882', 882)">
             series.WithIndex(keys)
           </code>
-          <div class="tip" id="290">
+          <div class="tip" id="882">
             <strong>Signature:</strong>keys:seq&lt;&#39;TNewKey&gt; -&gt; Series&lt;&#39;TNewKey,&#39;V&gt;<br />
                           <strong>Type parameters:</strong> 'TNewKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '291', 291)" onmouseover="showTip(event, '291', 291)">
+          <code onmouseout="hideTip(event, '883', 883)" onmouseover="showTip(event, '883', 883)">
             series.WithOrdinalIndex()
           </code>
-          <div class="tip" id="291">
+          <div class="tip" id="883">
             <strong>Signature:</strong>unit -&gt; Series&lt;int,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '292', 292)" onmouseover="showTip(event, '292', 292)">
+          <code onmouseout="hideTip(event, '884', 884)" onmouseover="showTip(event, '884', 884)">
             series.Index
           </code>
-          <div class="tip" id="292">
+          <div class="tip" id="884">
             <strong>Signature:</strong>IIndex&lt;&#39;K&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns the index associated with this series. This member should not generally
 be accessed directly, because all functionality is exposed through series operations.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '293', 293)" onmouseover="showTip(event, '293', 293)">
+          <code onmouseout="hideTip(event, '885', 885)" onmouseover="showTip(event, '885', 885)">
             series.IndexBuilder
           </code>
-          <div class="tip" id="293">
+          <div class="tip" id="885">
             <strong>Signature:</strong>IIndexBuilder<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '294', 294)" onmouseover="showTip(event, '294', 294)">
+          <code onmouseout="hideTip(event, '886', 886)" onmouseover="showTip(event, '886', 886)">
             series.IsEmpty
           </code>
-          <div class="tip" id="294">
+          <div class="tip" id="886">
             <strong>Signature:</strong>bool<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '295', 295)" onmouseover="showTip(event, '295', 295)">
+          <code onmouseout="hideTip(event, '887', 887)" onmouseover="showTip(event, '887', 887)">
             series.[a]
           </code>
-          <div class="tip" id="295">
+          <div class="tip" id="887">
             <strong>Signature:</strong>a:ICustomLookup&lt;&#39;K&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '296', 296)" onmouseover="showTip(event, '296', 296)">
+          <code onmouseout="hideTip(event, '888', 888)" onmouseover="showTip(event, '888', 888)">
             series.[items]
           </code>
-          <div class="tip" id="296">
+          <div class="tip" id="888">
             <strong>Signature:</strong>items:seq&lt;&#39;K&gt; -&gt; Series&lt;&#39;K,&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '297', 297)" onmouseover="showTip(event, '297', 297)">
+          <code onmouseout="hideTip(event, '889', 889)" onmouseover="showTip(event, '889', 889)">
             series.[a]
           </code>
-          <div class="tip" id="297">
+          <div class="tip" id="889">
             <strong>Signature:</strong>a:&#39;K -&gt; &#39;V<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '298', 298)" onmouseover="showTip(event, '298', 298)">
+          <code onmouseout="hideTip(event, '890', 890)" onmouseover="showTip(event, '890', 890)">
             series.KeyRange
           </code>
-          <div class="tip" id="298">
+          <div class="tip" id="890">
             <strong>Signature:</strong>&#39;K * &#39;K<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '299', 299)" onmouseover="showTip(event, '299', 299)">
+          <code onmouseout="hideTip(event, '891', 891)" onmouseover="showTip(event, '891', 891)">
             series.Keys
           </code>
-          <div class="tip" id="299">
+          <div class="tip" id="891">
             <strong>Signature:</strong>seq&lt;&#39;K&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a collection of keys that are defined by the index of this series.
 Note that the length of this sequence does not match the <code>Values</code> sequence
 if there are missing values. To get matching sequence, use the <code>Observations</code>
@@ -647,30 +742,30 @@ property or <code>Series.observation</code>.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '300', 300)" onmouseover="showTip(event, '300', 300)">
+          <code onmouseout="hideTip(event, '892', 892)" onmouseover="showTip(event, '892', 892)">
             series.Observations
           </code>
-          <div class="tip" id="300">
+          <div class="tip" id="892">
             <strong>Signature:</strong>seq&lt;KeyValuePair&lt;&#39;K,&#39;V&gt;&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a collection of observations that form this series. Note that this property
 skips over all missing (or NaN) values. Observations are returned as <code>KeyValuePair&lt;K, V&gt;</code> 
 objects. For an F# alternative that uses tuples, see <code>Series.observations</code>.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '301', 301)" onmouseover="showTip(event, '301', 301)">
+          <code onmouseout="hideTip(event, '893', 893)" onmouseover="showTip(event, '893', 893)">
             series.Values
           </code>
-          <div class="tip" id="301">
+          <div class="tip" id="893">
             <strong>Signature:</strong>seq&lt;&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a collection of values that are available in the series data.
 Note that the length of this sequence does not match the <code>Keys</code> sequence
 if there are missing values. To get matching sequence, use the <code>Observations</code>
@@ -678,681 +773,679 @@ property or <code>Series.observation</code>.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '302', 302)" onmouseover="showTip(event, '302', 302)">
+          <code onmouseout="hideTip(event, '894', 894)" onmouseover="showTip(event, '894', 894)">
             series.Vector
           </code>
-          <div class="tip" id="302">
+          <div class="tip" id="894">
             <strong>Signature:</strong>IVector&lt;&#39;V&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns the vector associated with this series. This member should not generally
 be accessed directly, because all functionality is exposed through series operations.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '303', 303)" onmouseover="showTip(event, '303', 303)">
+          <code onmouseout="hideTip(event, '895', 895)" onmouseover="showTip(event, '895', 895)">
             series.VectorBuilder
           </code>
-          <div class="tip" id="303">
+          <div class="tip" id="895">
             <strong>Signature:</strong>IVectorBuilder<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
 
 
-
-  <h2>Static members</h2>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Static members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '304', 304)" onmouseover="showTip(event, '304', 304)">
+          <code onmouseout="hideTip(event, '896', 896)" onmouseover="showTip(event, '896', 896)">
             Series.Abs(series)
           </code>
-          <div class="tip" id="304">
+          <div class="tip" id="896">
             <strong>Signature:</strong>series:Series&lt;&#39;K,int&gt; -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '305', 305)" onmouseover="showTip(event, '305', 305)">
+          <code onmouseout="hideTip(event, '897', 897)" onmouseover="showTip(event, '897', 897)">
             Series.Abs(series)
           </code>
-          <div class="tip" id="305">
+          <div class="tip" id="897">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '306', 306)" onmouseover="showTip(event, '306', 306)">
+          <code onmouseout="hideTip(event, '898', 898)" onmouseover="showTip(event, '898', 898)">
             Series.Acos(series)
           </code>
-          <div class="tip" id="306">
+          <div class="tip" id="898">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '307', 307)" onmouseover="showTip(event, '307', 307)">
+          <code onmouseout="hideTip(event, '899', 899)" onmouseover="showTip(event, '899', 899)">
             Series.Asin(series)
           </code>
-          <div class="tip" id="307">
+          <div class="tip" id="899">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '308', 308)" onmouseover="showTip(event, '308', 308)">
+          <code onmouseout="hideTip(event, '900', 900)" onmouseover="showTip(event, '900', 900)">
             Series.Atan(series)
           </code>
-          <div class="tip" id="308">
+          <div class="tip" id="900">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '309', 309)" onmouseover="showTip(event, '309', 309)">
+          <code onmouseout="hideTip(event, '901', 901)" onmouseover="showTip(event, '901', 901)">
             Series.Ceiling(series)
           </code>
-          <div class="tip" id="309">
+          <div class="tip" id="901">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '310', 310)" onmouseover="showTip(event, '310', 310)">
+          <code onmouseout="hideTip(event, '902', 902)" onmouseover="showTip(event, '902', 902)">
             Series.Cos(series)
           </code>
-          <div class="tip" id="310">
+          <div class="tip" id="902">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '311', 311)" onmouseover="showTip(event, '311', 311)">
+          <code onmouseout="hideTip(event, '903', 903)" onmouseover="showTip(event, '903', 903)">
             Series.Cosh(series)
           </code>
-          <div class="tip" id="311">
+          <div class="tip" id="903">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '312', 312)" onmouseover="showTip(event, '312', 312)">
+          <code onmouseout="hideTip(event, '904', 904)" onmouseover="showTip(event, '904', 904)">
             Series.Exp(series)
           </code>
-          <div class="tip" id="312">
+          <div class="tip" id="904">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '313', 313)" onmouseover="showTip(event, '313', 313)">
+          <code onmouseout="hideTip(event, '905', 905)" onmouseover="showTip(event, '905', 905)">
             Series.Floor(series)
           </code>
-          <div class="tip" id="313">
+          <div class="tip" id="905">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '314', 314)" onmouseover="showTip(event, '314', 314)">
+          <code onmouseout="hideTip(event, '906', 906)" onmouseover="showTip(event, '906', 906)">
             Series.Log(series)
           </code>
-          <div class="tip" id="314">
+          <div class="tip" id="906">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '315', 315)" onmouseover="showTip(event, '315', 315)">
+          <code onmouseout="hideTip(event, '907', 907)" onmouseover="showTip(event, '907', 907)">
             Series.Log10(series)
           </code>
-          <div class="tip" id="315">
+          <div class="tip" id="907">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '316', 316)" onmouseover="showTip(event, '316', 316)">
-            Series.NullaryGenericOperation(series, op)
+          <code onmouseout="hideTip(event, '908', 908)" onmouseover="showTip(event, '908', 908)">
+            Series.NullaryGenericOperation(...)
           </code>
-          <div class="tip" id="316">
+          <div class="tip" id="908">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T1&gt; * op:(&#39;T1 -&gt; &#39;T2)) -&gt; Series&lt;&#39;K,&#39;T2&gt;<br />
                           <strong>Type parameters:</strong> 'K, 'T1, 'T2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '317', 317)" onmouseover="showTip(event, '317', 317)">
+          <code onmouseout="hideTip(event, '909', 909)" onmouseover="showTip(event, '909', 909)">
             Series.NullaryOperation(series, op)
           </code>
-          <div class="tip" id="317">
+          <div class="tip" id="909">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T&gt; * op:(&#39;T -&gt; &#39;T)) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '318', 318)" onmouseover="showTip(event, '318', 318)">
+          <code onmouseout="hideTip(event, '910', 910)" onmouseover="showTip(event, '910', 910)">
             Series.Pow(s1, s2)
           </code>
-          <div class="tip" id="318">
+          <div class="tip" id="910">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,float&gt; * s2:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '319', 319)" onmouseover="showTip(event, '319', 319)">
+          <code onmouseout="hideTip(event, '911', 911)" onmouseover="showTip(event, '911', 911)">
             Series.Pow(series, scalar)
           </code>
-          <div class="tip" id="319">
+          <div class="tip" id="911">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * scalar:float) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '320', 320)" onmouseover="showTip(event, '320', 320)">
+          <code onmouseout="hideTip(event, '912', 912)" onmouseover="showTip(event, '912', 912)">
             Series.Pow(scalar, series)
           </code>
-          <div class="tip" id="320">
+          <div class="tip" id="912">
             <strong>Signature:</strong>(scalar:float * series:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '321', 321)" onmouseover="showTip(event, '321', 321)">
+          <code onmouseout="hideTip(event, '913', 913)" onmouseover="showTip(event, '913', 913)">
             Series.Round(series)
           </code>
-          <div class="tip" id="321">
+          <div class="tip" id="913">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '322', 322)" onmouseover="showTip(event, '322', 322)">
-            Series.ScalarOperationL(series, scalar, op)
+          <code onmouseout="hideTip(event, '914', 914)" onmouseover="showTip(event, '914', 914)">
+            Series.ScalarOperationL(...)
           </code>
-          <div class="tip" id="322">
+          <div class="tip" id="914">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,&#39;T&gt; * scalar:&#39;T * op:(&#39;T -&gt; &#39;T -&gt; &#39;T)) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '323', 323)" onmouseover="showTip(event, '323', 323)">
-            Series.ScalarOperationR(scalar, series, op)
+          <code onmouseout="hideTip(event, '915', 915)" onmouseover="showTip(event, '915', 915)">
+            Series.ScalarOperationR(...)
           </code>
-          <div class="tip" id="323">
+          <div class="tip" id="915">
             <strong>Signature:</strong>(scalar:&#39;T * series:Series&lt;&#39;K,&#39;T&gt; * op:(&#39;T -&gt; &#39;T -&gt; &#39;T)) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '324', 324)" onmouseover="showTip(event, '324', 324)">
+          <code onmouseout="hideTip(event, '916', 916)" onmouseover="showTip(event, '916', 916)">
             Series.Sign(series)
           </code>
-          <div class="tip" id="324">
+          <div class="tip" id="916">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '325', 325)" onmouseover="showTip(event, '325', 325)">
+          <code onmouseout="hideTip(event, '917', 917)" onmouseover="showTip(event, '917', 917)">
             Series.Sin(series)
           </code>
-          <div class="tip" id="325">
+          <div class="tip" id="917">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '326', 326)" onmouseover="showTip(event, '326', 326)">
+          <code onmouseout="hideTip(event, '918', 918)" onmouseover="showTip(event, '918', 918)">
             Series.Sinh(series)
           </code>
-          <div class="tip" id="326">
+          <div class="tip" id="918">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '327', 327)" onmouseover="showTip(event, '327', 327)">
+          <code onmouseout="hideTip(event, '919', 919)" onmouseover="showTip(event, '919', 919)">
             Series.Sqrt(series)
           </code>
-          <div class="tip" id="327">
+          <div class="tip" id="919">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '328', 328)" onmouseover="showTip(event, '328', 328)">
+          <code onmouseout="hideTip(event, '920', 920)" onmouseover="showTip(event, '920', 920)">
             Series.Tan(series)
           </code>
-          <div class="tip" id="328">
+          <div class="tip" id="920">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '329', 329)" onmouseover="showTip(event, '329', 329)">
+          <code onmouseout="hideTip(event, '921', 921)" onmouseover="showTip(event, '921', 921)">
             Series.Tanh(series)
           </code>
-          <div class="tip" id="329">
+          <div class="tip" id="921">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '330', 330)" onmouseover="showTip(event, '330', 330)">
+          <code onmouseout="hideTip(event, '922', 922)" onmouseover="showTip(event, '922', 922)">
             Series.Truncate(series)
           </code>
-          <div class="tip" id="330">
+          <div class="tip" id="922">
             <strong>Signature:</strong>series:Series&lt;&#39;K,float&gt; -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '331', 331)" onmouseover="showTip(event, '331', 331)">
-            Series.VectorOperation(series1, series2, op)
+          <code onmouseout="hideTip(event, '923', 923)" onmouseover="showTip(event, '923', 923)">
+            Series.VectorOperation(...)
           </code>
-          <div class="tip" id="331">
+          <div class="tip" id="923">
             <strong>Signature:</strong>(series1:Series&lt;&#39;K,&#39;T&gt; * series2:Series&lt;&#39;K,&#39;T&gt; * op:(&#39;T -&gt; &#39;T -&gt; &#39;T)) -&gt; Series&lt;&#39;K,&#39;T&gt;<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '332', 332)" onmouseover="showTip(event, '332', 332)">
+          <code onmouseout="hideTip(event, '924', 924)" onmouseover="showTip(event, '924', 924)">
             Series.( + )(s1, s2)
           </code>
-          <div class="tip" id="332">
+          <div class="tip" id="924">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,float&gt; * s2:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '333', 333)" onmouseover="showTip(event, '333', 333)">
+          <code onmouseout="hideTip(event, '925', 925)" onmouseover="showTip(event, '925', 925)">
             Series.( + )(s1, s2)
           </code>
-          <div class="tip" id="333">
+          <div class="tip" id="925">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,int&gt; * s2:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '334', 334)" onmouseover="showTip(event, '334', 334)">
+          <code onmouseout="hideTip(event, '926', 926)" onmouseover="showTip(event, '926', 926)">
             Series.( + )(series, scalar)
           </code>
-          <div class="tip" id="334">
+          <div class="tip" id="926">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * scalar:float) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '335', 335)" onmouseover="showTip(event, '335', 335)">
+          <code onmouseout="hideTip(event, '927', 927)" onmouseover="showTip(event, '927', 927)">
             Series.( + )(scalar, series)
           </code>
-          <div class="tip" id="335">
+          <div class="tip" id="927">
             <strong>Signature:</strong>(scalar:float * series:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '336', 336)" onmouseover="showTip(event, '336', 336)">
+          <code onmouseout="hideTip(event, '928', 928)" onmouseover="showTip(event, '928', 928)">
             Series.( + )(series, scalar)
           </code>
-          <div class="tip" id="336">
+          <div class="tip" id="928">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,int&gt; * scalar:int) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '337', 337)" onmouseover="showTip(event, '337', 337)">
+          <code onmouseout="hideTip(event, '929', 929)" onmouseover="showTip(event, '929', 929)">
             Series.( + )(scalar, series)
           </code>
-          <div class="tip" id="337">
+          <div class="tip" id="929">
             <strong>Signature:</strong>(scalar:int * series:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '338', 338)" onmouseover="showTip(event, '338', 338)">
+          <code onmouseout="hideTip(event, '930', 930)" onmouseover="showTip(event, '930', 930)">
             Series.( / )(s1, s2)
           </code>
-          <div class="tip" id="338">
+          <div class="tip" id="930">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,float&gt; * s2:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '339', 339)" onmouseover="showTip(event, '339', 339)">
+          <code onmouseout="hideTip(event, '931', 931)" onmouseover="showTip(event, '931', 931)">
             Series.( / )(s1, s2)
           </code>
-          <div class="tip" id="339">
+          <div class="tip" id="931">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,int&gt; * s2:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '340', 340)" onmouseover="showTip(event, '340', 340)">
+          <code onmouseout="hideTip(event, '932', 932)" onmouseover="showTip(event, '932', 932)">
             Series.( / )(series, scalar)
           </code>
-          <div class="tip" id="340">
+          <div class="tip" id="932">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * scalar:float) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '341', 341)" onmouseover="showTip(event, '341', 341)">
+          <code onmouseout="hideTip(event, '933', 933)" onmouseover="showTip(event, '933', 933)">
             Series.( / )(scalar, series)
           </code>
-          <div class="tip" id="341">
+          <div class="tip" id="933">
             <strong>Signature:</strong>(scalar:float * series:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '342', 342)" onmouseover="showTip(event, '342', 342)">
+          <code onmouseout="hideTip(event, '934', 934)" onmouseover="showTip(event, '934', 934)">
             Series.( / )(series, scalar)
           </code>
-          <div class="tip" id="342">
+          <div class="tip" id="934">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,int&gt; * scalar:int) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '343', 343)" onmouseover="showTip(event, '343', 343)">
+          <code onmouseout="hideTip(event, '935', 935)" onmouseover="showTip(event, '935', 935)">
             Series.( / )(scalar, series)
           </code>
-          <div class="tip" id="343">
+          <div class="tip" id="935">
             <strong>Signature:</strong>(scalar:int * series:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '344', 344)" onmouseover="showTip(event, '344', 344)">
+          <code onmouseout="hideTip(event, '936', 936)" onmouseover="showTip(event, '936', 936)">
             Series.( ? )(series, name)
           </code>
-          <div class="tip" id="344">
-            <strong>Signature:</strong>(series:Series&lt;string,&#39;?5328&gt; * name:string) -&gt; &#39;?5328<br />
-                          <strong>Type parameters:</strong> '?5328          </div>
-		    </td>
+          <div class="tip" id="936">
+            <strong>Signature:</strong>(series:Series&lt;string,&#39;?5389&gt; * name:string) -&gt; &#39;?5389<br />
+                          <strong>Type parameters:</strong> '?5389          </div>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '345', 345)" onmouseover="showTip(event, '345', 345)">
+          <code onmouseout="hideTip(event, '937', 937)" onmouseover="showTip(event, '937', 937)">
             Series.( * )(s1, s2)
           </code>
-          <div class="tip" id="345">
+          <div class="tip" id="937">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,float&gt; * s2:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '346', 346)" onmouseover="showTip(event, '346', 346)">
+          <code onmouseout="hideTip(event, '938', 938)" onmouseover="showTip(event, '938', 938)">
             Series.( * )(s1, s2)
           </code>
-          <div class="tip" id="346">
+          <div class="tip" id="938">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,int&gt; * s2:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '347', 347)" onmouseover="showTip(event, '347', 347)">
+          <code onmouseout="hideTip(event, '939', 939)" onmouseover="showTip(event, '939', 939)">
             Series.( * )(series, scalar)
           </code>
-          <div class="tip" id="347">
+          <div class="tip" id="939">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * scalar:float) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '348', 348)" onmouseover="showTip(event, '348', 348)">
+          <code onmouseout="hideTip(event, '940', 940)" onmouseover="showTip(event, '940', 940)">
             Series.( * )(scalar, series)
           </code>
-          <div class="tip" id="348">
+          <div class="tip" id="940">
             <strong>Signature:</strong>(scalar:float * series:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '349', 349)" onmouseover="showTip(event, '349', 349)">
+          <code onmouseout="hideTip(event, '941', 941)" onmouseover="showTip(event, '941', 941)">
             Series.( * )(series, scalar)
           </code>
-          <div class="tip" id="349">
+          <div class="tip" id="941">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,int&gt; * scalar:int) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '350', 350)" onmouseover="showTip(event, '350', 350)">
+          <code onmouseout="hideTip(event, '942', 942)" onmouseover="showTip(event, '942', 942)">
             Series.( * )(scalar, series)
           </code>
-          <div class="tip" id="350">
+          <div class="tip" id="942">
             <strong>Signature:</strong>(scalar:int * series:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '351', 351)" onmouseover="showTip(event, '351', 351)">
+          <code onmouseout="hideTip(event, '943', 943)" onmouseover="showTip(event, '943', 943)">
             Series.( - )(s1, s2)
           </code>
-          <div class="tip" id="351">
+          <div class="tip" id="943">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,float&gt; * s2:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '352', 352)" onmouseover="showTip(event, '352', 352)">
+          <code onmouseout="hideTip(event, '944', 944)" onmouseover="showTip(event, '944', 944)">
             Series.( - )(s1, s2)
           </code>
-          <div class="tip" id="352">
+          <div class="tip" id="944">
             <strong>Signature:</strong>(s1:Series&lt;&#39;K,int&gt; * s2:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '353', 353)" onmouseover="showTip(event, '353', 353)">
+          <code onmouseout="hideTip(event, '945', 945)" onmouseover="showTip(event, '945', 945)">
             Series.( - )(series, scalar)
           </code>
-          <div class="tip" id="353">
+          <div class="tip" id="945">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,float&gt; * scalar:float) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '354', 354)" onmouseover="showTip(event, '354', 354)">
+          <code onmouseout="hideTip(event, '946', 946)" onmouseover="showTip(event, '946', 946)">
             Series.( - )(scalar, series)
           </code>
-          <div class="tip" id="354">
+          <div class="tip" id="946">
             <strong>Signature:</strong>(scalar:float * series:Series&lt;&#39;K,float&gt;) -&gt; Series&lt;&#39;K,float&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '355', 355)" onmouseover="showTip(event, '355', 355)">
+          <code onmouseout="hideTip(event, '947', 947)" onmouseover="showTip(event, '947', 947)">
             Series.( - )(series, scalar)
           </code>
-          <div class="tip" id="355">
+          <div class="tip" id="947">
             <strong>Signature:</strong>(series:Series&lt;&#39;K,int&gt; * scalar:int) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '356', 356)" onmouseover="showTip(event, '356', 356)">
+          <code onmouseout="hideTip(event, '948', 948)" onmouseover="showTip(event, '948', 948)">
             Series.( - )(scalar, series)
           </code>
-          <div class="tip" id="356">
+          <div class="tip" id="948">
             <strong>Signature:</strong>(scalar:int * series:Series&lt;&#39;K,int&gt;) -&gt; Series&lt;&#39;K,int&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
-
 
 
         </div>
@@ -1369,8 +1462,48 @@ be accessed directly, because all functionality is exposed through series operat
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

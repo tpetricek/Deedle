@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,14 +55,13 @@
         <div class="span9" id="main">
           
 
+
+
 <h1>Addressing</h1>
-
 <div class="xmldoc">
-  <p>An <code>Address</code> value is used as an interface between vectors and indices. The index maps
+<p>An <code>Address</code> value is used as an interface between vectors and indices. The index maps
 keys of various types to address, which is then used to get a value from the vector.</p>
-
-<h2>Details</h2>
-
+        <h2>Details</h2>
 <p>In the most common case, the address will be <code>int</code> (and can represent index in an array),
 but it is possible to imagine other addresses - <code>int64</code> could be used with arrays of 
 arrays (to handle very large data). A lazily loaded vector might use something completely
@@ -70,37 +75,28 @@ we want something like:</p>
 <p>The .NET encoding of this is a bit ugly. So instead, we just have <code>Address</code> which currently
 supports <code>Int</code> and <code>Int64</code>, but we keep all operations in the <code>Address</code> module, so that
 this can be easily extended.</p>
-
 </div>
-
-
-
-
-
-
-
-  <h2>Active patterns</h2>
+  <h3>Active patterns</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Active pattern</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '212', 212)" onmouseover="showTip(event, '212', 212)">
+          <code onmouseout="hideTip(event, '804', 804)" onmouseover="showTip(event, '804', 804)">
             ( |IntAddress| ) _arg1
           </code>
-          <div class="tip" id="212">
+          <div class="tip" id="804">
             <strong>Signature:</strong>_arg1:Address -&gt; int<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>ArrayVectors assume that the address is an integer</p>
 </td>
       </tr>
     </tbody>
   </table>
-
 
         </div>
         <div class="span3">
@@ -116,8 +112,48 @@ this can be easily extended.</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

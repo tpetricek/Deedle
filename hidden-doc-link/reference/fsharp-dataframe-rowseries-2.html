@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -55,99 +61,96 @@
   
 </div>
 
-  <h2>Constructors</h2>
+  <h3>Constructors</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Constructors</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '397', 397)" onmouseover="showTip(event, '397', 397)">
+          <code onmouseout="hideTip(event, '995', 995)" onmouseover="showTip(event, '995', 995)">
             new RowSeries
           </code>
-          <div class="tip" id="397">
+          <div class="tip" id="995">
             <strong>Signature:</strong>series:Series&lt;&#39;TRowKey,ObjectSeries&lt;&#39;TColumnKey&gt;&gt; -&gt; RowSeries&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '398', 398)" onmouseover="showTip(event, '398', 398)">
+          <code onmouseout="hideTip(event, '996', 996)" onmouseover="showTip(event, '996', 996)">
             new RowSeries
           </code>
-          <div class="tip" id="398">
+          <div class="tip" id="996">
             <strong>Signature:</strong>(index:IIndex&lt;&#39;TRowKey&gt; * vector:IVector&lt;ObjectSeries&lt;&#39;TColumnKey&gt;&gt; * vectorBuilder:IVectorBuilder * indexBuilder:IIndexBuilder) -&gt; RowSeries&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
 
 
-
-  <h2>Instance members</h2>
+  <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Instance members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '399', 399)" onmouseover="showTip(event, '399', 399)">
+          <code onmouseout="hideTip(event, '997', 997)" onmouseover="showTip(event, '997', 997)">
             rowSeries.GetByLevel(level)
           </code>
-          <div class="tip" id="399">
+          <div class="tip" id="997">
             <strong>Signature:</strong>level:ICustomLookup&lt;&#39;TRowKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '400', 400)" onmouseover="showTip(event, '400', 400)">
+          <code onmouseout="hideTip(event, '998', 998)" onmouseover="showTip(event, '998', 998)">
             rowSeries.GetSlice(lo, hi)
           </code>
-          <div class="tip" id="400">
+          <div class="tip" id="998">
             <strong>Signature:</strong>(lo:&#39;TRowKey option * hi:&#39;TRowKey option) -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '401', 401)" onmouseover="showTip(event, '401', 401)">
+          <code onmouseout="hideTip(event, '999', 999)" onmouseover="showTip(event, '999', 999)">
             rowSeries.[level]
           </code>
-          <div class="tip" id="401">
+          <div class="tip" id="999">
             <strong>Signature:</strong>level:ICustomLookup&lt;&#39;TRowKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '402', 402)" onmouseover="showTip(event, '402', 402)">
+          <code onmouseout="hideTip(event, '1000', 1000)" onmouseover="showTip(event, '1000', 1000)">
             rowSeries.[items]
           </code>
-          <div class="tip" id="402">
+          <div class="tip" id="1000">
             <strong>Signature:</strong>items:seq&lt;&#39;TRowKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
-
-
 
 
 
@@ -166,8 +169,48 @@
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

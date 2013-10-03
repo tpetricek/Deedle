@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,93 +55,85 @@
         <div class="span9" id="main">
           
 
-<h1>MissingValues</h1>
 
+
+<h1>MissingValues</h1>
 <div class="xmldoc">
-  <p>Utility functions for identifying missing values. The <code>isNA</code> function 
+<p>Utility functions for identifying missing values. The <code>isNA</code> function 
 can be used to test whether a value represents a missing value - this includes
 the <code>null</code> value, <code>Nullable&lt;T&gt;</code> value with <code>HasValue = false</code> and 
 <code>Single.NaN</code> as well as <code>Double.NaN</code>.</p>
 
 <p>The functions in this module are not intended to be called directly.</p>
-
 </div>
-
-  <h2>Functions and values</h2>
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '215', 215)" onmouseover="showTip(event, '215', 215)">
+          <code onmouseout="hideTip(event, '805', 805)" onmouseover="showTip(event, '805', 805)">
             isNA ()
           </code>
-          <div class="tip" id="215">
+          <div class="tip" id="805">
             <strong>Signature:</strong>unit -&gt; &#39;T -&gt; bool<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '216', 216)" onmouseover="showTip(event, '216', 216)">
+          <code onmouseout="hideTip(event, '806', 806)" onmouseover="showTip(event, '806', 806)">
             containsNA data
           </code>
-          <div class="tip" id="216">
+          <div class="tip" id="806">
             <strong>Signature:</strong>data:&#39;T [] -&gt; bool<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '217', 217)" onmouseover="showTip(event, '217', 217)">
+          <code onmouseout="hideTip(event, '807', 807)" onmouseover="showTip(event, '807', 807)">
             containsMissingOrNA data
           </code>
-          <div class="tip" id="217">
+          <div class="tip" id="807">
             <strong>Signature:</strong>data:OptionalValue&lt;&#39;T&gt; [] -&gt; bool<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '218', 218)" onmouseover="showTip(event, '218', 218)">
+          <code onmouseout="hideTip(event, '808', 808)" onmouseover="showTip(event, '808', 808)">
             createNAArray data
           </code>
-          <div class="tip" id="218">
+          <div class="tip" id="808">
             <strong>Signature:</strong>data:&#39;T [] -&gt; OptionalValue&lt;&#39;T&gt; []<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '219', 219)" onmouseover="showTip(event, '219', 219)">
+          <code onmouseout="hideTip(event, '809', 809)" onmouseover="showTip(event, '809', 809)">
             createMissingOrNAArray data
           </code>
-          <div class="tip" id="219">
+          <div class="tip" id="809">
             <strong>Signature:</strong>data:OptionalValue&lt;&#39;T&gt; [] -&gt; OptionalValue&lt;&#39;T&gt; []<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
-
-
-
-
-
-
-
 
         </div>
         <div class="span3">
@@ -151,8 +149,48 @@ the <code>null</code> value, <code>Nullable&lt;T&gt;</code> value with <code>Has
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

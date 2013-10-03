@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -59,204 +65,232 @@
 
 
 
-
-
-  <h2>Static members</h2>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Static members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '476', 476)" onmouseover="showTip(event, '476', 476)">
-            FrameExtensions.Append(frame, rowKey, row)
+          <code onmouseout="hideTip(event, '1079', 1079)" onmouseover="showTip(event, '1079', 1079)">
+            FrameExtensions.Append(...)
           </code>
-          <div class="tip" id="476">
+          <div class="tip" id="1079">
             <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * rowKey:&#39;TRowKey * row:ISeries&lt;&#39;TColumnKey&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '477', 477)" onmouseover="showTip(event, '477', 477)">
+          <code onmouseout="hideTip(event, '1080', 1080)" onmouseover="showTip(event, '1080', 1080)">
+            FrameExtensions.CountColumns(frame)
+          </code>
+          <div class="tip" id="1080">
+            <strong>Signature:</strong>frame:Frame&lt;&#39;R,&#39;C&gt; -&gt; int<br />
+                          <strong>Type parameters:</strong> 'R, 'C          </div>
+        </td>
+        <td class="xmldoc"><p>Returns the total number of row keys in the specified frame. This returns
+the total length of the row series, including keys for which there is no 
+value available.</p>
+</td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1081', 1081)" onmouseover="showTip(event, '1081', 1081)">
+            FrameExtensions.CountRows(frame)
+          </code>
+          <div class="tip" id="1081">
+            <strong>Signature:</strong>frame:Frame&lt;&#39;R,&#39;C&gt; -&gt; int<br />
+                          <strong>Type parameters:</strong> 'R, 'C          </div>
+        </td>
+        <td class="xmldoc"><p>Returns the total number of row keys in the specified frame. This returns
+the total length of the row series, including keys for which there is no 
+value available.</p>
+</td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '1082', 1082)" onmouseover="showTip(event, '1082', 1082)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="477">
+          <div class="tip" id="1082">
             <strong>Signature:</strong>(series:RowSeries&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt; * lo1:&#39;K1 option * hi1:&#39;K1 option * lo2:&#39;K2 option * hi2:&#39;K2 option) -&gt; Frame&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey1, 'TRowKey2, 'TColKey, 'K1, 'K2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '478', 478)" onmouseover="showTip(event, '478', 478)">
+          <code onmouseout="hideTip(event, '1083', 1083)" onmouseover="showTip(event, '1083', 1083)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="478">
+          <div class="tip" id="1083">
             <strong>Signature:</strong>(series:RowSeries&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt; * k1:&#39;TRowKey1 * lo2:&#39;TRowKey2 option * hi2:&#39;TRowKey2 option) -&gt; Frame&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey1, 'TRowKey2, 'TColKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '479', 479)" onmouseover="showTip(event, '479', 479)">
+          <code onmouseout="hideTip(event, '1084', 1084)" onmouseover="showTip(event, '1084', 1084)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="479">
+          <div class="tip" id="1084">
             <strong>Signature:</strong>(series:RowSeries&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt; * lo1:&#39;TRowKey1 option * hi1:&#39;TRowKey1 option * k2:&#39;TRowKey2) -&gt; Frame&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey1, 'TRowKey2, 'TColKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '480', 480)" onmouseover="showTip(event, '480', 480)">
+          <code onmouseout="hideTip(event, '1085', 1085)" onmouseover="showTip(event, '1085', 1085)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="480">
+          <div class="tip" id="1085">
             <strong>Signature:</strong>(series:RowSeries&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt; * lo1:&#39;TRowKey1 option * hi1:&#39;TRowKey1 option * lo2:&#39;TRowKey2 option * hi2:&#39;TRowKey2 option) -&gt; Frame&lt;(&#39;TRowKey1 * &#39;TRowKey2),&#39;TColKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey1, 'TRowKey2, 'TColKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '481', 481)" onmouseover="showTip(event, '481', 481)">
+          <code onmouseout="hideTip(event, '1086', 1086)" onmouseover="showTip(event, '1086', 1086)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="481">
+          <div class="tip" id="1086">
             <strong>Signature:</strong>(series:ColumnSeries&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt; * lo1:&#39;K1 option * hi1:&#39;K1 option * lo2:&#39;K2 option * hi2:&#39;K2 option) -&gt; Frame&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColKey1, 'TColKey2, 'K1, 'K2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '482', 482)" onmouseover="showTip(event, '482', 482)">
+          <code onmouseout="hideTip(event, '1087', 1087)" onmouseover="showTip(event, '1087', 1087)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="482">
+          <div class="tip" id="1087">
             <strong>Signature:</strong>(series:ColumnSeries&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt; * k1:&#39;TColKey1 * lo2:&#39;TColKey2 option * hi2:&#39;TColKey2 option) -&gt; Frame&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColKey1, 'TColKey2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '483', 483)" onmouseover="showTip(event, '483', 483)">
+          <code onmouseout="hideTip(event, '1088', 1088)" onmouseover="showTip(event, '1088', 1088)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="483">
+          <div class="tip" id="1088">
             <strong>Signature:</strong>(series:ColumnSeries&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt; * lo1:&#39;TColKey1 option * hi1:&#39;TColKey1 option * k2:&#39;TColKey2) -&gt; Frame&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColKey1, 'TColKey2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '484', 484)" onmouseover="showTip(event, '484', 484)">
+          <code onmouseout="hideTip(event, '1089', 1089)" onmouseover="showTip(event, '1089', 1089)">
             FrameExtensions.GetSlice(...)
           </code>
-          <div class="tip" id="484">
+          <div class="tip" id="1089">
             <strong>Signature:</strong>(series:ColumnSeries&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt; * lo1:&#39;TColKey1 option * hi1:&#39;TColKey1 option * lo2:&#39;TColKey2 option * hi2:&#39;TColKey2 option) -&gt; Frame&lt;&#39;TRowKey,(&#39;TColKey1 * &#39;TColKey2)&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColKey1, 'TColKey2          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '485', 485)" onmouseover="showTip(event, '485', 485)">
+          <code onmouseout="hideTip(event, '1090', 1090)" onmouseover="showTip(event, '1090', 1090)">
             FrameExtensions.OrderColumns(frame)
           </code>
-          <div class="tip" id="485">
+          <div class="tip" id="1090">
             <strong>Signature:</strong>frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '486', 486)" onmouseover="showTip(event, '486', 486)">
+          <code onmouseout="hideTip(event, '1091', 1091)" onmouseover="showTip(event, '1091', 1091)">
             FrameExtensions.OrderRows(frame)
           </code>
-          <div class="tip" id="486">
+          <div class="tip" id="1091">
             <strong>Signature:</strong>frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '487', 487)" onmouseover="showTip(event, '487', 487)">
-            FrameExtensions.Select(frame, projection)
+          <code onmouseout="hideTip(event, '1092', 1092)" onmouseover="showTip(event, '1092', 1092)">
+            FrameExtensions.Select(...)
           </code>
-          <div class="tip" id="487">
-            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TRowKey,ObjectSeries&lt;&#39;TColumnKey&gt;&gt;,&#39;?4835&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;?4836&gt;<br />
-                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4835, '?4836          </div>
-		    </td>
+          <div class="tip" id="1092">
+            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TRowKey,ObjectSeries&lt;&#39;TColumnKey&gt;&gt;,&#39;?4856&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;?4857&gt;<br />
+                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4856, '?4857          </div>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '488', 488)" onmouseover="showTip(event, '488', 488)">
+          <code onmouseout="hideTip(event, '1093', 1093)" onmouseover="showTip(event, '1093', 1093)">
             FrameExtensions.SelectColumnKeys(...)
           </code>
-          <div class="tip" id="488">
-            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TColumnKey,OptionalValue&lt;ObjectSeries&lt;&#39;TRowKey&gt;&gt;&gt;,&#39;?4844&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;?4844&gt;<br />
-                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4844          </div>
-		    </td>
+          <div class="tip" id="1093">
+            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TColumnKey,OptionalValue&lt;ObjectSeries&lt;&#39;TRowKey&gt;&gt;&gt;,&#39;?4865&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;?4865&gt;<br />
+                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4865          </div>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '489', 489)" onmouseover="showTip(event, '489', 489)">
+          <code onmouseout="hideTip(event, '1094', 1094)" onmouseover="showTip(event, '1094', 1094)">
             FrameExtensions.SelectRowKeys(...)
           </code>
-          <div class="tip" id="489">
-            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TRowKey,OptionalValue&lt;ObjectSeries&lt;&#39;TColumnKey&gt;&gt;&gt;,&#39;?4840&gt;) -&gt; Frame&lt;&#39;?4840,&#39;TColumnKey&gt;<br />
-                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4840          </div>
-		    </td>
+          <div class="tip" id="1094">
+            <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * projection:Func&lt;KeyValuePair&lt;&#39;TRowKey,OptionalValue&lt;ObjectSeries&lt;&#39;TColumnKey&gt;&gt;&gt;,&#39;?4861&gt;) -&gt; Frame&lt;&#39;?4861,&#39;TColumnKey&gt;<br />
+                          <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey, '?4861          </div>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '490', 490)" onmouseover="showTip(event, '490', 490)">
+          <code onmouseout="hideTip(event, '1095', 1095)" onmouseover="showTip(event, '1095', 1095)">
             FrameExtensions.Transpose(frame)
           </code>
-          <div class="tip" id="490">
+          <div class="tip" id="1095">
             <strong>Signature:</strong>frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; -&gt; Frame&lt;&#39;TColumnKey,&#39;TRowKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '491', 491)" onmouseover="showTip(event, '491', 491)">
+          <code onmouseout="hideTip(event, '1096', 1096)" onmouseover="showTip(event, '1096', 1096)">
             FrameExtensions.Where(frame, condition)
           </code>
-          <div class="tip" id="491">
+          <div class="tip" id="1096">
             <strong>Signature:</strong>(frame:Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt; * condition:Func&lt;KeyValuePair&lt;&#39;TRowKey,ObjectSeries&lt;&#39;TColumnKey&gt;&gt;,bool&gt;) -&gt; Frame&lt;&#39;TRowKey,&#39;TColumnKey&gt;<br />
                           <strong>Type parameters:</strong> 'TRowKey, 'TColumnKey          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Filters frame rows using the specified condtion. Returns a new data frame
 that contains rows for which the provided function returned false. The function
 is called with <code>KeyValuePair</code> containing the row key as the <code>Key</code> and <code>Value</code>
@@ -274,7 +308,6 @@ gives access to the row series.</p>
   </table>
 
 
-
         </div>
         <div class="span3">
           <a href="https://nuget.org/packages/FSharp.DataFrame">
@@ -289,8 +322,48 @@ gives access to the row series.</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -49,69 +55,62 @@
         <div class="span9" id="main">
           
 
+
+
 <h1>DataSegment</h1>
-
 <div class="xmldoc">
-  <p>Provides helper functions and active patterns for working with <code>DataSegment</code> values</p>
-
+<p>Provides helper functions and active patterns for working with <code>DataSegment</code> values</p>
 </div>
-
-  <h2>Functions and values</h2>
+  <h3>Functions and values</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Function or value</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '208', 208)" onmouseover="showTip(event, '208', 208)">
+          <code onmouseout="hideTip(event, '800', 800)" onmouseover="showTip(event, '800', 800)">
             data ds
           </code>
-          <div class="tip" id="208">
-            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?7870&gt; -&gt; &#39;?7870<br />
-                          <strong>Type parameters:</strong> '?7870          </div>
-		    </td>
+          <div class="tip" id="800">
+            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?8048&gt; -&gt; &#39;?8048<br />
+                          <strong>Type parameters:</strong> '?8048          </div>
+        </td>
         <td class="xmldoc"><p>Returns the data property of the specified <code>DataSegment&lt;T&gt;</code></p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '209', 209)" onmouseover="showTip(event, '209', 209)">
+          <code onmouseout="hideTip(event, '801', 801)" onmouseover="showTip(event, '801', 801)">
             kind ds
           </code>
-          <div class="tip" id="209">
-            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?7872&gt; -&gt; DataSegmentKind<br />
-                          <strong>Type parameters:</strong> '?7872          </div>
-		    </td>
+          <div class="tip" id="801">
+            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?8050&gt; -&gt; DataSegmentKind<br />
+                          <strong>Type parameters:</strong> '?8050          </div>
+        </td>
         <td class="xmldoc"><p>Returns the kind property of the specified <code>DataSegment&lt;T&gt;</code></p>
 </td>
       </tr>
     </tbody>
   </table>
-
-
-
-
-
-
-  <h2>Active patterns</h2>
+  <h3>Active patterns</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Active pattern</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '210', 210)" onmouseover="showTip(event, '210', 210)">
+          <code onmouseout="hideTip(event, '802', 802)" onmouseover="showTip(event, '802', 802)">
             ( |Any| ) ds
           </code>
-          <div class="tip" id="210">
+          <div class="tip" id="802">
             <strong>Signature:</strong>ds:DataSegment&lt;&#39;T&gt; -&gt; DataSegmentKind * &#39;T<br />
                           <strong>Type parameters:</strong> 'T          </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>A complete active pattern that extracts the kind and data from a <code>DataSegment</code>
 value. This makes it easier to write functions that only need data:</p>
 
@@ -119,15 +118,15 @@ value. This makes it easier to write functions that only need data:</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '211', 211)" onmouseover="showTip(event, '211', 211)">
+          <code onmouseout="hideTip(event, '803', 803)" onmouseover="showTip(event, '803', 803)">
             ( |Complete|Incomplete| ) ds
           </code>
-          <div class="tip" id="211">
-            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?7868&gt; -&gt; Choice&lt;&#39;?7868,&#39;?7868&gt;<br />
-                          <strong>Type parameters:</strong> '?7868          </div>
-		    </td>
+          <div class="tip" id="803">
+            <strong>Signature:</strong>ds:DataSegment&lt;&#39;?8046&gt; -&gt; Choice&lt;&#39;?8046,&#39;?8046&gt;<br />
+                          <strong>Type parameters:</strong> '?8046          </div>
+        </td>
         <td class="xmldoc"><p>Complete active pattern that makes it possible to write functions that behave 
 differently for complete and incomplete segments. For example, the following 
 returns zero for incomplete segments:</p>
@@ -140,7 +139,6 @@ returns zero for incomplete segments:</p>
       </tr>
     </tbody>
   </table>
-
 
         </div>
         <div class="span3">
@@ -156,8 +154,48 @@ returns zero for incomplete segments:</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>

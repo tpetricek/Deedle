@@ -15,8 +15,14 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style type="text/css">
-    h2 {
-       font-size: 140%;
+    #main h2 {
+       font-size: 160%;
+       margin-top:40px;
+    }
+    #main h3 {
+      font-size: 130%;
+      font-weight: bold;
+      margin-top: 20px;
     }
     thead {
        font-weight:bold;
@@ -65,87 +71,86 @@ contains helper functions for using this type from F# as well as <code>Missing</
 
 </div>
 
-  <h2>Constructors</h2>
+  <h3>Constructors</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Constructors</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '403', 403)" onmouseover="showTip(event, '403', 403)">
+          <code onmouseout="hideTip(event, '1001', 1001)" onmouseover="showTip(event, '1001', 1001)">
             new OptionalValue
           </code>
-          <div class="tip" id="403">
+          <div class="tip" id="1001">
             <strong>Signature:</strong>value:&#39;T -&gt; OptionalValue&lt;&#39;T&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Creates a new instance of <code>OptionalValue&lt;T&gt;</code> that contains<br />
 the specified <code>T</code> value .</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '404', 404)" onmouseover="showTip(event, '404', 404)">
+          <code onmouseout="hideTip(event, '1002', 1002)" onmouseover="showTip(event, '1002', 1002)">
             new OptionalValue
           </code>
-          <div class="tip" id="404">
+          <div class="tip" id="1002">
             <strong>Signature:</strong>(hasValue:bool * value:&#39;T) -&gt; OptionalValue&lt;&#39;T&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"></td>
       </tr>
     </tbody>
   </table>
 
 
-
-  <h2>Instance members</h2>
+  <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Instance members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '405', 405)" onmouseover="showTip(event, '405', 405)">
+          <code onmouseout="hideTip(event, '1003', 1003)" onmouseover="showTip(event, '1003', 1003)">
             optionalValue.HasValue
           </code>
-          <div class="tip" id="405">
+          <div class="tip" id="1003">
             <strong>Signature:</strong>bool<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Gets a value indicating whether the current <code>OptionalValue&lt;T&gt;</code> has a value</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '406', 406)" onmouseover="showTip(event, '406', 406)">
+          <code onmouseout="hideTip(event, '1004', 1004)" onmouseover="showTip(event, '1004', 1004)">
             optionalValue.Value
           </code>
-          <div class="tip" id="406">
+          <div class="tip" id="1004">
             <strong>Signature:</strong>&#39;T<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns the value stored in the current <code>OptionalValue&lt;T&gt;</code>. 
 Exceptions:
   <code>InvalidOperationException</code> - Thrown when <code>HasValue</code> is <code>false</code>.</p>
 </td>
       </tr>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '407', 407)" onmouseover="showTip(event, '407', 407)">
+          <code onmouseout="hideTip(event, '1005', 1005)" onmouseover="showTip(event, '1005', 1005)">
             optionalValue.ValueOrDefault
           </code>
-          <div class="tip" id="407">
+          <div class="tip" id="1005">
             <strong>Signature:</strong>&#39;T<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns the value stored in the current <code>OptionalValue&lt;T&gt;</code> or 
 the default value of the type <code>T</code> when a value is not present.</p>
 </td>
@@ -154,29 +159,27 @@ the default value of the type <code>T</code> when a value is not present.</p>
   </table>
 
 
-
-  <h2>Static members</h2>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
       <tr><td>Static members</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
-		    <td class="member-name">
+        <td class="member-name">
 
-          <code onmouseout="hideTip(event, '408', 408)" onmouseover="showTip(event, '408', 408)">
+          <code onmouseout="hideTip(event, '1006', 1006)" onmouseover="showTip(event, '1006', 1006)">
             OptionalValue.Missing
           </code>
-          <div class="tip" id="408">
+          <div class="tip" id="1006">
             <strong>Signature:</strong>OptionalValue&lt;&#39;T&gt;<br />
                       </div>
-		    </td>
+        </td>
         <td class="xmldoc"><p>Returns a new instance of <code>OptionalValue&lt;T&gt;</code> that does not contain a value.</p>
 </td>
       </tr>
     </tbody>
   </table>
-
 
 
         </div>
@@ -193,8 +196,48 @@ the default value of the type <code>T</code> when a value is not present.</p>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame">Source Code on GitHub</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/LICENSE.md">License</a></li>
             <li><a href="https://github.com/BlueMountainCapital/FSharp.DataFrame/blob/master/RELEASE_NOTES.md">Release Notes</a></li>
-            
-            <li class="nav-header">SYNC ME!</li>
+            <li><a href="../design.html">Design notes</a></li>
+
+            <li class="nav-header">Using from F#</li>
+            <li>
+              <a href="../tutorial.html">Quick start tutorial</a>
+              <ul class="nav nav-list">
+                <li><a href="../tutorial.html#creating">Creating data frames</a></li>
+                <li><a href="../tutorial.html#reindexing-and-joins">Using index & joining</a></li>
+                <li><a href="../tutorial.html#selecting">Reading values, slicing</a></li>
+                <li><a href="../tutorial.html#timeseries">Ordered time series</a></li>
+                <li><a href="../tutorial.html#projections">Projection and filtering</a></li>
+                <li><a href="../tutorial.html#grouping">Aggregating groups</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../features.html">Data frame features</a>
+              <ul class="nav nav-list">
+                <li><a href="../features.html#creating">Creating & loading</a></li>
+                <li><a href="../features.html#dataframe">Frame manipulation</a></li>
+                <li><a href="../features.html#slicing">Advanced slicing</a></li>
+                <li><a href="../features.html#grouping">Grouping data</a></li>
+                <li><a href="../features.html#indexing">Hierarchical indexing</a></li>
+                <li><a href="../features.html#missing">Missing values</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../timeseries.html">Time series features</a>
+              <ul class="nav nav-list">
+                <li><a href="../timeseries.html#alignment">Alignment & joining</a></li>
+                <li><a href="../timeseries.html#windowing">Windows and chunks</a></li>
+                <li><a href="../timeseries.html#sampling">Lookup and resampling</a></li>
+                <li><a href="../timeseries.html#stats">Statistics & math</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="../reference/index.html">API Reference</a></li>
+
+            <li class="nav-header">Samples</li>
+            <li><a href="../lazysource.html">Lazy data loading</a></li>
+            <li><a href="../samples/volatility.html">Price volatility</a></li>
+            <li><a href="../samples/titanic.html">Titanic survivors</a></li>
           </ul>
 
         </div>
